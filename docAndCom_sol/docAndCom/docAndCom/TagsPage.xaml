@@ -5,11 +5,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="docAndCom.TagsPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Activated="ToolbarItem_AddTag_Activated"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
     <StackLayout>
-        <ListView x:Name="tagsListView">
+        <Label Text="Tags" Margin="10, 25, 0, 0" FontSize="Title"/>
+        <Label x:Name="emptyTagsLabel" Margin="0, 100, 0, 0" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Text="No tags added yet. Click + button to create one."/>
+        <ListView x:Name="tagsListView" HasUnevenRows="True" Margin="10, 0, 10, 0">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Name}"/>
+                    <ViewCell>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!-- Place new controls here -->
+                                <Label Grid.Column="0" Text="{Binding Name}" FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                <Button Grid.Column="1" Text="Delete" Clicked="OnDeleteClicked" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="Blue"/>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
