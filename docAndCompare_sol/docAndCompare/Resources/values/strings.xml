@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">docAndCompare</string>
-    <string name="action_settings">Settings</string>
-    <string name="tagBtn">Tags</string>
-    <string name="menuBtn">Menu</string>
-    <string name="documentBtn">Document</string>
-    <string name="generateBtn">Generate</string>
-</resources>
