@@ -6,6 +6,14 @@
              mc:Ignorable="d"
              x:Class="docAndCom.App">
     <Application.Resources>
-
+        <Style x:Key="FontAwesome5FreeRegular" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="fa-regular-400-5.otf#Font Awesome 5 Free Regular" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

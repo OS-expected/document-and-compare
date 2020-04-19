@@ -18,9 +18,9 @@ namespace docAndCom
             InitializeComponent();
         }
 
-        private void ToolbarItem_Activated(object sender, EventArgs e)
+        private void TagsBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new NewTagPage());
+            Navigation.PushAsync(new TagsPage());
         }
     }
 }

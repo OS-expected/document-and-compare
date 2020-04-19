@@ -6,11 +6,9 @@
              mc:Ignorable="d"
              x:Class="docAndCom.MainPage">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Activated="ToolbarItem_Activated"></ToolbarItem>
-    </ContentPage.ToolbarItems>
-
     <StackLayout>
+        <Button Clicked="TagsBtn_Clicked" Text="Tags"/>
+        
         <!-- Place new controls here -->
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
