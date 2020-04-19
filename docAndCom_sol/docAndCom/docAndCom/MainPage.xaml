@@ -4,15 +4,64 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="docAndCom.MainPage">
+             x:Class="docAndCom.MainPage" AutomationProperties.IsInAccessibleTree="False" BackgroundColor="#FFFFFF">
 
-    <StackLayout>
-        <Button Clicked="TagsBtn_Clicked" Text="Tags"/>
-        
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="About"
+                 IconImageSource="example_icon.png"
+                 Order="Primary"
+                 Priority="0" />
+        <ToolbarItem Text="Exit app"
+                 IconImageSource="example_icon.png"
+                 Order="Secondary"
+                 Priority="0"
+                 Clicked="ExitApp_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <StackLayout>
+            <Image HorizontalOptions="FillAndExpand"
+                   Margin="0, 90, 0, 0" 
+                   Aspect="AspectFill"
+                   Source="logo.png"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Grid.Row="1" 
+                        WidthRequest="120" HeightRequest="100"
+                        VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Text="Document"/>
+                <Button Grid.Column="1" Grid.Row="1" 
+                        WidthRequest="120" HeightRequest="100" 
+                        Clicked="TagsBtn_Clicked" 
+                        VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="CenterAndExpand" Text="Tags"/>
+                <Button Grid.Column="2" Grid.Row="1" 
+                        WidthRequest="120" HeightRequest="100"
+                        VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Text="Generate"/>
+            </Grid>
+            <Button Margin="80, 20, 80, 0" 
+                    BackgroundColor="LightCyan" 
+                    HeightRequest="60" 
+                    VerticalOptions="Fill"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Get Started"/>
+
+
+            <!-- Place new controls here -->
+            <Label Text="Built with Xamarin.Forms" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>
