@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android.App;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,6 +17,11 @@ namespace docAndCom
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void ExitApp_Clicked(object sender, EventArgs e)
+        {
+            Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
         }
 
         private void TagsBtn_Clicked(object sender, EventArgs e)
