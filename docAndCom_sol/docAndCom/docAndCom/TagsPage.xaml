@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="docAndCom.TagsPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Activated="ToolbarItem_AddTag_Activated"></ToolbarItem>
+        <ToolbarItem Text="Create Tag" Activated="ToolbarItem_AddTag_Activated"></ToolbarItem>
     </ContentPage.ToolbarItems>
     
     <StackLayout>

@@ -11,35 +11,55 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label
-              Text="CodeBangkok Photo"
+              Text="Photo Preview"
               HorizontalTextAlignment="Center"
-              FontSize="20"/>
+              FontSize="20"
+              Grid.ColumnSpan="2"/>
             <Image
               x:Name="image"
+              Source="photoPlaceHolder.png"
               Grid.Row="1"
+              Grid.ColumnSpan="2"
               BackgroundColor="#F0F0F0"/>
             <Button
               Text="Take Photo"
-              BackgroundColor="Lime"
+              BackgroundColor="Goldenrod"
               Grid.Row="2"
+              Grid.Column="0"
               Clicked="TakePhoto_Clicked"/>
+            <Button
+              Text="Gallery"
+              BackgroundColor="Gainsboro"
+              Grid.Row="2"
+              Grid.Column="1"
+              Clicked="Gallery_Clicked"/>
             <Picker x:Name="tagPicker"
                 Title="Select tag"
-                Grid.Row="3">
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                FontSize="13">
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>Baboon</x:String>
                         <x:String>Capuchin Monkey</x:String>
-                        <x:String>Blue Monkey</x:String>
-                        <x:String>Squirrel Monkey</x:String>
-                        <x:String>Golden Lion Tamarin</x:String>
-                        <x:String>Howler Monkey</x:String>
-                        <x:String>Japanese Macaque</x:String>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
+            <DatePicker x:Name="documentDatePicker" 
+                Format="dd.MM.yyyy" 
+                FontSize="13" 
+                Grid.Row="4"
+                Grid.ColumnSpan="2"/>
+            <Button
+                Grid.Row="5"
+                Grid.Column="1"
+                Text="Document"
+                Clicked="DocumentBtn_Clicked"/>
         </Grid>
 
 
