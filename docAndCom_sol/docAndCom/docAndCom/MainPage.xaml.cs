@@ -21,9 +21,14 @@ namespace docAndCom
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
-        private void TagsBtn_Clicked(object sender, EventArgs e)
+        private async void TagsBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new TagsPage());
+            await Navigation.PushAsync(new TagsPage());
+        }
+
+        private async void DocBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DocumentPage());
         }
     }
 }

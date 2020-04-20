@@ -33,8 +33,9 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Grid.Row="1" 
+                <Button Grid.Column="0" Grid.Row="1"  
                         WidthRequest="120" HeightRequest="100"
+                        Clicked="DocBtn_Clicked" 
                         VerticalOptions="FillAndExpand" 
                         HorizontalOptions="CenterAndExpand" 
                         Text="Document"/>
