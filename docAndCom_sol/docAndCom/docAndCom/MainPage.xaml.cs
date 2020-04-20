@@ -1,10 +1,6 @@
-﻿using Android.App;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace docAndCom
@@ -19,9 +15,10 @@ namespace docAndCom
             InitializeComponent();
         }
 
-        private void ExitApp_Clicked(object sender, EventArgs e)
+        private async void Repository_Clicked(object sender, EventArgs e)
         {
-            Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+            Uri uri = new Uri(@"https://github.com/trolit/document-and-compare");
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
         private void TagsBtn_Clicked(object sender, EventArgs e)
