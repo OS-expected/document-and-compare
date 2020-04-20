@@ -15,5 +15,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="FontAwesome5FreeSolid" TargetType="Label">
+            <Setter Property="FontFamily">
+                <Setter.Value>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="fa-solid-400-5.otf#Font Awesome 5 Free Solid" />
+                    </OnPlatform>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
