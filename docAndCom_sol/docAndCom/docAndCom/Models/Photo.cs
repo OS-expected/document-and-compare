@@ -11,5 +11,7 @@ namespace docAndCom.Models
         public string Path { get; set; }
 
         public DateTime CreatedOn { get; set; }
+
+        public int TagId { get; set; }
     }
 }
