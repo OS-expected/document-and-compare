@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace docAndCom
+namespace docAndCom.Models
 {
     class Tag
     {
