@@ -1,6 +1,7 @@
 ﻿using docAndCom.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +32,36 @@ namespace docAndCom
 
                 using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
                 {
+                    var numberOfDocuments = conn.Table<Photo>().Count(p => p.TagId == tag.Id);
+                    int timesDeleted = 0;
+
+                    if (numberOfDocuments > 0)
+                    {
+                        string alert_phrase1 = numberOfDocuments == 1 ? "1 image." : $"{numberOfDocuments} images.";
+                        string alert_phrase2 = numberOfDocuments == 1 ? "it" : "them";
+
+                        result = await DisplayAlert("Warning", $"{tag.Name} tag is used by {alert_phrase1} Do you want to remove {alert_phrase2} from storage device?", "Yes", "No");
+
+                        if(result == true)
+                        {
+                            var photos = conn.Table<Photo>().Where(p => p.TagId == tag.Id).ToList();
+
+                            foreach (var photo in photos)
+                            {
+                                if (File.Exists(photo.Path))
+                                {
+                                    File.Delete(photo.Path);
+                                    timesDeleted++;
+                                }
+
+                                conn.Delete<Photo>(photo.Id);
+                            }
+
+                            var note = timesDeleted == 1 ? "image" : "images";
+                            await DisplayAlert("Note", $"{timesDeleted} {note} deleted from the device.", "Ok");
+                        }
+                    }
+
                     conn.Delete<Tag>(tag.Id);
                 }
 
