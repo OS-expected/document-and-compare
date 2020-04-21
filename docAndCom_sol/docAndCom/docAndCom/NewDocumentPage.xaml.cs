@@ -15,10 +15,6 @@ namespace docAndCom
     {
         private string pathToImage = "";
 
-        private string pickedTag = "";
-
-        // private string pickedDate = "";
-
         public NewDocumentPage()
         {
             InitializeComponent();
@@ -109,45 +105,45 @@ namespace docAndCom
 
         private async void DocumentBtn_Clicked(object sender, EventArgs e)
         {
-            pickedTag = tagPicker.SelectedItem.ToString();
+            var pickedTag = tagPicker.SelectedItem;
 
-            if (string.IsNullOrEmpty(pickedTag))
+            if (pickedTag == null)
             {
-                await DisplayAlert("Operation aborted", "Tag not picked.", "Ok");
+                await DisplayAlert("Operation aborted", "Tag was not picked.", "Ok");
                 return;
             }
 
-            SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH);
-
-            var id = conn.Table<Tag>().SingleOrDefault(t => t.Name == pickedTag).Id;
-
-            if (id <= 0)
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH)) 
             {
-                conn.Dispose();
-                await DisplayAlert("Operation aborted", "Tag does not exist in database.", "Ok");
-                return;
-            }
+                var id = conn.Table<Tag>().SingleOrDefault(t => t.Name == pickedTag.ToString()).Id;
 
-            conn.CreateTable<Photo>();
+                if (id <= 0)
+                {
+                    await DisplayAlert("Operation aborted", "Tag does not exist in database.", "Ok");
+                    return;
+                }
 
-            Photo photo = new Photo()
-            {
-                Path = pathToImage,
-                CreatedOn = documentDatePicker.Date,
-                TagId = id
-            };
+                conn.CreateTable<Photo>();
 
-            var numberOfRows = conn.Insert(photo);
+                Photo photo = new Photo()
+                {
+                    Path = pathToImage,
+                    CreatedOn = documentDatePicker.Date,
+                    TagId = id
+                };
 
-            conn.Dispose();
+                var numberOfRows = conn.Insert(photo);
 
-            if (numberOfRows > 0)
-            {
-                await DisplayAlert("Success", "Image successfuly documented in the app.", "Great!");
-            }
-            else
-            {
-                await DisplayAlert("Failure", "Image not documented in the app, try again!", "Ok");
+                if (numberOfRows > 0)
+                {
+                    await DisplayAlert("Success", "Image successfuly documented in the app.", "Great!");
+                }
+                else
+                {
+                    await DisplayAlert("Failure", "Image not documented in the app, try again!", "Ok");
+                }
+
+                await Navigation.PushAsync(new DocumentPage());
             }
         }
     }
