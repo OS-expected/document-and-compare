@@ -6,30 +6,63 @@
              mc:Ignorable="d"
              x:Class="docAndCom.TagsPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Create Tag" Activated="ToolbarItem_AddTag_Activated"></ToolbarItem>
+        <ToolbarItem IconImageSource="newTag_icon.png" Activated="ToolbarItem_AddTag_Activated"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    
-    <StackLayout>
-        <Label Text="Tags" Margin="10, 25, 0, 0" FontSize="Title"/>
-        <Label x:Name="emptyTagsLabel" Margin="0, 100, 0, 0" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" Text="No tags added yet. Click + button to create one."/>
-        <ListView x:Name="tagsListView" HasUnevenRows="True" Margin="10, 0, 10, 0">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <!-- Place new controls here -->
-                                <Label Grid.Column="0" Text="{Binding Name}" FontSize="Medium" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                <Button Grid.Column="1" Text="&#xf2ed;" BackgroundColor="Transparent" TextColor="Red" FontSize="18" Style="{StaticResource FontAwesome5FreeRegular}" Clicked="OnDeleteClicked" HorizontalOptions="End" VerticalOptions="Center"/>
-                            </Grid>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Tags" Margin="10, 25, 0, 20" FontSize="Title"/>
+                <StackLayout Grid.Row="1" x:Name="emptyTagsMsg" Padding="0, 80, 0, 0" HorizontalOptions="CenterAndExpand" Orientation="Vertical" Spacing="0">
+                    <Label
+                                        Text="No tags to show :("
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="Small" 
+                                        Style="{DynamicResource SmallLabel}" />
+                    <Label 
+                                        Text="Tap &#xf02b; icon"
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="Micro"
+                                        Margin="0,25,0,0"
+                                        Style="{StaticResource FontAwesome5FreeSolid}" />
+                    <Label
+                                        Text="from the toolbar"
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="Micro" 
+                                        Margin="0,2,0,0"
+                                        Style="{DynamicResource SmallLabel}" />
+                    <Label
+                                        Text="to create first one"
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="Micro" 
+                                        Margin="0,2,0,0"
+                                        Style="{DynamicResource SmallLabel}" />
+                </StackLayout>
+                <ListView x:Name="tagsListView" Grid.Row="2" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <!-- Place new controls here -->
+                                        <Label Grid.Column="0" Padding="10,0,0,0" Text="{Binding Name}" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                        <Button Grid.Column="1" Text="&#xf2ed;" BackgroundColor="Transparent" TextColor="Red" FontSize="18" Style="{StaticResource FontAwesome5FreeRegular}" Clicked="OnDeleteClicked" HorizontalOptions="End" VerticalOptions="Center"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

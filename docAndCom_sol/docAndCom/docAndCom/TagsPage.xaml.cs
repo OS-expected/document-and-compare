@@ -85,10 +85,10 @@ namespace docAndCom
 
                 if(tags.Count == 0)
                 {
-                    emptyTagsLabel.IsVisible = true;
+                    emptyTagsMsg.IsVisible = true;
                 } else
                 {
-                    emptyTagsLabel.IsVisible = false;
+                    emptyTagsMsg.IsVisible = false;
                 }
 
                 tagsListView.ItemsSource = tags;
