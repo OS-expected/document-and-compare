@@ -92,23 +92,30 @@ namespace docAndCom
             {
                 using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
                 {
-                    var tagId = conn.Table<Tag>().FirstOrDefault(t => t.Name == arr[1]);
+                    var tagName = arr[1];
+                    var tag = conn.Table<Tag>().SingleOrDefault(t => t.Name == tagName);
 
-                    if (tagId == null)
+                    if (tag == null)
                     {
                         await DisplayAlert("Failure", "Tag not found. Operation aborted.", "Ok");
                         return;
                     }
 
-                    var photoId = conn.Table<Photo>().FirstOrDefault(p => p.Path == arr[0] && p.TagId == tagId.Id);
+                    var photoPath = arr[0];
+                    var photo = conn.Table<Photo>().SingleOrDefault(p => p.Path == photoPath && p.TagId == tag.Id);
 
-                    if (photoId != null)
+                    if (photo != null)
                     {
-                        var res = conn.Delete(photoId.Id);
+                        var res = conn.Delete<Photo>(photo.Id);
                         if (res > 0)
                         {
                             InitEventsInCalendar();
                             await DisplayAlert("Success", "Clear reference operation succeded.", "Ok");
+                            InitEventsInCalendar();
+                        }
+                        else
+                        {
+                            await DisplayAlert("Failure", "Clear reference operation failed.", "Ok");
                         }
                     }
                     else
