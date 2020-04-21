@@ -25,6 +25,12 @@ namespace docAndCom
             await Navigation.PushAsync(new NewDocumentPage());
         }
 
+        private void OpenImageBtn_Clicked(object sender, EventArgs e)
+        {
+            string path = ((Button)sender).BindingContext as string;
+
+            DependencyService.Get<IFileOpener>().OpenFileByGivenPath(path);
+        }
         private void InitEventsInCalendar()
         {
             Events = new EventCollection();
