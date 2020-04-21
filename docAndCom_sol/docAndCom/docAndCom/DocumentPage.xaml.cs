@@ -31,6 +31,45 @@ namespace docAndCom
 
             DependencyService.Get<IFileOpener>().OpenFileByGivenPath(path);
         }
+
+        private async void ClearRefBtn_Clicked(object sender, EventArgs e)
+        {
+            string clearRefData = ((Button)sender).BindingContext as string;
+            string[] arr = clearRefData.Split(new[] { '|' }, 2); // 0 -> path, 1 -> tag
+
+            bool answer = await DisplayAlert("Are you sure?", $"This operation removes reference to the documented image from {arr[1]} tag, in application. Image won't be deleted from storage device.", "Yes", "No");
+
+            if(answer == true)
+            {
+                using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
+                {
+                    var tagId = conn.Table<Tag>().FirstOrDefault(t => t.Name == arr[1]);
+
+                    if (tagId == null)
+                    {
+                        await DisplayAlert("Failure", "Tag not found. Operation aborted.", "Ok");
+                        return;
+                    }
+
+                    var photoId = conn.Table<Photo>().FirstOrDefault(p => p.Path == arr[0] && p.TagId == tagId.Id);
+
+                    if (photoId != null)
+                    {
+                        var res = conn.Delete(photoId.Id);
+                        if (res > 0)
+                        {
+                            InitEventsInCalendar();
+                            await DisplayAlert("Success", "Clear reference operation succeded.", "Ok");
+                        }
+                    }
+                    else
+                    {
+                        await DisplayAlert("Failure", "Clearing reference failed. Image record was not found in the database.", "Ok");
+                    }
+                }
+            }      
+        }
+
         private void InitEventsInCalendar()
         {
             Events = new EventCollection();
@@ -56,9 +95,12 @@ namespace docAndCom
                     {
                         list.Add(new EventModel()
                         {
-                            Tag = "Test",
-                            ImagePath = photoObj.Path
-                        });
+                            Tag = tagName,
+                            ImagePath = photoObj.Path,
+                            ClearRefData = photoObj.Path + "|" + tagName
+                        };
+
+                        list.Add(eventModel);
                     }
                 }
 
