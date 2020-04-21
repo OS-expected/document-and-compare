@@ -83,8 +83,6 @@ namespace docAndCom
             var days = (from table in conn.Table<Photo>()
                   select table.CreatedOn).Distinct().ToList();
 
-            conn.Dispose();
-
             foreach (var day in days)
             {
                 List<EventModel> list = new List<EventModel>();
@@ -103,6 +101,8 @@ namespace docAndCom
                         list.Add(eventModel);
                     }
                 }
+
+                conn.Dispose();
 
                 Events.Add(day, list);
             }
