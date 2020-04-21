@@ -6,6 +6,6 @@
 
         public string ImagePath { get; set; }
 
-        public string ClearRefData { get; set; }
+        public string ClumpedData { get; set; }
     }
 }
