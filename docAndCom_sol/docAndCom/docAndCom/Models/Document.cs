@@ -9,5 +9,7 @@ namespace docAndCom.Models
         public string Path { get; set; }
 
         public DateTime GeneratedOn { get; set; }
+
+        public bool IsExisting { get; set; }
     }
 }
