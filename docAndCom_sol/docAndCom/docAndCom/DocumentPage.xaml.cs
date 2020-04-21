@@ -109,7 +109,6 @@ namespace docAndCom
                         var res = conn.Delete<Photo>(photo.Id);
                         if (res > 0)
                         {
-                            InitEventsInCalendar();
                             await DisplayAlert("Success", "Clear reference operation succeded.", "Ok");
                             InitEventsInCalendar();
                         }
@@ -130,44 +129,42 @@ namespace docAndCom
         {
             Events = new EventCollection();
 
-            SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH);
-
-            conn.CreateTable<Photo>();
-
-            var photos = conn.Table<Photo>().ToList();
-
-            var days = (from table in conn.Table<Photo>()
-                  select table.CreatedOn).Distinct().ToList();
-
-            foreach (var day in days)
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
-                List<EventModel> list = new List<EventModel>();
+                conn.CreateTable<Photo>();
 
-                foreach (var photoObj in photos)
+                var photos = conn.Table<Photo>().ToList();
+
+                var days = (from table in conn.Table<Photo>()
+                            select table.CreatedOn).Distinct().ToList();
+
+                foreach (var day in days)
                 {
-                    if(photoObj.CreatedOn == day)
+                    List<EventModel> list = new List<EventModel>();
+
+                    foreach (var photoObj in photos)
                     {
-                        var tagName = conn.Table<Tag>().SingleOrDefault(t => t.Id == photoObj.TagId).Name;
-
-                        if(string.IsNullOrEmpty(tagName))
+                        if (photoObj.CreatedOn == day)
                         {
-                            tagName = "undefined?";
+                            var tagName = conn.Table<Tag>().SingleOrDefault(t => t.Id == photoObj.TagId).Name;
+
+                            if (string.IsNullOrEmpty(tagName))
+                            {
+                                tagName = "undefined?";
+                            }
+
+                            EventModel eventModel = new EventModel()
+                            {
+                                Tag = tagName,
+                                ImagePath = photoObj.Path,
+                                ClumpedData = photoObj.Path + "|" + tagName
+                            };
+
+                            list.Add(eventModel);
                         }
-
-                        EventModel eventModel = new EventModel()
-                        {
-                            Tag = tagName,
-                            ImagePath = photoObj.Path,
-                            ClearRefData = photoObj.Path + "|" + tagName
-                        };
-
-                        list.Add(eventModel);
                     }
+                    Events.Add(day, list);
                 }
-
-                conn.Dispose();
-
-                Events.Add(day, list);
             }
 
             calendarRef.Events = Events;
