@@ -91,7 +91,14 @@ namespace docAndCom
                 {
                     if(photoObj.CreatedOn == day)
                     {
-                        list.Add(new EventModel()
+                        var tagName = conn.Table<Tag>().SingleOrDefault(t => t.Id == photoObj.TagId).Name;
+
+                        if(string.IsNullOrEmpty(tagName))
+                        {
+                            tagName = "undefined?";
+                        }
+
+                        EventModel eventModel = new EventModel()
                         {
                             Tag = tagName,
                             ImagePath = photoObj.Path,
