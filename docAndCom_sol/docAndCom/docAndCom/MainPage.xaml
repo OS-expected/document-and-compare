@@ -75,6 +75,7 @@
                         HorizontalOptions="CenterAndExpand" Text="Tag"/>
                 <Button Grid.Column="2" Grid.Row="3" 
                         WidthRequest="120" HeightRequest="100"
+                        Clicked="GenBtn_Clicked" 
                         BackgroundColor="#A32866"
                         TextColor="White"
                         VerticalOptions="FillAndExpand" 
