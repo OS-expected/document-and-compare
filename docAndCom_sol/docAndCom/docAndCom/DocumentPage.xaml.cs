@@ -86,7 +86,7 @@ namespace docAndCom
             string clearRefData = ((Button)sender).BindingContext as string;
             string[] arr = clearRefData.Split(new[] { '|' }, 2); // 0 -> path, 1 -> tag
 
-            bool answer = await DisplayAlert("Are you sure?", $"This operation removes reference to the documented image from {arr[1]} tag, in application. Image won't be deleted from storage device.", "Yes", "No");
+            bool answer = await DisplayAlert("Are you sure?", $"This operation will remove reference to the documented image from {arr[1]} tag, in application. Image won't be deleted from storage device.", "Yes", "No");
 
             if(answer == true)
             {
