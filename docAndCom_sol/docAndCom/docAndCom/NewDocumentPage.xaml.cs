@@ -71,7 +71,7 @@ namespace docAndCom
             pathToImage = file.Path.ToString();
         }
 
-        private void FeedTagPicker()
+        private async void FeedTagPicker()
         {
             using(SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
@@ -81,13 +81,16 @@ namespace docAndCom
 
                 if (tags.Count == 0)
                 {
-                    tagPicker.IsEnabled = false;
-                    tagPicker.Title = "No tags specified!";
-                    // emptyTagsLabel.IsVisible = true;
-                }
-                else
-                {
-                    // emptyTagsLabel.IsVisible = false;
+                    var res = await DisplayAlert("Oops..", "It looks like you did not create tag yet. Would you like to be redirected to the tags page?", "Yes", "No");
+                    
+                    if(res == true)
+                    {
+                        await Navigation.PushAsync(new TagsPage());
+                    } 
+                    else
+                    {
+                        tagPicker.IsEnabled = false;
+                    }
                 }
 
                 var tagsList = new List<string>();
