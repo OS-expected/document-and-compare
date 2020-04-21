@@ -73,6 +73,7 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\fa-regular-400-5.otf" />
     <AndroidAsset Include="Assets\fa-solid-400-5.otf" />
+    <AndroidAsset Include="Assets\fa-brands-400-5.otf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -114,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\xml\file_paths.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\newDoc_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\newTag_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
