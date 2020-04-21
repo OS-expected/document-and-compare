@@ -63,11 +63,6 @@
                     Text="Document"
                     Clicked="DocumentBtn_Clicked"/>
             </Grid>
-
-
-            <Label Text="Welcome to Xamarin.Forms!"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

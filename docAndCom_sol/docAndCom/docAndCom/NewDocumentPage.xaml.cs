@@ -81,7 +81,7 @@ namespace docAndCom
 
                 if (tags.Count == 0)
                 {
-                    var res = await DisplayAlert("Oops..", "It looks like you did not create tag yet. Would you like to be redirected to the tags page?", "Yes", "No");
+                    var res = await DisplayAlert("Oops..", "It looks like you did not create tag required to perform document operation. Would you like to be redirected to the tags page?", "Yes", "No");
                     
                     if(res == true)
                     {
