@@ -8,7 +8,7 @@
              x:Class="docAndCom.DocumentPage">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Document" Activated="ToolbarItem_Document_Activated"></ToolbarItem>
+        <ToolbarItem IconImageSource="newDoc_icon.png" Activated="ToolbarItem_Document_Activated"></ToolbarItem>
     </ContentPage.ToolbarItems>
     
     <ScrollView>
@@ -16,7 +16,8 @@
             <controls:Calendar
             HorizontalOptions="FillAndExpand"
             x:Name="calendarRef"
-            Events="{Binding Events}">  
+            Events="{Binding Events}"
+            Margin="10, 0, 10, 0">
                 <controls:Calendar.EventTemplate>
                     <DataTemplate>
                         <StackLayout>
@@ -25,19 +26,23 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Label
-                                    Text="{Binding Tag}"
-                                    FontSize="Caption" 
-                                    Grid.Column="1"
-                                    Grid.Row="0"
-                                    HorizontalTextAlignment="Center" />
+                                <StackLayout Grid.Column="1" Grid.Row="0" HorizontalOptions="Center" Orientation="Horizontal" Spacing="0">
+                                    <Label 
+                                        Text="&#xf02b;"
+                                        Style="{StaticResource FontAwesome5FreeSolid}" />
+                                    <Label
+                                        Text="{Binding Tag}"
+                                        FontSize="Micro" 
+                                        Margin="6,0,0,0"
+                                        Style="{DynamicResource SmallLabel}" />
+                                </StackLayout>
                                 <Label
                                     Text="Preview"
                                     FontAttributes="Bold"
                                     FontSize="Micro" 
                                     Grid.Column="0"
                                     Grid.Row="0"
-                                    HorizontalTextAlignment="Start" />
+                                    HorizontalTextAlignment="Center" />
                                 <Image 
                                     Source="{Binding ImagePath}"
                                     HeightRequest="120"
@@ -45,21 +50,52 @@
                                     Grid.Column="0"
                                     Grid.Row="1" />
                                 <Button
-                                    Text="Delete"
+                                    Margin="0, 10, 0, 0"
+                                    Text="Open image"
+                                    FontSize="8"
+                                    BackgroundColor="#808080"
+                                    TextColor="White"
                                     Grid.Column="1"
                                     Grid.Row="1" 
                                     WidthRequest="100" 
+                                    HeightRequest="30"
                                     HorizontalOptions="Center"
-                                    VerticalOptions="Center" />
+                                    VerticalOptions="Start"
+                                    BindingContext="{Binding ImagePath}"
+                                    Clicked="OpenImageBtn_Clicked" />
+                                <Button
+                                    Margin="0, 50, 0, 0"
+                                    Text="Clear reference"
+                                    FontSize="8"
+                                    BackgroundColor="#CD8C95"
+                                    TextColor="White"
+                                    Grid.Column="1"
+                                    Grid.Row="1" 
+                                    WidthRequest="100" 
+                                    HeightRequest="30"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Start"
+                                    BindingContext="{Binding ClumpedData}"
+                                    Clicked="ClearRefBtn_Clicked" />
+                                <Button
+                                    Text="Hard delete"   
+                                    Margin="0, 90, 0, 0"
+                                    FontSize="8"
+                                    BackgroundColor="#FF4040"
+                                    TextColor="White"
+                                    Grid.Column="1"
+                                    Grid.Row="1" 
+                                    WidthRequest="100" 
+                                    HeightRequest="30"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Start"
+                                    BindingContext="{Binding ClumpedData}"
+                                    Clicked="HardDelBtn_Clicked" />
                             </Grid>
                         </StackLayout>
                     </DataTemplate>
                 </controls:Calendar.EventTemplate>
             </controls:Calendar>
-
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
