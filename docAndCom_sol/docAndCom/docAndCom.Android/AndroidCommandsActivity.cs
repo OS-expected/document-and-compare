@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using Android.App;
+﻿using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.V4.Content;
@@ -30,7 +28,7 @@ namespace docAndCom.Droid
             intent.SetDataAndType(uri, mimeType);
             intent.AddFlags(ActivityFlags.GrantReadUriPermission);
             intent.AddFlags(ActivityFlags.NoHistory);
-            var chooserIntent = Intent.CreateChooser(intent, "Open PDF");
+            var chooserIntent = Intent.CreateChooser(intent, "Open file");
             chooserIntent.SetFlags(ActivityFlags.ClearWhenTaskReset | ActivityFlags.NewTask);
             Application.Context.StartActivity(chooserIntent);
         }
