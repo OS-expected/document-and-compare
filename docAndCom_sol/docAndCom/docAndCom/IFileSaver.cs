@@ -5,6 +5,6 @@ namespace docAndCom
 {
     public interface IFileSaver
     {
-        void SaveAsPdf(string filename, string contentType, MemoryStream stream);
+        string SaveAsPdf(string filename, string contentType, MemoryStream stream);
     }
 }

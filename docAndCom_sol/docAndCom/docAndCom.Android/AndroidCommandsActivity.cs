@@ -39,7 +39,7 @@ namespace docAndCom.Droid
             Application.Context.StartActivity(chooserIntent);
         }
 
-        public void SaveAsPdf(string fileName, String contentType, MemoryStream stream)
+        public string SaveAsPdf(string fileName, String contentType, MemoryStream stream)
         {
             string exception = string.Empty;
             string root = null;
@@ -69,6 +69,8 @@ namespace docAndCom.Droid
             {
                 file.Delete();
             }
+
+            return myDir + "/" + fileName;
         }
     }
 }
