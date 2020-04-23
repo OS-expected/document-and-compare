@@ -49,7 +49,7 @@ namespace docAndCom
 
                     if (tag == null)
                     {
-                        await DisplayAlert("Failure", "Tag not found. Operation aborted.", "Ok");
+                        await DisplayAlert("Oops..", "Image tag reference not found. Operation aborted.", "Ok");
                         return;
                     }
 
@@ -69,13 +69,20 @@ namespace docAndCom
                         File.Delete(photo.Path);
                     }
 
+                    string extraNote = "image left on device storage.";
+
+                    if (File.Exists(photo.Path))
+                    {
+                        extraNote = "image removed from device storage.";
+                    }
+
                     if (res > 0)
                     {
-                        await DisplayAlert("Success", "Clear reference operation succeded.", "Ok");
+                        await DisplayAlert("Success", "Reference cleared, " + extraNote, "Ok");
                         InitEventsInCalendar();
-                    } else
+                    } else if (res <= 0)
                     {
-                        await DisplayAlert("Failure", "Hard delete operation failed.", "Ok");
+                        await DisplayAlert("Oops..", "Reference not cleared, " + extraNote, "Ok");
                     }
                 }
             }
@@ -97,7 +104,7 @@ namespace docAndCom
 
                     if (tag == null)
                     {
-                        await DisplayAlert("Failure", "Tag not found. Operation aborted.", "Ok");
+                        await DisplayAlert("Oops..", "Tag required to identify image not found. Operation aborted.", "Ok");
                         return;
                     }
 
@@ -109,17 +116,17 @@ namespace docAndCom
                         var res = conn.Delete<Photo>(photo.Id);
                         if (res > 0)
                         {
-                            await DisplayAlert("Success", "Clear reference operation succeded.", "Ok");
+                            await DisplayAlert("Success", "Reference to the image cleared.", "Ok");
                             InitEventsInCalendar();
                         }
                         else
                         {
-                            await DisplayAlert("Failure", "Clear reference operation failed.", "Ok");
+                            await DisplayAlert("Oops..", "Problem with clearing reference occured :(", "Ok");
                         }
                     }
                     else
                     {
-                        await DisplayAlert("Failure", "Clearing reference failed. Image record was not found in the database.", "Ok");
+                        await DisplayAlert("Oops..", "Clearing reference failed. Image record was not found in the database.", "Ok");
                     }
                 }
             }      
