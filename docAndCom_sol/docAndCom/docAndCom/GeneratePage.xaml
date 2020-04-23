@@ -99,12 +99,13 @@
                                                 Text="&#xf06e;" 
                                                 Clicked="OpenGeneratedFileBtn_Clicked" 
                                                 BackgroundColor="Transparent" 
-                                                Margin="0, 0, 40, 0"
+                                                Margin="0, 0, 60, 0"
                                                 TextColor="#6D77A8" 
                                                 FontSize="18" 
                                                 Style="{StaticResource FontAwesome5FreeRegular}" 
                                                 HorizontalOptions="End" 
-                                                VerticalOptions="Center"/>
+                                                VerticalOptions="Center"
+                                                WidthRequest="50"/>
                                     <!-- Remove doc btn -->
                                     <Button Grid.Column="2" 
                                                 Text="&#xf2ed;" 
@@ -114,7 +115,8 @@
                                                 Style="{StaticResource FontAwesome5FreeRegular}" 
                                                 Clicked="OnDeleteClicked"
                                                 HorizontalOptions="End" 
-                                                VerticalOptions="Center"/>
+                                                VerticalOptions="Center"
+                                                WidthRequest="50"/>
                                 </Grid>
                             </StackLayout>
                         </ViewCell>
