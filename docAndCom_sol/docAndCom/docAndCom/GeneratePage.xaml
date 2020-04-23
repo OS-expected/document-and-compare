@@ -2,14 +2,125 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:Helpers="clr-namespace:docAndCom.Converters"
              mc:Ignorable="d"
              x:Class="docAndCom.GeneratePage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackLayout 
+                Grid.Row="0" 
+                Padding="0, 50, 0, 0" 
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal" 
+                Spacing="0">
+                    <Label 
+                           Text="Documents" 
+                           Margin="10, 0, 0, 0" 
+                           FontSize="Title"
+                            VerticalOptions="CenterAndExpand"
+                           VerticalTextAlignment="Center"/>
+                    <Button 
+                        Text="Create new" 
+                        Clicked="GenerateNewDocBtn_Clicked"
+                        HeightRequest="40"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="25,0,0,0"
+                        BackgroundColor="#1164B2"
+                        TextColor="White"/>
+            </StackLayout>
+            <StackLayout x:Name="emptyDocListInformation" 
+                         Grid.Row="1" 
+                         Padding="0, 50, 0, 0" 
+                         HorizontalOptions="FillAndExpand"
+                         Orientation="Vertical" 
+                         Spacing="0">
+                <Label 
+                                        Text="&#xf5b4;"
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="35"
+                                        Style="{StaticResource FontAwesome5FreeRegular}" />
+                <Label
+                                        Text="Currently there are no docs."
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="Micro" 
+                                        Margin="0,8,0,0"
+                                        Style="{DynamicResource SmallLabel}" />
+                <Label
+                                        Text="Make the first one using"
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="Micro" 
+                                        Margin="0,15,0,0"
+                                        Style="{DynamicResource SmallLabel}" />
+                <Label
+                                        Text="button placed above."
+                                        HorizontalTextAlignment="Center"
+                                        FontSize="Micro" 
+                                        Margin="0,2,0,0"
+                                        Style="{DynamicResource SmallLabel}" />
+            </StackLayout>
+            <ListView x:Name="docsListView" Grid.Row="2" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!-- Doc name -->
+                                    <Label Grid.Column="0" 
+                                               Padding="10,0,0,0" 
+                                               Text="{Binding FileName}" 
+                                               FontSize="Micro" 
+                                               HorizontalOptions="StartAndExpand" 
+                                               VerticalOptions="Center"/>
+                                    <!-- Opt: label with no file message -->
+                                    <Label Grid.Column="1" 
+                                               IsVisible="{Binding IsExisting, Converter={Helpers:InverseBoolConverter}}" 
+                                               Padding="10,0,0,0" 
+                                               Text="File not found on device." 
+                                               TextColor="Firebrick" 
+                                               FontSize="Micro"
+                                               HorizontalOptions="StartAndExpand" 
+                                               HorizontalTextAlignment="Center" 
+                                               VerticalOptions="Center"/>
+                                    <!-- Opt: button to open PDF -->
+                                    <Button Grid.Column="2" 
+                                                IsVisible="{Binding IsExisting}" 
+                                                Text="&#xf06e;" 
+                                                Clicked="OpenGeneratedFileBtn_Clicked" 
+                                                BackgroundColor="Transparent" 
+                                                Margin="0, 0, 40, 0"
+                                                TextColor="#6D77A8" 
+                                                FontSize="18" 
+                                                Style="{StaticResource FontAwesome5FreeRegular}" 
+                                                HorizontalOptions="End" 
+                                                VerticalOptions="Center"/>
+                                    <!-- Remove doc btn -->
+                                    <Button Grid.Column="2" 
+                                                Text="&#xf2ed;" 
+                                                BackgroundColor="Transparent" 
+                                                TextColor="Firebrick" 
+                                                FontSize="18" 
+                                                Style="{StaticResource FontAwesome5FreeRegular}" 
+                                                Clicked="OnDeleteClicked"
+                                                HorizontalOptions="End" 
+                                                VerticalOptions="Center"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
 </ContentPage>

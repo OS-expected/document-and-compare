@@ -20,8 +20,15 @@ namespace docAndCom
             ListAvailableDocuments();
         }
 
+        private void GenerateNewDocBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new GeneratePdfPage());
+        }
+
         private void ListAvailableDocuments()
         {
+            emptyDocListInformation.IsVisible = false;
+
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
                 conn.CreateTable<Document>();
@@ -55,21 +62,34 @@ namespace docAndCom
                     {
                         genDocsList.Add(tmp);
                     }
+
+                    if(genDocsList.Count <= 0)
+                    {
+                        emptyDocListInformation.IsVisible = true;
+                    }
                 }
 
                 docsListView.ItemsSource = genDocsList;
             }
         }
 
+        private void OpenGeneratedFileBtn_Clicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var doc = button.BindingContext as DocumentViewModel;
+
+            DependencyService.Get<IFileOpener>().OpenFileByGivenPath(doc.Path);
+        }
+
         private async void OnDeleteClicked(object sender, EventArgs e)
         {
-            var result = await DisplayAlert("Confirmation", "Are you sure, you want to delete that file?", "Yes", "No");
+            var button = sender as Button;
+            var doc = button.BindingContext as DocumentViewModel;
+
+            var result = await DisplayAlert("Confirmation", $"Are you sure, you want to delete {doc.FileName}?", "Yes", "No");
 
             if (result == true)
             {
-                var button = sender as Button;
-                var doc = button.BindingContext as DocumentViewModel;
-
                 using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
                 {
                     if (File.Exists(doc.Path))
