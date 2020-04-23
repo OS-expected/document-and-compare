@@ -61,8 +61,8 @@
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.6.292</Version>
     </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.Pdf">
-      <Version>18.1.0.45</Version>
+    <PackageReference Include="Xam.iTextSharpLGPL">
+      <Version>0.1.0</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.617" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
