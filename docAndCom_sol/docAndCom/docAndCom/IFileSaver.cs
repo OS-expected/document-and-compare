@@ -1,10 +1,11 @@
-﻿using System.IO;
-using System.Threading.Tasks;
+﻿using docAndCom.Models;
+using docAndCom.ViewModels;
+using System.Collections.Generic;
 
 namespace docAndCom
 {
     public interface IFileSaver
     {
-        string SaveAsPdf(string filename, string contentType, MemoryStream stream);
+        string GeneratePdfFile(List<Photo> photos, string tag, string fileName);
     }
 }
