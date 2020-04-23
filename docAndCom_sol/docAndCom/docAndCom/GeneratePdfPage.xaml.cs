@@ -1,6 +1,7 @@
 ﻿using docAndCom.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -24,11 +25,11 @@ namespace docAndCom
 
             if (tag == null)
             {
-                await DisplayAlert("Failure", "Tag not specified. Operation aborted.", "Ok");
+                await DisplayAlert("Oops..", "It seems that you did not choose tag. Document creation aborted.", "Ok");
                 return;
             } else if (docScheme == null)
             {
-                await DisplayAlert("Failure", "Document scheme not specified. Operation aborted.", "Ok");
+                await DisplayAlert("Oops..", "Document scheme type not chosen. Document creation aborted.", "Ok");
                 return;
             }
 
@@ -68,14 +69,18 @@ namespace docAndCom
 
                 if (res > 0)
                 {
-                    await DisplayAlert("Success", "Document generated successfully!", "Great!");
+                    await DisplayAlert("Success", "Document generated. To see the results, return to previous page using back arrow from the toolbar.", "Great!");
                 } 
                 else
                 {
-                    await DisplayAlert("Oops..", "Document reference add in dB failed.", "Ok");
+                    if(File.Exists(filePath))
+                    {
+                        await DisplayAlert("Oops..", "Document reference not saved, generated file is available at:" + filePath, "Ok");
+                    } else
+                    {
+                        await DisplayAlert("Oops..", "Document reference not saved, file not generated.", "Ok");
+                    }
                 }
-
-                await Navigation.PushAsync(new GeneratePage());
             }
         }
 
