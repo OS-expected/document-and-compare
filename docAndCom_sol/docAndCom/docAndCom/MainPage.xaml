@@ -9,7 +9,8 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="About"
                  Order="Primary"
-                 Priority="0" />
+                 Priority="0" 
+                 Clicked="About_Clicked"/>
         <ToolbarItem Text="Repository"
                  IconImageSource="example_icon.png"
                  Order="Secondary"

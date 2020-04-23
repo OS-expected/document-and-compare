@@ -35,5 +35,10 @@ namespace docAndCom
         {
             await Navigation.PushAsync(new GeneratePage());
         }
+
+        private async void About_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AboutPage());
+        }
     }
 }
