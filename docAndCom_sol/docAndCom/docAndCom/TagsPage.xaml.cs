@@ -1,7 +1,8 @@
 ﻿using docAndCom.Models;
 using System;
 using System.IO;
-
+using System.Linq;
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -36,7 +37,7 @@ namespace docAndCom
                         string alert_phrase1 = numberOfDocuments == 1 ? "1 image." : $"{numberOfDocuments} images.";
                         string alert_phrase2 = numberOfDocuments == 1 ? "it" : "them";
 
-                        result = await DisplayAlert("Warning", $"{tag.Name} tag is used by {alert_phrase1} Do you want to remove {alert_phrase2} from storage device?", "Yes", "No");
+                        result = await DisplayAlert("Warning", $"{tag.Name} tag is used by {alert_phrase1} Do you also want to remove {alert_phrase2} from storage device?", "Yes", "No");
 
                         if(result == true)
                         {
@@ -54,7 +55,7 @@ namespace docAndCom
                             }
 
                             var note = timesDeleted == 1 ? "image" : "images";
-                            await DisplayAlert("Note", $"{timesDeleted} {note} deleted from the device.", "Ok");
+                            await DisplayAlert("Success", $"{timesDeleted} {note} deleted from the device.", "Ok");
                         }
                     }
 
@@ -67,39 +68,51 @@ namespace docAndCom
 
         private async void ToolbarItem_AddTag_Activated(object sender, EventArgs e)
         {
-            var result = await DisplayPromptAsync("Tag", "Specify name of the tag(3-20 characters)",
+            var result = await DisplayPromptAsync("Tag", "Specify name of the tag(from 3 to 20 characters, no special characters, - and _ chars are allowed)",
                 "Create", "Abort", null, 20);
 
             if (string.IsNullOrEmpty(result) == false && result.Length >= 3)
             {
+                var regexItem = new Regex("^[a-zA-Z0-9-_]*$");
+                if (regexItem.IsMatch(result) == false)
+                {
+                    await DisplayAlert("Oops..", "Tag not created. One or more forbidden characters found.", "Ok");
+                    return;
+                }
+
                 Tag tag = new Tag()
                 {
                     Name = result
-
                 };
 
                 using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
                 {
                     conn.CreateTable<Tag>();
 
+                    var isExisting = conn.Table<Tag>().SingleOrDefault(t => t.Name == tag.Name);
+
+                    if(isExisting != null)
+                    {
+                        await DisplayAlert("Oops..", $"Tag not created. Application already contains tag named {tag.Name}.", "Ok");
+                        return;
+                    }
+
                     var numberOfRows = conn.Insert(tag);
 
                     if (numberOfRows > 0)
                     {
-                        await DisplayAlert("Success", "Tag successfuly added.", "Great");
+                        await DisplayAlert("Success", "Tag added to the app.", "Great!");
                     }
                     else
                     {
-                        await DisplayAlert("Failure", "Tag not inserted.", "Ok");
+                        await DisplayAlert("Failure", "Tag not saved, something bad happened :(", "Ok");
                     }
                 }
                 DisplayTags();
             } else if (result != null && result.Length < 3)
             {
-                await DisplayAlert("Failure", "Tag not added. Not enough characters.", "Ok");
+                await DisplayAlert("Oops..", "Tag not added. Not enough characters.", "Ok");
             }
-
-            // Navigation.PushAsync(new NewTagPage());
         }
 
         private void DisplayTags()
