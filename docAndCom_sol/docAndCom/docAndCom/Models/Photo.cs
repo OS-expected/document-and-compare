@@ -3,7 +3,7 @@ using System;
 
 namespace docAndCom.Models
 {
-    class Photo
+    public class Photo
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
