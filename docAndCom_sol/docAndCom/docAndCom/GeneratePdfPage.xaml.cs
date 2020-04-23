@@ -35,6 +35,7 @@ namespace docAndCom
             var tagName = tag.ToString();
             int numberOfImages = 0;
             var createdOn = DateTime.UtcNow;
+            List<Photo> photos = new List<Photo>();
 
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
@@ -44,11 +45,13 @@ namespace docAndCom
 
                 numberOfImages = conn.Table<Photo>().Where(p => p.TagId == tagId).Count();
 
+                photos = conn.Table<Photo>().Where(p => p.TagId == tagId).ToList();
             }
 
-            var fileName = $"{tagName}_{createdOn:dd-MM-yyyy}_{numberOfImages}.pdf";
+            var fileName = $"{tagName}_{createdOn:dd-MM-yyyy}_{createdOn:HH-mm-ss}.pdf";
 
-            var filePath = DependencyService.Get<IFileSaver>().GeneratePdfFile(new List<Photo>(), "bla", fileName);
+            var filePath = DependencyService.Get<IFileSaver>().GeneratePdfFile
+                (photos, tagName, fileName, docScheme.ToString());
 
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
