@@ -2,13 +2,16 @@
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Net;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Webkit;
 using docAndCom.Droid;
 using docAndCom.Models;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Org.W3c.Dom;
 using System.Collections.Generic;
 using System.IO;
 
@@ -40,7 +43,7 @@ namespace docAndCom.Droid
             Application.Context.StartActivity(chooserIntent);
         }
 
-        public string GeneratePdfFile(List<Photo> photos, string tag, string fileName)
+        public string GeneratePdfFile(List<Photo> photos, string tag, string fileName, string mode)
         {
             string root = null;
 
@@ -76,11 +79,119 @@ namespace docAndCom.Droid
 
             doc.Open();
 
-            doc.Add(new iTextSharp.text.Paragraph("Hello World"));
+            var titleFont = FontFactory.GetFont("Arial", 34.0f, Color.BLACK);
+            var title = new Paragraph("Doc and Compare", titleFont);
+
+            var subTitleFont = FontFactory.GetFont("Arial", 14.0f, Color.BLACK);
+            var subTitle = new Paragraph("File generated with iTextSharp", subTitleFont);
+
+            var subSubTitleFont = FontFactory.GetFont("Arial", 10.0f, Color.BLACK);
+            var subSubTitle = new Paragraph("Documented data from: " + tag, subSubTitleFont);
+
+            doc.Add(title);
+            doc.Add(subTitle);
+            doc.Add(subSubTitle);
+
+            doc.Add(new Paragraph(" "));
+
+            if (mode == "List")
+            {
+                foreach (var photo in photos)
+                {
+                    var mainParagraph = new Paragraph();
+                    var p = new Paragraph("Documented: " + photo.CreatedOn.ToString("dd.MM.yyyy"));
+                    mainParagraph.Add(p);
+                    var img = Image.GetInstance(photo.Path);
+                    img.ScalePercent(24f);
+                    mainParagraph.SpacingBefore = 2f;
+                    mainParagraph.SpacingAfter = 2f;
+                    mainParagraph.Add(img);
+                    doc.Add(mainParagraph);
+                }
+            } else if (mode == "Tabular")
+            {
+                var numberOfImages = photos.Count;
+                var numberOfRows = (numberOfImages / 3) * 2;
+
+                if (numberOfImages == 3)
+                {
+                    numberOfRows = 2;
+                } else if (numberOfImages > 3)
+                {
+                    numberOfRows = CalculateRowsAmount(numberOfImages);
+                }
+
+                PdfPTable table = new PdfPTable(3);
+
+                int dateId = 0;
+                int photoId = 0;
+
+                for (int i = 0; i < numberOfRows; i++)
+                {
+                    for (int x = 0; x < 3; x++)  
+                    {
+                        // even
+                        if(i % 2==0)
+                        {
+                            Paragraph p;
+
+                            if(dateId > numberOfImages)
+                            {
+                                p = new Paragraph("empty");
+                            } else
+                            {
+                                p = new Paragraph(photos[dateId].CreatedOn.ToString("dd.MM.yyyy"));
+                            }
+                            p.Alignment = Element.ALIGN_CENTER;
+                            table.AddCell(p);
+                            dateId++;
+                        } else
+                        {
+                            if(photoId > numberOfImages)
+                            {
+                                Paragraph p = new Paragraph("empty");
+                                p.Alignment = Element.ALIGN_CENTER;
+                                table.AddCell(p);
+                            } else
+                            {
+                                var img = Image.GetInstance(photos[photoId].Path);
+                                img.ScalePercent(20f);
+                                img.Alignment = Element.ALIGN_CENTER;
+                                table.AddCell(img);
+                            }
+                            photoId++;
+                        }
+                    }
+                }
+
+                doc.Add(table);
+            }
 
             doc.Close();
 
             return _path;
         }
+
+        private int CalculateRowsAmount(int value)
+        {
+            int result;
+            if(value % 2 != 0)
+            {
+                result = ((value / 3) + 1) * 2;
+            } else
+            {
+                result = (value / 3) * 2;
+            }
+            return result;
+        }
+        // 4 => 4 rows
+        // 5 => 4 rows (5 / 3) + 1 * 2 = 4
+        // 6 => 4 rows (6 / 4) + 1 * 2 = 4 
+        // 7 => 6 rows (7 / 3) + 1 * 2 = 6 
+        // 8 => 6 rows (8 / 3) + 1 * 2 = 6 
+        // 9 => 6 rows 
+        // 10 => 8 rows
+        // 11 => 8 rows
+        // 12 => 8 rows
     }
 }
