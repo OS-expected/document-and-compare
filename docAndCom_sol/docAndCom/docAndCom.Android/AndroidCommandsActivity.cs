@@ -83,7 +83,7 @@ namespace docAndCom.Droid
             var title = new Paragraph("Doc and Compare", titleFont);
 
             var subTitleFont = FontFactory.GetFont("Arial", 14.0f, Color.BLACK);
-            var subTitle = new Paragraph("File generated with iTextSharp", subTitleFont);
+            var subTitle = new Paragraph("File generated with iTextSharp solution", subTitleFont);
 
             var subSubTitleFont = FontFactory.GetFont("Arial", 10.0f, Color.BLACK);
             var subSubTitle = new Paragraph("Documented data from: " + tag, subSubTitleFont);
@@ -92,7 +92,7 @@ namespace docAndCom.Droid
             doc.Add(subTitle);
             doc.Add(subSubTitle);
 
-            doc.Add(new Paragraph(" "));
+            doc.Add(new Paragraph(" ") { SpacingBefore = 4f });
 
             if (mode == "List")
             {
@@ -111,12 +111,13 @@ namespace docAndCom.Droid
             } else if (mode == "Tabular")
             {
                 var numberOfImages = photos.Count;
-                var numberOfRows = (numberOfImages / 3) * 2;
+                var numberOfRows = 0;
 
                 if (numberOfImages == 3)
                 {
                     numberOfRows = 2;
-                } else if (numberOfImages > 3)
+                }
+                else if (numberOfImages > 3)
                 {
                     numberOfRows = CalculateRowsAmount(numberOfImages);
                 }
@@ -135,29 +136,29 @@ namespace docAndCom.Droid
                         {
                             Paragraph p;
 
-                            if(dateId > numberOfImages)
-                            {
-                                p = new Paragraph("empty");
-                            } else
+                            if(dateId < numberOfImages)
                             {
                                 p = new Paragraph(photos[dateId].CreatedOn.ToString("dd.MM.yyyy"));
+                            } else
+                            {
+                                p = new Paragraph("empty");
                             }
                             p.Alignment = Element.ALIGN_CENTER;
                             table.AddCell(p);
                             dateId++;
                         } else
                         {
-                            if(photoId > numberOfImages)
+                            if(photoId < numberOfImages)
+                            {
+                                var img = Image.GetInstance(photos[photoId].Path);
+                                img.ScalePercent(24f);
+                                img.Alignment = Element.ALIGN_CENTER;
+                                table.AddCell(img);
+                            } else
                             {
                                 Paragraph p = new Paragraph("empty");
                                 p.Alignment = Element.ALIGN_CENTER;
                                 table.AddCell(p);
-                            } else
-                            {
-                                var img = Image.GetInstance(photos[photoId].Path);
-                                img.ScalePercent(20f);
-                                img.Alignment = Element.ALIGN_CENTER;
-                                table.AddCell(img);
                             }
                             photoId++;
                         }
@@ -174,24 +175,32 @@ namespace docAndCom.Droid
 
         private int CalculateRowsAmount(int value)
         {
-            int result;
-            if(value % 2 != 0)
+            int result = 0;
+
+            if(value == 4)
             {
-                result = ((value / 3) + 1) * 2;
+                return 4;
             } else
             {
-                result = (value / 3) * 2;
+                for (int i = 0; i < value; i+=3)
+                {
+                    result += 2;
+                }
             }
+
             return result;
         }
-        // 4 => 4 rows
-        // 5 => 4 rows (5 / 3) + 1 * 2 = 4
-        // 6 => 4 rows (6 / 4) + 1 * 2 = 4 
-        // 7 => 6 rows (7 / 3) + 1 * 2 = 6 
-        // 8 => 6 rows (8 / 3) + 1 * 2 = 6 
+        // 4 => 4 rows 
+        // 5 => 4 rows (2, 4)
+        // 6 => 4 rows 
+        // 7 => 6 rows
+        // 8 => 6 rows
         // 9 => 6 rows 
-        // 10 => 8 rows
+        // 10 => 8 rows (2, 4, 6, 8)
         // 11 => 8 rows
         // 12 => 8 rows
+        // 13 => 10 rows
+        // 14 => 10 rows
+        // 15 => 10 rows
     }
 }
