@@ -145,8 +145,6 @@ namespace docAndCom
                 {
                     await DisplayAlert("Failure", "Image not documented in the app, try again!", "Ok");
                 }
-
-                await Navigation.PushAsync(new DocumentPage());
             }
         }
     }
