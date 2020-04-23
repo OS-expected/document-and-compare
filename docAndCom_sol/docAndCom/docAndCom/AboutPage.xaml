@@ -5,67 +5,69 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="docAndCom.AboutPage">
-    <StackLayout BackgroundColor="White">
-        <Grid Padding="20, 0, 20, 0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Label
-                Grid.Row="0"
-                Text="About"
-                FontSize="40"
-                Margin="0, 10, 0, 0"
-                HorizontalOptions="CenterAndExpand"
-                />
-            <Label
-                Grid.Row="1"
-                Text="&#xf544;"
-                TextColor="#38b6ff"
-                VerticalOptions="Center"
-                HorizontalOptions="CenterAndExpand"
-                Margin="0, 5, 0, 0"
-                FontSize="100" 
-                Style="{StaticResource FontAwesome5FreeSolid}" />
-            <Label
-                Margin="0, 20, 0, 0"
-                Grid.Row="2"
-                HorizontalTextAlignment="Center"
-                Text="docAndCom is handy, open software tool developed by trolit(github.com/trolit) under MIT license for Android. In short, app is designed to let users document their subject under made up tag. After gaining some data users can obtain results as pdf file(s) allowing to compare changes between them."
-                />
-            <Label
-                Grid.Row="3"
-                Text="&#xf17b;"
-                TextColor="#38b6ff"
-                FontSize="30" 
-                Margin="0,10,0,0"
-                HorizontalOptions="CenterAndExpand"
-                Style="{StaticResource FontAwesome5FreeBrand}" />
-            <Label
-                Grid.Row="4"
-                Text="*Minimum Android required: 5.0 (API l. 21)"
-                />
-            <Label
-                Grid.Row="5"
-                Text="*Target Android version: 9.0 (API l. 28)"
-                />
-            <Label
-                Grid.Row="6"
-                Text="&#xf3ed;"
-                TextColor="#38b6ff"
-                FontSize="30" 
-                Margin="0,20,0,0"
-                HorizontalOptions="CenterAndExpand"
-                Style="{StaticResource FontAwesome5FreeSolid}" />
-            <Label
-                Grid.Row="7"
-                Text="docAndCom proudly uses: &#10; - Xamarin.Forms &#10; - SQLite, &#10; - iTextSharp, &#10; - Iconify and Font Awesome icons &#10; - Xam.Plugin.Media &#10; - Xamarin.Plugin.Calendar"
-                />
-        </Grid>
-    </StackLayout>
+    <ScrollView>
+        <StackLayout BackgroundColor="White">
+            <Grid Padding="20, 0, 20, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Text="About"
+                    FontSize="40"
+                    Margin="0, 10, 0, 0"
+                    HorizontalOptions="CenterAndExpand"
+                    />
+                <Label
+                    Grid.Row="1"
+                    Text="&#xf544;"
+                    TextColor="#38b6ff"
+                    VerticalOptions="Center"
+                    HorizontalOptions="CenterAndExpand"
+                    Margin="0, 5, 0, 0"
+                    FontSize="100" 
+                    Style="{StaticResource FontAwesome5FreeSolid}" />
+                <Label
+                    Margin="0, 20, 0, 0"
+                    Grid.Row="2"
+                    HorizontalTextAlignment="Center"
+                    Text="docAndCom is handy, open software tool developed by trolit(github.com/trolit) under MIT license for Android. In short, app is designed to let users document their subject under prepared tag(s). After gaining some data users can obtain results as pdf file(s) allowing to compare changes between them. Want to contribute? Message me :)"
+                    />
+                <Label
+                    Grid.Row="3"
+                    Text="&#xf17b;"
+                    TextColor="#38b6ff"
+                    FontSize="30" 
+                    Margin="0,10,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource FontAwesome5FreeBrand}" />
+                <Label
+                    Grid.Row="4"
+                    Text="*Minimum Android required: 5.0 (API l. 21)"
+                    />
+                <Label
+                    Grid.Row="5"
+                    Text="*Target Android version: 9.0 (API l. 28)"
+                    />
+                <Label
+                    Grid.Row="6"
+                    Text="&#xf3ed;"
+                    TextColor="#38b6ff"
+                    FontSize="30" 
+                    Margin="0,20,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource FontAwesome5FreeSolid}" />
+                <Label
+                    Grid.Row="7"
+                    Text="docAndCom proudly uses: &#10; - Xamarin.Forms &#10; - SQLite, &#10; - iTextSharp, &#10; - Iconify and Font Awesome icons &#10; - Xam.Plugin.Media &#10; - Xamarin.Plugin.Calendar"
+                    />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
