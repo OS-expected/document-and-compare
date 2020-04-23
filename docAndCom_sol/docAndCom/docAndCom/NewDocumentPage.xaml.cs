@@ -26,7 +26,7 @@ namespace docAndCom
         {
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
-                await DisplayAlert("No Camera", ":( No camera available.", "OK");
+                await DisplayAlert("Oops..", "Camera is not available :(", "Ok.");
                 return;
             }
 
@@ -35,7 +35,7 @@ namespace docAndCom
             var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
             {
                 Directory = "docAndComparePhotos",
-                Name = $"dac_{now:dd-MM-yyyy}_{now:HH_mm}.jpg"
+                Name = $"dac_{now:dd-MM-yyyy}_{now:HH_mm_ss}.jpg"
             });
 
             if (file == null)
@@ -57,7 +57,7 @@ namespace docAndCom
         {
             if (!CrossMedia.Current.IsPickPhotoSupported)
             {
-                await DisplayAlert("no upload", "picking a photo is not supported", "ok");
+                await DisplayAlert("Oops..", "Picking a photo is not supported :(", "Ok");
                 return;
             }
 
@@ -112,7 +112,7 @@ namespace docAndCom
 
             if (pickedTag == null)
             {
-                await DisplayAlert("Operation aborted", "Tag was not picked.", "Ok");
+                await DisplayAlert("Oops..", "Tag not picked!", "Ok");
                 return;
             }
 
