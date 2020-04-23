@@ -7,9 +7,10 @@ using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Webkit;
 using docAndCom.Droid;
-using System;
+using docAndCom.Models;
+using iTextSharp.text.pdf;
+using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 
 [assembly: Xamarin.Forms.Dependency(typeof(AndroidCommandsActivity))]
 namespace docAndCom.Droid
@@ -39,15 +40,14 @@ namespace docAndCom.Droid
             Application.Context.StartActivity(chooserIntent);
         }
 
-        public string SaveAsPdf(string fileName, String contentType, MemoryStream stream)
+        public string GeneratePdfFile(List<Photo> photos, string tag, string fileName)
         {
-            string exception = string.Empty;
             string root = null;
 
             if (ContextCompat.CheckSelfPermission(Application.Context, Manifest.Permission.WriteExternalStorage)
                 != Permission.Granted)
             {
-                ActivityCompat.RequestPermissions((Android.App.Activity) 
+                ActivityCompat.RequestPermissions((Android.App.Activity)
                     Application.Context, new string[] { Manifest.Permission.WriteExternalStorage }, 1);
             }
 
@@ -60,17 +60,27 @@ namespace docAndCom.Droid
                 root = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
             }
 
-            Java.IO.File myDir = new Java.IO.File(root + "/Syncfusion");
-            myDir.Mkdir();
-
-            Java.IO.File file = new Java.IO.File(myDir, fileName);
-
-            if (file.Exists())
+            Java.IO.File myDir = new Java.IO.File(root + "/DocAndComPDFs");
+            if (myDir.Exists() == false)
             {
-                file.Delete();
+                myDir.Mkdir();
             }
 
-            return myDir + "/" + fileName;
+            var _path = Path.Combine(root, "DocAndComPDFs", fileName);
+
+            FileStream fs = new FileStream(_path, FileMode.Create, FileAccess.Write);
+
+            var doc = new iTextSharp.text.Document();
+
+            PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+
+            doc.Open();
+
+            doc.Add(new iTextSharp.text.Paragraph("Hello World"));
+
+            doc.Close();
+
+            return _path;
         }
     }
 }
