@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="docAndCom.GetStartedPage">
+    <ScrollView>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label
+                    Margin="0, 15, 0, 0"
+                    Grid.Row="0"
+                    Text="Get Started"
+                    FontSize="30"
+                    HorizontalTextAlignment="Center" />
+                <Label
+                    Margin="0, 0, 0, 15"
+                    Grid.Row="1"
+                    Text="Press one of the steps below to read the details."
+                    HorizontalTextAlignment="Center" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Grid.Column="0"
+                        Text="1. Tag"
+                        BackgroundColor="#0075C8"
+                        TextColor="White" />
+                    <Button
+                        Grid.Column="1"
+                        Text="2. Doc"
+                        BackgroundColor="#008E8E"
+                        TextColor="White"
+                        />
+                    <Button
+                        Grid.Column="2"
+                        Text="3. Gen"
+                        BackgroundColor="#A32866"
+                        TextColor="White"
+                        />
+                </Grid>
+                <StackLayout IsVisible="False" x:Name="step1_tag" Padding="8, 0, 8, 0" Grid.Row="3">
+                    <Label
+                        Margin="0, 25, 0, 0"
+                        Text="Step 1 - tagging"
+                        FontSize="Title"/>
+                    <Label 
+                        Padding="30, 0, 25, 0"
+                        Text="Tag can be explained as category under which you will be able to document results. Name of the tag should be clear to you. For e.g. tag could be named: {brand}_hairDye if you would like to document effects of using specific hair dye."/>
+                    <Label 
+                        Margin="30, 10, 25, 0"
+                        Text="In order to add tag, move to the tag section by clicking appropriate button from the main menu. Then click the icon placed in the toolbar section and specify name of the tag."/>
+                    <Image
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="300"
+                        Source="help_tag_1.png"/>
+                </StackLayout>
+                <StackLayout x:Name="step2_doc" Padding="8, 0, 8, 0" Grid.Row="3">
+                    <Label
+                        Margin="0, 25, 0, 0"
+                        Text="Step 2 - documenting"
+                        FontSize="Title"/>
+                    <Label 
+                        Padding="30, 0, 25, 0"
+                        Text="Document in the meaning of the app is graphic saved with date of creation assigned by user."/>
+                    <Label 
+                        Margin="30, 10, 25, 0"
+                        Text="To add new document, click document button from the main menu page and click on the icon placed in the toolbar section."/>
+                    <Image
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="300"
+                        Source="help_doc_1.png"/>
+                    <Label 
+                        Margin="30, 10, 25, 0"
+                        Text="You can pick image from gallery or take a new one. After adding document, get back to the calendar view using toolbar back arrow. Days on which user documented something are marked with dot."/>
+                    <Image
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="300"
+                        Source="help_doc_2.png"/>
+                    <Label 
+                        Margin="30, 10, 25, 0"
+                        Text="If you want to see what was documented on marked day, choose that day and hide calendar by using arrow placed in the right bottom corner."/>
+                    <Image
+                        Margin="0, 20, 0, 0"
+                        WidthRequest="300"
+                        Source="help_doc_3.png"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
