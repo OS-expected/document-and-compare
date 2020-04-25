@@ -137,7 +137,7 @@
                             Source="help_gen_3.png"/>
                     <Label 
                             Margin="30, 10, 25, 0"
-                            Text="To view generated document, get back to the documents list and tap on the eye icon(you need external program e.g. Google Pdf Viewer). If you want to copy the doc to e.g. PC, find on local storage device dir called DocAndComPDFs. If you cut or move generated file in the documents list, you will see note like in the first document below."/>
+                            Text="To view generated document, get back to the documents list and tap on the eye icon(you need external program e.g. Google Pdf Viewer). If you want to copy the doc to e.g. PC to share, store or view on bigger screen, find on local storage device dir called DocAndComPDFs. If you cut or move generated file in the documents list, you will see note like in the first document below."/>
                     <Image
                             Margin="0, 20, 0, 0"
                             WidthRequest="200"
