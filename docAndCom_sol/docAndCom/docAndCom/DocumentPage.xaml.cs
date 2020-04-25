@@ -147,6 +147,11 @@ namespace docAndCom
 
                 var photos = conn.Table<Photo>().ToList();
 
+                if (photos.Count <= 0)
+                {
+                    return;
+                }
+
                 var days = (from table in conn.Table<Photo>()
                             select table.CreatedOn).Distinct().ToList();
 
