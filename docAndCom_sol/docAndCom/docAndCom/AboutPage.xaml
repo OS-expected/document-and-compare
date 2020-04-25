@@ -37,7 +37,7 @@
                     Margin="0, 20, 0, 0"
                     Grid.Row="2"
                     HorizontalTextAlignment="Center"
-                    Text="docAndCom is handy, open software tool developed by trolit(github.com/trolit) under MIT license for Android. In short, app is designed to let users document their subject under prepared tag(s). After gaining some data users can obtain results as pdf file(s) allowing to compare changes between them. Want to contribute? Message me :)"
+                    Text="docAndCom is handy, open software tool developed by trolit(github.com/trolit) under MIT license for Android. In short, app is designed to let users document their subject under prepared tag(s). After gaining some data users can obtain results as pdf file(s) allowing to compare changes between them. Want to help with making it better? Message me :)"
                     />
                 <Label
                     Grid.Row="3"
