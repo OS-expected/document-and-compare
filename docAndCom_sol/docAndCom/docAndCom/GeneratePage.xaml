@@ -74,7 +74,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     <!-- Doc name -->
                                     <Label Grid.Column="0" 
@@ -86,7 +86,7 @@
                                     <!-- Opt: label with no file message -->
                                     <Label Grid.Column="1" 
                                                IsVisible="{Binding IsExisting, Converter={Helpers:InverseBoolConverter}}" 
-                                               Padding="10,0,0,0" 
+                                               Margin="10,0,10,0" 
                                                Text="File not found on device." 
                                                TextColor="Firebrick" 
                                                FontSize="Micro"
