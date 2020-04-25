@@ -19,3 +19,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+********************************************************************************
+
+iTextSharp is a port of the iText open source Java library for PDF generation written entirely in 
+C# for the .NET platform. This repository contains the source code of the last version of the library 
+released under the Mozilla Public License and the LGPL, before the project moved to the AGPL. You can 
+use this version if you need a free PDF library for use in closed-source projects.
+
+Source: https://github.com/schourode/iTextSharp-LGPL
