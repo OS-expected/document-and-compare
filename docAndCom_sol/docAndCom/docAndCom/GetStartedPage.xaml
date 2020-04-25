@@ -14,16 +14,17 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label
-                    Margin="0, 15, 0, 0"
-                    Grid.Row="0"
-                    Text="Get Started"
-                    FontSize="30"
-                    HorizontalTextAlignment="Center" />
+                        Margin="0, 15, 0, 0"
+                        Grid.Row="0"
+                        Text="Get Started"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center" />
                 <Label
-                    Margin="0, 0, 0, 15"
-                    Grid.Row="1"
-                    Text="Press one of the steps below to read the details."
-                    HorizontalTextAlignment="Center" />
+                        Margin="0, 0, 0, 15"
+                        Grid.Row="1"
+                        FontSize="Micro"
+                        Text="Press one of the steps below to read the details."
+                        HorizontalTextAlignment="Center" />
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -31,68 +32,119 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button
-                        Grid.Column="0"
-                        Text="1. Tag"
-                        BackgroundColor="#0075C8"
-                        TextColor="White" />
+                            Grid.Column="0"
+                            Text="1. Tag"
+                            BackgroundColor="#0075C8"
+                            TextColor="White"
+                            Clicked="TagBtn_Clicked" />
                     <Button
-                        Grid.Column="1"
-                        Text="2. Doc"
-                        BackgroundColor="#008E8E"
-                        TextColor="White"
-                        />
+                            Grid.Column="1"
+                            Text="2. Doc"
+                            BackgroundColor="#008E8E"
+                            TextColor="White"
+                            Clicked="DocBtn_Clicked" />
                     <Button
-                        Grid.Column="2"
-                        Text="3. Gen"
-                        BackgroundColor="#A32866"
-                        TextColor="White"
-                        />
+                            Grid.Column="2"
+                            Text="3. Gen"
+                            BackgroundColor="#A32866"
+                            TextColor="White" 
+                            Clicked="GenBtn_Clicked" />
                 </Grid>
-                <StackLayout IsVisible="False" x:Name="step1_tag" Padding="8, 0, 8, 0" Grid.Row="3">
+                <StackLayout IsVisible="True" x:Name="step1_tag" Padding="8, 0, 8, 0" Grid.Row="3">
                     <Label
-                        Margin="0, 25, 0, 0"
-                        Text="Step 1 - tagging"
-                        FontSize="Title"/>
+                            Margin="0, 25, 0, 0"
+                            Text="Step 1 - tagging"
+                            FontSize="Title"/>
                     <Label 
-                        Padding="30, 0, 25, 0"
-                        Text="Tag can be explained as category under which you will be able to document results. Name of the tag should be clear to you. For e.g. tag could be named: {brand}_hairDye if you would like to document effects of using specific hair dye."/>
+                            Padding="30, 0, 25, 0"
+                            Text="Tag can be explained as category under which you will be able to document results. Name of the tag should be clear to you. For e.g. tag could be named: {brand}_hairDye if you would like to document effects of using specific hair dye and share it's effectiveness to others."/>
                     <Label 
-                        Margin="30, 10, 25, 0"
-                        Text="In order to add tag, move to the tag section by clicking appropriate button from the main menu. Then click the icon placed in the toolbar section and specify name of the tag."/>
+                            Margin="30, 10, 25, 0"
+                            Text="In order to add tag, move to the tag section by clicking appropriate button from the main menu. Then click the icon placed in the toolbar section and specify name of the tag."/>
                     <Image
-                        Margin="0, 20, 0, 0"
-                        WidthRequest="300"
-                        Source="help_tag_1.png"/>
+                            Margin="0, 20, 0, 0"
+                            WidthRequest="200"
+                            Source="help_tag_1.png"/>
+                    <Label 
+                            Margin="30, 0, 25, 20"
+                            Text="If you would like remove the tag, you can do this by tapping icon placed next to the tag name. If it contains documented images, you will see prompt asking whether you want to remove them too from your device storage or no."/>
                 </StackLayout>
-                <StackLayout x:Name="step2_doc" Padding="8, 0, 8, 0" Grid.Row="3">
+                <StackLayout IsVisible="False" x:Name="step2_doc" Grid.Row="3" Padding="8, 0, 8, 0">
                     <Label
-                        Margin="0, 25, 0, 0"
-                        Text="Step 2 - documenting"
-                        FontSize="Title"/>
+                            Margin="0, 25, 0, 10"
+                            Text="Step 2 - documenting"
+                            FontSize="Title"/>
                     <Label 
-                        Padding="30, 0, 25, 0"
-                        Text="Document in the meaning of the app is graphic saved with date of creation assigned by user."/>
+                            Padding="30, 0, 25, 0"
+                            Text="Document section in the meaning of the app is graphic saved with date of creation assigned by user."/>
                     <Label 
-                        Margin="30, 10, 25, 0"
-                        Text="To add new document, click document button from the main menu page and click on the icon placed in the toolbar section."/>
+                            Margin="30, 10, 25, 0"
+                            Text="To add new document, click document button from the main menu page, then press the icon placed in the toolbar section."/>
                     <Image
-                        Margin="0, 20, 0, 0"
-                        WidthRequest="300"
-                        Source="help_doc_1.png"/>
+                            Margin="0, 20, 0, 0"
+                            WidthRequest="200"
+                            Source="help_doc_1.png"/>
                     <Label 
-                        Margin="30, 10, 25, 0"
-                        Text="You can pick image from gallery or take a new one. After adding document, get back to the calendar view using toolbar back arrow. Days on which user documented something are marked with dot."/>
+                            Margin="30, 25, 25, 0"
+                            Text="You can pick image from gallery or take a new one. After adding document, get back to the calendar view using toolbar back arrow icon. Days on which user documented something are marked with dot. To clarify, there is no given limit of documented images on specific day."/>
                     <Image
-                        Margin="0, 20, 0, 0"
-                        WidthRequest="300"
-                        Source="help_doc_2.png"/>
+                            Margin="0, 20, 0, 0"
+                            WidthRequest="200"
+                            Source="help_doc_2.png"/>
                     <Label 
-                        Margin="30, 10, 25, 0"
-                        Text="If you want to see what was documented on marked day, choose that day and hide calendar by using arrow placed in the right bottom corner."/>
+                            Margin="30, 10, 25, 0"
+                            Text="If you want to see what was documented on marked day, choose that day and hide calendar by using arrow placed in the right bottom corner."/>
                     <Image
-                        Margin="0, 20, 0, 0"
-                        WidthRequest="300"
-                        Source="help_doc_3.png"/>
+                            Margin="0, 20, 0, 0"
+                            WidthRequest="200"
+                            Source="help_doc_3.png"/>
+                    <Label 
+                            Margin="30, 10, 25, 0"
+                            Text="Each image contains preview, tag and functional buttons. You can see that image in your gallery in full perspective, remove reference from the app(image will stay on the device storage but reference to it will be removed) or hard delete it(image will be removed from storage device). To see again calendar view, click once again arrow but this time placed on the right top corner."/>
+                    <Image
+                            Margin="0, 20, 0, 25"
+                            WidthRequest="200"
+                            Source="help_doc_4.png"/>
+                </StackLayout>
+                <StackLayout IsVisible="False" x:Name="step3_gen" Grid.Row="3" Padding="8, 0, 8, 0">
+                    <Label
+                            Margin="0, 25, 0, 10"
+                            Text="Step 3 - generating"
+                            FontSize="Title"/>
+                    <Label 
+                            Padding="30, 0, 25, 0"
+                            Text="The third process is file generation. After collecting some data under specific tag(at least 3 images), you can generate pdf file that allows to easily compare images between themselves."/>
+                    <Label 
+                            Margin="30, 10, 25, 0"
+                            Text="In order to generate new file, click generate button from the main menu page, then press the button placed next to the documents title - Create new."/>
+                    <Image
+                            Margin="0, 20, 0, 0"
+                            WidthRequest="200"
+                            Source="help_gen_1.png"/>
+                    <Label 
+                            Margin="30, 10, 25, 0"
+                            Text="On the new page you will be asked to specify the tag that you want to document as pdf file and type of the output. Type is the way how results are being shown. You can choose between List and Tabular. List example:"/>
+                    <Image
+                            Margin="0, 20, 0, 0"
+                            WidthRequest="200"
+                            Source="help_gen_2.png"/>
+                    <Label 
+                            Margin="30, 10, 25, 0"
+                            Text="Tabular example:"/>
+                    <Image
+                            Margin="0, 20, 0, 0"
+                            WidthRequest="200"
+                            Source="help_gen_3.png"/>
+                    <Label 
+                            Margin="30, 10, 25, 0"
+                            Text="To view generated document, get back to the documents list and tap on the eye icon(you need external program e.g. Google Pdf Viewer). If you want to copy the doc to e.g. PC, find on local storage device dir called DocAndComPDFs. If you cut or move generated file in the documents list, you will see note like in the first document below."/>
+                    <Image
+                            Margin="0, 20, 0, 0"
+                            WidthRequest="200"
+                            Source="help_gen_4.png"/>
+                    <Label 
+                            Margin="30, 20, 25, 25"
+                            Text="If you did it intentionally it is worth to remove stored reference in the application by using bin icon. And that's it! You know how to use docAndCom app. I hope that it will be useful to you :) and btw... There is no limits in generated files for the same tag too."/>
                 </StackLayout>
             </Grid>
         </StackLayout>
