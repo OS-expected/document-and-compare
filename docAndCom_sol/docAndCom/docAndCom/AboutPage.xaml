@@ -64,6 +64,7 @@
                     HorizontalOptions="CenterAndExpand"
                     Style="{StaticResource FontAwesome5FreeSolid}" />
                 <Label
+                    Margin="0, 0, 0, 20"
                     Grid.Row="7"
                     Text="docAndCom proudly uses: &#10; - Xamarin.Forms &#10; - SQLite, &#10; - iTextSharp, &#10; - Iconify and Font Awesome icons &#10; - Xam.Plugin.Media &#10; - Xamarin.Plugin.Calendar"
                     />
