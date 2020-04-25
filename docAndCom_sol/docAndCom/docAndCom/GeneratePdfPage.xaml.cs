@@ -69,7 +69,7 @@ namespace docAndCom
 
                 if (res > 0)
                 {
-                    await DisplayAlert("Success", "Document generated. To see the results, return to previous page using back arrow from the toolbar.", "Great!");
+                    await DisplayAlert("Success", "Document generated. To see the results, return to the previous page.", "Great!");
                 } 
                 else
                 {

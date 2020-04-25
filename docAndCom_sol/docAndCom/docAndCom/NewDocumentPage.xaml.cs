@@ -139,7 +139,7 @@ namespace docAndCom
 
                 if (numberOfRows > 0)
                 {
-                    await DisplayAlert("Success", "Image successfuly documented in the app. Return to the calendar using back arrow.", "Great!");
+                    await DisplayAlert("Success", "Image successfuly documented in the app. You can now return to the calendar.", "Great!");
                 }
                 else
                 {
