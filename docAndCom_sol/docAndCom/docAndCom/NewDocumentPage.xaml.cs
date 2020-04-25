@@ -41,7 +41,7 @@ namespace docAndCom
             if (file == null)
                 return;
 
-            await DisplayAlert("File Location", file.Path, "OK");
+            // await DisplayAlert("File Location", file.Path, "OK");
 
             pathToImage = file.Path.ToString();
 
