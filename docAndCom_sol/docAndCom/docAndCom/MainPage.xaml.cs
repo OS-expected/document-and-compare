@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -23,16 +24,19 @@ namespace docAndCom
 
         private async void TagsBtn_Clicked(object sender, EventArgs e)
         {
+            ToggleActivityIndicator();
             await Navigation.PushAsync(new TagsPage());
         }
 
         private async void DocBtn_Clicked(object sender, EventArgs e)
         {
+            ToggleActivityIndicator();
             await Navigation.PushAsync(new DocumentPage());
         }
 
         private async void GenBtn_Clicked(object sender, EventArgs e)
         {
+            ToggleActivityIndicator();
             await Navigation.PushAsync(new GeneratePage());
         }
 
@@ -44,6 +48,15 @@ namespace docAndCom
         private async void GetStartedBtn_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new GetStartedPage());
+        }
+
+        private async void ToggleActivityIndicator()
+        {
+            ai.IsRunning = true;
+            aiLayout.IsVisible = true;
+            await Task.Delay(2000);
+            aiLayout.IsVisible = false;
+            ai.IsRunning = false;
         }
     }
 }
