@@ -21,6 +21,11 @@ namespace docAndCom
             InitEventsInCalendar();
         }
 
+        protected override void OnAppearing()
+        {
+            InitEventsInCalendar();
+        }
+
         private async void ToolbarItem_Document_Activated(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewDocumentPage());
