@@ -84,6 +84,7 @@
                         Text="Generate"/>
                 <Button Grid.ColumnSpan="3" Grid.Row="4"
                         Margin="80, 10, 80, 0" 
+                        Clicked="GetStartedBtn_Clicked"
                         BackgroundColor="#BD9B77"
                         TextColor="White"
                         VerticalOptions="CenterAndExpand"

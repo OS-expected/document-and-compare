@@ -40,5 +40,10 @@ namespace docAndCom
         {
             await Navigation.PushAsync(new AboutPage());
         }
+
+        private async void GetStartedBtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GetStartedPage());
+        }
     }
 }
