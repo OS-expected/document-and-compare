@@ -68,8 +68,8 @@ namespace docAndCom
 
         private async void ToolbarItem_AddTag_Activated(object sender, EventArgs e)
         {
-            var result = await DisplayPromptAsync("Tag", "Specify name of the tag(from 3 to 20 characters, no special characters, - and _ chars are allowed)",
-                "Create", "Abort", null, 20);
+            var result = await DisplayPromptAsync("Tag", "Specify name of the tag(from 3 to 35 characters, no special characters, - and _ chars are allowed)",
+                "Create", "Abort", null, 35);
 
             if (string.IsNullOrEmpty(result) == false && result.Length >= 3)
             {
