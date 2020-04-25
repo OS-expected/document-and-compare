@@ -19,6 +19,11 @@ namespace docAndCom
             ListAvailableDocuments();
         }
 
+        protected override void OnAppearing()
+        {
+            ListAvailableDocuments();
+        }
+
         private void GenerateNewDocBtn_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new GeneratePdfPage());
