@@ -32,6 +32,11 @@ namespace docAndCom
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
         }
 
+        public CultureInfo GetCultureInfo()
+        {
+            return cultureInfo;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

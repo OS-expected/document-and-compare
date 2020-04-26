@@ -1,6 +1,7 @@
 ﻿using docAndCom.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using Xamarin.Forms;
@@ -18,12 +19,14 @@ namespace docAndCom
         public DocumentPage()
         {
             InitializeComponent();
-
+            
             InitEventsInCalendar();
         }
 
         protected override void OnAppearing()
         {
+            calendarRef.Culture = ResourceLoader.Instance.GetCultureInfo();
+
             InitEventsInCalendar();
         }
 
