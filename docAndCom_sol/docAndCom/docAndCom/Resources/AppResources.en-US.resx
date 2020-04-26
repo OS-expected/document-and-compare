@@ -132,6 +132,9 @@
   <data name="getStartedText" xml:space="preserve">
     <value>Get Started</value>
   </data>
+  <data name="loadingText" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
   <data name="repositoryText" xml:space="preserve">
     <value>Repository</value>
   </data>

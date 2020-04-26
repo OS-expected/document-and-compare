@@ -133,7 +133,7 @@
                         Opacity="1" />
                 <Label
                         Grid.Row="6"
-                        Text="Loading..."
+                        Text="{Binding [loadingText], Source={x:Static resources:ResourceLoader.Instance}}"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="EndAndExpand"
                         TextColor="#F1FFFB"
