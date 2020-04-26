@@ -5,67 +5,100 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="docAndCom.GeneratePdfPage">
-    <StackLayout>
-        <Grid Padding="18, 0, 18, 0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" 
+    <AbsoluteLayout>
+        <StackLayout 
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All">
+            <Grid Padding="18, 0, 18, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" 
                    TextColor="#CF3F3D"
                    Text="&#xf1c1;" 
                    HorizontalTextAlignment="Center" 
                    Style="{StaticResource FontAwesome5FreeRegular}" 
                    Margin="10, 25, 0, 10" 
                    FontSize="100"/>
-            <Label Grid.Row="1" 
+                <Label Grid.Row="1" 
                    Text="1. Select tag to generate PDF." 
                    HorizontalTextAlignment="Start"
                    Margin="0, 20, 0, 10" 
                    FontSize="12"/>
-            <Picker x:Name="tagPicker"
+                <Picker x:Name="tagPicker"
                     Title="tag"
                     Grid.Row="2"
                     FontSize="13">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Baboon</x:String>
-                        <x:String>Capuchin Monkey</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-            <Label Grid.Row="3" 
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Baboon</x:String>
+                            <x:String>Capuchin Monkey</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label Grid.Row="3" 
                    Padding="18, 0, 18, 0"
                    Text="*List consists only of tags that have at least 3 documented images." 
                    HorizontalTextAlignment="Start" 
                    FontSize="Micro"/>
-            <Label Grid.Row="4" 
+                <Label Grid.Row="4" 
                    Text="2. Choose document output scheme." 
                    HorizontalTextAlignment="Start"
                    Margin="0, 30, 0, 10" 
                    FontSize="12"/>
-            <Picker x:Name="docTypePicker"
+                <Picker x:Name="docTypePicker"
                     Title="type"
                     Grid.Row="5"
                     FontSize="13">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>List</x:String>
-                        <x:String>Tabular</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-        </Grid>
-        <Button x:Name="createDocBtn" 
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>List</x:String>
+                            <x:String>Tabular</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Grid>
+            <Button x:Name="createDocBtn" 
                 Text="Create document" 
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="EndAndExpand"
                 BackgroundColor="#CF3F3D"
                 TextColor="White"
                 Clicked="GeneratePdf_Clicked"/>
-    </StackLayout>
+        </StackLayout>
+        <StackLayout
+                x:Name="aiLayout"
+                IsVisible="False"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="#CFCFE1" Opacity="0.85">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ActivityIndicator
+                        Grid.Row="5"
+                        x:Name="ai"
+                        IsRunning="False"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="EndAndExpand"
+                        Color="#A40149"
+                        Opacity="1" />
+                <Label
+                        Grid.Row="6"
+                        Text="Generating file.."
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="EndAndExpand"
+                        TextColor="#A40149"
+                        FontSize="Default"
+                        Opacity="1" />
+            </Grid>
+
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

@@ -20,6 +20,9 @@ namespace docAndCom
 
         private async void GeneratePdf_Clicked(object sender, EventArgs e)
         {
+            ai.IsRunning = true;
+            aiLayout.IsVisible = true;
+
             var tag = tagPicker.SelectedItem;
             var docScheme = docTypePicker.SelectedItem;
 
@@ -56,8 +59,6 @@ namespace docAndCom
 
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
-                conn.CreateTable<Models.Document>();
-
                 Models.Document doc = new Models.Document()
                 {
                     FileName = fileName,
@@ -66,6 +67,9 @@ namespace docAndCom
                 };
 
                 var res = conn.Insert(doc);
+
+                ai.IsRunning = false;
+                aiLayout.IsVisible = false;
 
                 if (res > 0)
                 {
