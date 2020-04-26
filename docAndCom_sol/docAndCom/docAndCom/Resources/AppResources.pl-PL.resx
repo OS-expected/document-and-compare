@@ -117,31 +117,354 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutProudlyUses" xml:space="preserve">
+    <value>docAndCom wykorzystuje: &lt;br/&gt; - Xamarin.Forms, &lt;br/&gt; - SQLite, &lt;br/&gt; - iTextSharp, &lt;br/&gt; - ikony Iconify i Font Awesome, &lt;br/&gt; - Xam.Plugin.Media, &lt;br/&gt; - Xamarin.Plugin.Calendar.</value>
+  </data>
+  <data name="aboutShortDescText" xml:space="preserve">
+    <value>docAndCom to przydatne narzędzie open source stworzone przez trolit(&lt;span style="color: #E59648;"&gt;github.com/trolit&lt;/span&gt;), na licencji MIT dla platformy Android. W skrócie, aplikacja została wykonana po to, aby dać możliwość dokumentowania zmian w postaci zdjęć przypisanych do etykiet. Po zebraniu danych, użytkownik może wygenerować plik(i) pdf którymi łatwo porównuje się efekty. Jeżeli chcesz pomóc uczynić tą aplikację lepszą lub dodać kolejną lokalizację napisz do mnie :) </value>
+  </data>
   <data name="aboutText" xml:space="preserve">
     <value>O aplikacji</value>
+  </data>
+  <data name="areYouSureText" xml:space="preserve">
+    <value>Na pewno?</value>
   </data>
   <data name="builtWithText" xml:space="preserve">
     <value>Aplikacja wykonana w Xamarin.Forms na</value>
   </data>
+  <data name="cameraNotAvailableText" xml:space="preserve">
+    <value>Kamera nie jest dostępna :(</value>
+  </data>
+  <data name="cancelText" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="clearReferenceText" xml:space="preserve">
+    <value>Usuń powiązanie</value>
+  </data>
+  <data name="createFileText" xml:space="preserve">
+    <value>Wygeneruj plik</value>
+  </data>
+  <data name="createNewText" xml:space="preserve">
+    <value>Utwórz nowy</value>
+  </data>
+  <data name="createTagDesc" xml:space="preserve">
+    <value>Wprowadź nazwę etykiety(od 3 do 35 znaków bez znaków specjalnych. Znaki  - oraz _ są dozwolone).</value>
+  </data>
+  <data name="createTagTitleText" xml:space="preserve">
+    <value>Etykieta</value>
+  </data>
+  <data name="createText" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
+  <data name="dateStringFormat" xml:space="preserve">
+    <value>dd.MM.yyyy</value>
+  </data>
+  <data name="deleteFileConfirmationText" xml:space="preserve">
+    <value>Na pewno chcesz usunąć &lt;%fileName%&gt;?</value>
+  </data>
+  <data name="deleteFileFromStorageText" xml:space="preserve">
+    <value>Czy chcesz usunąć plik również z pamięci urządzenia?</value>
+  </data>
+  <data name="deleteThatTag" xml:space="preserve">
+    <value>Czy chcesz usunąć tą etykietę?</value>
+  </data>
+  <data name="documentImageText" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
   <data name="documentText" xml:space="preserve">
     <value>Archiwum</value>
+  </data>
+  <data name="fileGeneratedText" xml:space="preserve">
+    <value>Plik został wygenerowany. Możesz wrócić do poprzedniej strony z listą plików.</value>
+  </data>
+  <data name="fileGenTag" xml:space="preserve">
+    <value>Etykieta</value>
+  </data>
+  <data name="fileNotFoundOnDeviceText" xml:space="preserve">
+    <value>Plik nieodnaleziony.</value>
+  </data>
+  <data name="fileRefNotSavedButFileGenerated" xml:space="preserve">
+    <value>Powiązanie do pliku nie zostało zapisane, wygenerowany plik znajduje się: &lt;%filePath%&gt;</value>
+  </data>
+  <data name="fileRefNotSavedNotGenerated" xml:space="preserve">
+    <value>Powiązdanie do pliku nie zostało zapisane, plik nie został wygenerowany.</value>
+  </data>
+  <data name="fileSchemeNotChosenText" xml:space="preserve">
+    <value>Układ nie został wybrany. Generowanie pliku przerwane.</value>
+  </data>
+  <data name="filesText" xml:space="preserve">
+    <value>Pliki</value>
+  </data>
+  <data name="galleryText" xml:space="preserve">
+    <value>Galeria</value>
+  </data>
+  <data name="generateFilepickerList" xml:space="preserve">
+    <value>Lista</value>
+  </data>
+  <data name="generateFilepickerTabular" xml:space="preserve">
+    <value>Tabela</value>
+  </data>
+  <data name="generateFilePt1Text" xml:space="preserve">
+    <value>1. Wybierz etykiete na podstawie której ma być wygenerowany plik PDF</value>
+  </data>
+  <data name="generateFilePt2Text" xml:space="preserve">
+    <value>*Lista składa się z etykiet, które mają przynajmniej 3 zdjęcia</value>
+  </data>
+  <data name="generateFilePt3Text" xml:space="preserve">
+    <value>2. Wybierz układ pliku wyjściowego.</value>
   </data>
   <data name="generateText" xml:space="preserve">
     <value>Pliki</value>
   </data>
+  <data name="generatingFileText" xml:space="preserve">
+    <value>Generowanie pliku...</value>
+  </data>
   <data name="getStartedText" xml:space="preserve">
     <value>Pomoc</value>
+  </data>
+  <data name="greatText" xml:space="preserve">
+    <value>Świetnie!</value>
+  </data>
+  <data name="hardDeleteAlertText" xml:space="preserve">
+    <value>Ta operacja spowoduje trwałe usunięcie zdjęcia zapisanego pod etykietą &lt;%tagName%&gt; z urządzenia.</value>
+  </data>
+  <data name="hardDeleteText" xml:space="preserve">
+    <value>Usuń zdjęcie</value>
+  </data>
+  <data name="helpDocBtnText" xml:space="preserve">
+    <value>Archiwum</value>
+  </data>
+  <data name="helpDocPt1" xml:space="preserve">
+    <value>Archiwum w kontekście aplikacji to zdjęcia zapisane z datą przypisaną przez użytkownika aplikacji.</value>
+  </data>
+  <data name="helpDocPt2" xml:space="preserve">
+    <value>Żeby dodać nowy plik do archiwum, przejdź do archiwum z pozycji menu głównego aplikacji a następnie kliknij ikonę, które znajduje się na pasku narzędzi, z prawej strony. </value>
+  </data>
+  <data name="helpDocPt3" xml:space="preserve">
+    <value>Możesz wybrać zdjęcie z galerii lub zrobić nowe. Po dodaniu zdjęcia, wróć do widoku z kalendarzem za pomocą strzałki znajdującej się na pasku narzędzi. Dni w których użytkownik udokumentował coś są zaznaczone kropką. Nie ma limitu liczby udokumentowanych zdjęć danego dnia. </value>
+  </data>
+  <data name="helpDocPt4" xml:space="preserve">
+    <value>Jeżeli chcesz obejrzeć co zostało udokumentowane w oznakowanym dniu, wybierz ten dzień a następnie schowaj kalendarz używając strzałki umieszczonej w prawym dolnym rogu.</value>
+  </data>
+  <data name="helpDocPt5" xml:space="preserve">
+    <value>Każde zdjęcie zawiera podgląd, etykietę oraz przyciski funkcyjne. Możesz obejrzeć zdjęcie na pełnym ekranie, usunąć powiązanie z aplikacji(zdjęcie zostanie w pamięci urzadzenia) lub trwale usunąć zdjecie(zdjęcie zostanie usunięte z urządzenia). Żeby wrócić do widoku kalendarza, kliknij ponownie strzałkę, która tym razem znajduje się w prawym górnym rogu.</value>
+  </data>
+  <data name="helpDocTitle" xml:space="preserve">
+    <value>Krok 2 - dokumentowanie</value>
+  </data>
+  <data name="helpGenBtnText" xml:space="preserve">
+    <value>Pliki</value>
+  </data>
+  <data name="helpGenPt1" xml:space="preserve">
+    <value>Trzecim procesem jest generowanie plików. Po zebraniu odpowiedniej liczby danych pod daną etykietą(minimum 3 zdjęcia) możesz wygenerować plik pdf, który pozwala na łatwe porównanie zdjęć między sobą.</value>
+  </data>
+  <data name="helpGenPt2" xml:space="preserve">
+    <value>Żeby wygenerować nowy plik, przejdź do sekcji pliki z menu głównego aplikacji a następnie naciśnij przycisk umieszczony obok tytułu - Utwórz nowy.</value>
+  </data>
+  <data name="helpGenPt3" xml:space="preserve">
+    <value>Na nowej stronie należy wybrać etykietę, której zdjęcia chce się wygenerować w zestawieniu pliku pdf i jaki ma być układ pliku wyjściowego. Układ to sposób w jaki pokazywane są wyniki. Dostępna jest opcja lista i tabela. Przykład listy:</value>
+  </data>
+  <data name="helpGenPt4" xml:space="preserve">
+    <value>Żeby obejrzeć wygenerowany dokument, wróć do listy plików i naciśnij ikonę przedstawiającą oko(potrzebujesz zewnętrznego programu do odczytania pliku pdf np. Google Pdf Viewer). Jeżeli chcesz np. skopiować plik na komputer, żeby się nim podzielić, przechować czy zobaczyć na większym ekranie wyszukaj w pamięci lokalnej urządzenia katalog nazwany DocAndComPDFs. Jeżeli wytniesz lub przeniesiesz ten plik, na liście plików zobaczysz komunikat o tym, że pliku nie znaleziono w ścieżsce zapisanej przez aplikację.</value>
+  </data>
+  <data name="helpGenPt5" xml:space="preserve">
+    <value>Jeżeli taki był Twój plan warto usunąć powiązanie przechowywane przez aplikację naciskając na ikonę kosza obok nazwy nieznalezionego pliku. I to tyle! Wiesz jak używać apkę docAndCom. Mam nadzieję, że się przyda :) PS... W tym wypadku także nie ma limitu wygenerowanych plików dla tej samej etykiety. </value>
+  </data>
+  <data name="helpGenTitle" xml:space="preserve">
+    <value>Krok 3 - generowanie</value>
+  </data>
+  <data name="helpSubText" xml:space="preserve">
+    <value>Naciśnij jeden z przycisków żeby dowiedzieć się więcej.</value>
+  </data>
+  <data name="helpTagBtnText" xml:space="preserve">
+    <value>Etykiety</value>
+  </data>
+  <data name="helpTagPt1" xml:space="preserve">
+    <value>Etykieta to kategoria pod którą możesz dokumentować zdjęcia. Nazwa etykiety powinna być przede wszystkim jasna dla ciebie. Przykładowa etykieta mogłaby wyglądać tak: {marka}_farbaDoWłosów jeżeli chcesz udokumentować wyniki używania konkretnej farby do włosów i np. podzielić się skutecznością z innymi.</value>
+  </data>
+  <data name="helpTagPt2" xml:space="preserve">
+    <value>Żeby dodać etykietę, przejdź do sekcji etykiety wciskając odpowiedni przycisk z poziomu menu aplikacji. Następnie kliknij ikonę umieszczoną w pasku narzędzi, wprowadź nazwę etykiety i potwierdź dodanie.</value>
+  </data>
+  <data name="helpTagPt3" xml:space="preserve">
+    <value>Jeżeli chcesz usunąć istniejącą etykietę, możesz to zrobić naciskając na ikonę umieszczoną obok nazwy etykiety. Jeżeli etykieta zawiera jakieś zdjęcia, zobaczysz dodatkowe pytanie o tym czy chcesz je usunąć z pamięci urządzenia.</value>
+  </data>
+  <data name="helpTagTitle" xml:space="preserve">
+    <value>Krok 1 - etykiety</value>
+  </data>
+  <data name="imageClearReferenceAlertText" xml:space="preserve">
+    <value>Ta operacja usunie powiązanie do udokumentowanego zdjęcia z etykiety &lt;%tagName%&gt;. Zdjęcie nie zostanie usunięte z pamięci urządzenia.</value>
+  </data>
+  <data name="imageLeftText" xml:space="preserve">
+    <value>zdjęcie pozostawione w pamięci urządzenia.</value>
+  </data>
+  <data name="imageNotDocumentedText" xml:space="preserve">
+    <value>Zdjęcie nie zostało zapisane w aplikacji, spróbuj ponownie!</value>
+  </data>
+  <data name="imageReferenceClearedText" xml:space="preserve">
+    <value>Odwołanie do zdjęcia wyczyszczone.</value>
+  </data>
+  <data name="imageReferenceClearProblemText" xml:space="preserve">
+    <value>Wystąpił problem z usunięciem powiązania :( </value>
+  </data>
+  <data name="imageRefNotFoundText" xml:space="preserve">
+    <value>Operacja przerwana. Brak odwołania do zdjęcia w bazie danych.</value>
+  </data>
+  <data name="imageRemovedText" xml:space="preserve">
+    <value>zdjęcie usunięte z pamięci urządzenia.</value>
+  </data>
+  <data name="imageSuccessfulyDocumentedText" xml:space="preserve">
+    <value>Zdjęcie zostało poprawnie zapisane. Możesz teraz wrócić do widoku z kalendarza.</value>
+  </data>
+  <data name="imageTagRefNotFoundText" xml:space="preserve">
+    <value>Tag z którym zdjęcie jest powiązane nie został odnaleziony. Operacja przerwana.</value>
+  </data>
+  <data name="languageSettingInfo" xml:space="preserve">
+    <value>*Zawartość tej listy nie jest tłumaczona na wypadek przypadkowej zmiany języka.</value>
   </data>
   <data name="loadingText" xml:space="preserve">
     <value>Wczytywanie...</value>
   </data>
+  <data name="minAndroidText" xml:space="preserve">
+    <value>*Minimalna wersja Androida: 5.0 (API p. 21)</value>
+    <comment>*Minimum Android required: 5.0 (API l. 21)</comment>
+  </data>
+  <data name="MoreThanFourImagesDeletedText" xml:space="preserve">
+    <value>zdjęć zostało usuniętych z pamięci urządzenia.</value>
+  </data>
+  <data name="multipleImages" xml:space="preserve">
+    <value>zdjęcia.</value>
+  </data>
+  <data name="noFilesTextPt1" xml:space="preserve">
+    <value>Aktualnie nie ma żadnych plików.</value>
+  </data>
+  <data name="noFilesTextPt2" xml:space="preserve">
+    <value>Stwórz pierwszy korzystając z</value>
+  </data>
+  <data name="noFilesTextPt3" xml:space="preserve">
+    <value>przycisku powyżej.</value>
+  </data>
+  <data name="noTagText" xml:space="preserve">
+    <value>Wygląda na to, że nie posiadasz żadnej etykiety potrzebnej do wykonania tej operacji. Chcesz przejść do strony z etykietami? </value>
+  </data>
+  <data name="notEnoughImages" xml:space="preserve">
+    <value>Nie masz etykiety z minimalną liczbą 3 zdjęć żeby wykonać tą operację.</value>
+  </data>
+  <data name="NoText" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="OkText" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OopsText" xml:space="preserve">
+    <value>Ups..</value>
+  </data>
+  <data name="openImageText" xml:space="preserve">
+    <value>Pokaż zdjęcie</value>
+  </data>
+  <data name="operationSuccessfulText" xml:space="preserve">
+    <value>Operacja udana!</value>
+  </data>
+  <data name="photoPickNotSupportedText" xml:space="preserve">
+    <value>Robienie zdjęcia nie jest wspierane :(</value>
+  </data>
+  <data name="photoPreviewText" xml:space="preserve">
+    <value>Podgląd zdjęcia</value>
+  </data>
+  <data name="pluralVariety" xml:space="preserve">
+    <value>je</value>
+  </data>
+  <data name="previewText" xml:space="preserve">
+    <value>Podgląd</value>
+  </data>
+  <data name="questionText" xml:space="preserve">
+    <value>Pytanie</value>
+  </data>
+  <data name="referenceClearedText" xml:space="preserve">
+    <value>Powiązanie usunięte, </value>
+  </data>
+  <data name="referenceNotClearedText" xml:space="preserve">
+    <value>Powiązanie nie zostało usunięte, </value>
+  </data>
   <data name="repositoryText" xml:space="preserve">
     <value>Repozytorium</value>
+  </data>
+  <data name="selectTagText" xml:space="preserve">
+    <value>Wybierz etykietę</value>
   </data>
   <data name="settingsText" xml:space="preserve">
     <value>Ustawienia</value>
   </data>
+  <data name="singleImage" xml:space="preserve">
+    <value>1 zdjęcie.</value>
+  </data>
+  <data name="singleImageDeletedText" xml:space="preserve">
+    <value>zdjęcie zostało usunięte z pamięci urządzenia.</value>
+  </data>
+  <data name="singularVariety" xml:space="preserve">
+    <value>je</value>
+  </data>
+  <data name="SuccessText" xml:space="preserve">
+    <value>Sukces</value>
+  </data>
+  <data name="tagAdded" xml:space="preserve">
+    <value>Etykieta została dodana do aplikacji.</value>
+  </data>
+  <data name="tagDuplicate" xml:space="preserve">
+    <value>Etykieta nie została utworzona. W aplikacji znajduje się już tag o treści:</value>
+  </data>
+  <data name="tagForbiddenChars" xml:space="preserve">
+    <value>Etykieta nie została utworzona. Wprowadzona nazwa zawiera jeden lub więcej niedozwolonych znaków.</value>
+  </data>
+  <data name="tagNotChosenText" xml:space="preserve">
+    <value>Etykieta nie została wybrana. Generowanie pliku przerwane.</value>
+  </data>
+  <data name="tagNotEnoughChars" xml:space="preserve">
+    <value>Etykieta nie została dodana. Wprowadzono za mało znaków.</value>
+  </data>
+  <data name="tagNotExistsText" xml:space="preserve">
+    <value>Etykieta nie istnieje w bazie danych.</value>
+  </data>
+  <data name="tagNotSavedError" xml:space="preserve">
+    <value>Etykieta nie została zapisana. Coś się zepsuło :(</value>
+  </data>
+  <data name="tagNotSelectedText" xml:space="preserve">
+    <value>Etykieta nie została wybrana.</value>
+  </data>
+  <data name="tagRemoveAlertDesc" xml:space="preserve">
+    <value>Etykieta &lt;%tagName%&gt; jest używana przez &lt;%alert_phrase1%&gt;. Czy chcesz usunąć &lt;%alert_phrase2%&gt; z pamięci urządzenia?</value>
+  </data>
+  <data name="tagsPagePt1" xml:space="preserve">
+    <value>Brak etykiet do wyświetlenia :(</value>
+  </data>
+  <data name="tagsPagePt2" xml:space="preserve">
+    <value>Kliknij ikone &amp;#xf02b;</value>
+  </data>
+  <data name="tagsPagePt3" xml:space="preserve">
+    <value>z paska narzędzi</value>
+  </data>
+  <data name="tagsPagePt4" xml:space="preserve">
+    <value>aby stworzyć pierwszą etykietę</value>
+  </data>
+  <data name="tagsText" xml:space="preserve">
+    <value>Etykiety</value>
+  </data>
   <data name="tagText" xml:space="preserve">
     <value>Etykiety</value>
+  </data>
+  <data name="takePhotoText" xml:space="preserve">
+    <value>Zrób zdjęcie</value>
+  </data>
+  <data name="targetedAndroidText" xml:space="preserve">
+    <value>*Celowana wersja Androida: 9.0 (API p. 28)</value>
+    <comment>*Target Android version: 9.0 (API l. 28)</comment>
+  </data>
+  <data name="upToFourImagesDeletedText" xml:space="preserve">
+    <value>zdjęcia zostały usunięte z pamięci urządzenia.</value>
+  </data>
+  <data name="warningText" xml:space="preserve">
+    <value>Uwaga</value>
+  </data>
+  <data name="YesText" xml:space="preserve">
+    <value>Tak</value>
   </data>
 </root>

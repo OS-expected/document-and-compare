@@ -117,31 +117,352 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutProudlyUses" xml:space="preserve">
+    <value>docAndCom proudly uses: &lt;br/&gt; - Xamarin.Forms, &lt;br/&gt; - SQLite, &lt;br/&gt; - iTextSharp, &lt;br/&gt; - Iconify and Font Awesome icons, &lt;br/&gt; - Xam.Plugin.Media, &lt;br/&gt; - Xamarin.Plugin.Calendar.</value>
+  </data>
+  <data name="aboutShortDescText" xml:space="preserve">
+    <value>docAndCom is handy, open software tool developed by trolit(&lt;span style="color: #E59648;"&gt;github.com/trolit&lt;/span&gt;) under MIT license for Android. In short, app is designed to let users document their subject under prepared tag(s). After gaining some data users can obtain results as pdf file(s) allowing to easily compare changes between them. Want to help with making it better or add another localization? Message me :)</value>
+  </data>
   <data name="aboutText" xml:space="preserve">
     <value>About</value>
+  </data>
+  <data name="areYouSureText" xml:space="preserve">
+    <value>Are you sure?</value>
   </data>
   <data name="builtWithText" xml:space="preserve">
     <value>Built with Xamarin.Forms for</value>
   </data>
+  <data name="cameraNotAvailableText" xml:space="preserve">
+    <value>Camera is not available :(</value>
+  </data>
+  <data name="cancelText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="clearReferenceText" xml:space="preserve">
+    <value>Clear reference</value>
+  </data>
+  <data name="createFileText" xml:space="preserve">
+    <value>Generate file</value>
+  </data>
+  <data name="createNewText" xml:space="preserve">
+    <value>Create new</value>
+  </data>
+  <data name="createTagDesc" xml:space="preserve">
+    <value>Specify name of the tag(from 3 to 35 characters, no special characters, - and _ chars are allowed)</value>
+  </data>
+  <data name="createTagTitleText" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="createText" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="dateStringFormat" xml:space="preserve">
+    <value>dd.MM.yyyy</value>
+  </data>
+  <data name="deleteFileConfirmationText" xml:space="preserve">
+    <value>Are you sure, you want to delete &lt;%fileName%&gt;?</value>
+  </data>
+  <data name="deleteFileFromStorageText" xml:space="preserve">
+    <value>Remove also file from device storage?</value>
+  </data>
+  <data name="deleteThatTag" xml:space="preserve">
+    <value>Do you want to delete that tag?</value>
+  </data>
+  <data name="documentImageText" xml:space="preserve">
+    <value>Document</value>
+  </data>
   <data name="documentText" xml:space="preserve">
     <value>Document</value>
+  </data>
+  <data name="fileGeneratedText" xml:space="preserve">
+    <value>Document generated. You can now return to the previous page.</value>
+  </data>
+  <data name="fileGenTag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="fileNotFoundOnDeviceText" xml:space="preserve">
+    <value>File not found.</value>
+  </data>
+  <data name="fileRefNotSavedButFileGenerated" xml:space="preserve">
+    <value>Document reference not saved, generated file is available at: &lt;%filePath%&gt;</value>
+  </data>
+  <data name="fileRefNotSavedNotGenerated" xml:space="preserve">
+    <value>Document reference not saved, file not generated.</value>
+  </data>
+  <data name="fileSchemeNotChosenText" xml:space="preserve">
+    <value>File scheme type not chosen. File creation aborted.</value>
+  </data>
+  <data name="filesText" xml:space="preserve">
+    <value>Files</value>
+  </data>
+  <data name="galleryText" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="generateFilepickerList" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="generateFilepickerTabular" xml:space="preserve">
+    <value>Tabular</value>
+  </data>
+  <data name="generateFilePt1Text" xml:space="preserve">
+    <value>1. Select tag to generate PDF.</value>
+  </data>
+  <data name="generateFilePt2Text" xml:space="preserve">
+    <value>*List consists only of tags that have at least 3 documented images.</value>
+  </data>
+  <data name="generateFilePt3Text" xml:space="preserve">
+    <value>2. Choose document output scheme.</value>
   </data>
   <data name="generateText" xml:space="preserve">
     <value>Generate</value>
   </data>
+  <data name="generatingFileText" xml:space="preserve">
+    <value>Generating file...</value>
+  </data>
   <data name="getStartedText" xml:space="preserve">
     <value>Get Started</value>
+  </data>
+  <data name="greatText" xml:space="preserve">
+    <value>Great!</value>
+  </data>
+  <data name="hardDeleteAlertText" xml:space="preserve">
+    <value>This operation will permanently remove documented image(of &lt;%tagName%&gt; tag) from storage device.</value>
+  </data>
+  <data name="hardDeleteText" xml:space="preserve">
+    <value>Hard delete</value>
+  </data>
+  <data name="helpDocBtnText" xml:space="preserve">
+    <value>2. Doc</value>
+  </data>
+  <data name="helpDocPt1" xml:space="preserve">
+    <value>Document section in the meaning of the app are graphics saved with date of creation assigned by user.</value>
+  </data>
+  <data name="helpDocPt2" xml:space="preserve">
+    <value>To add new document, click document button from the main menu page, then press the icon placed in the toolbar section.</value>
+  </data>
+  <data name="helpDocPt3" xml:space="preserve">
+    <value>You can pick image from gallery or take a new one. After adding document, get back to the calendar view using toolbar back arrow icon. Days on which user documented something are marked with dot. To clarify, there is no given limit of documented images on specific day.</value>
+  </data>
+  <data name="helpDocPt4" xml:space="preserve">
+    <value>If you want to see what was documented on marked day, choose that day and hide calendar by using arrow placed in the right bottom corner.</value>
+  </data>
+  <data name="helpDocPt5" xml:space="preserve">
+    <value>Each image contains preview, tag and functional buttons. You can see that image in your gallery in full perspective, remove reference from the app(image will stay on the device storage but reference to it will be removed) or hard delete it(image will be removed from storage device). To see again calendar view, click once again arrow but this time placed on the right top corner.</value>
+  </data>
+  <data name="helpDocTitle" xml:space="preserve">
+    <value>Step 2 - documenting</value>
+  </data>
+  <data name="helpGenBtnText" xml:space="preserve">
+    <value>3. Gen</value>
+  </data>
+  <data name="helpGenPt1" xml:space="preserve">
+    <value>The third process is file generation. After collecting some data under specific tag(at least 3 images), you can generate pdf file that allows to easily compare images between themselves.</value>
+  </data>
+  <data name="helpGenPt2" xml:space="preserve">
+    <value>In order to generate new file, click generate button from the main menu page, then press the button placed next to the documents title - Create new.</value>
+  </data>
+  <data name="helpGenPt3" xml:space="preserve">
+    <value>On the new page you will be asked to specify the tag that you want to document as pdf file and type of the output. Type is the way how results are being shown. You can choose between List and Tabular. List example:</value>
+  </data>
+  <data name="helpGenPt4" xml:space="preserve">
+    <value>To view generated document, get back to the documents list and tap on the eye icon(you need external program e.g. Google Pdf Viewer). If you want to copy the doc to e.g. PC to share, store or view on bigger screen, find on local storage device dir called DocAndComPDFs. If you cut or move generated file in the documents list, you will see note like in the first document below.</value>
+  </data>
+  <data name="helpGenPt5" xml:space="preserve">
+    <value>If you did it intentionally it is worth to remove stored reference in the application by using bin icon. And that's it! You know how to use docAndCom app. I hope that it will be useful to you :) and btw... There is no limits in generated files for the same tag too.</value>
+  </data>
+  <data name="helpGenTitle" xml:space="preserve">
+    <value>Step 3 - generating</value>
+  </data>
+  <data name="helpSubText" xml:space="preserve">
+    <value>Press one of the steps below to read the details.</value>
+  </data>
+  <data name="helpTagBtnText" xml:space="preserve">
+    <value>1. Tag</value>
+  </data>
+  <data name="helpTagPt1" xml:space="preserve">
+    <value>Tag can be explained as category under which you will be able to document results. Name of the tag should be clear to you. For e.g. tag could be named: {brand}_hairDye if you would like to document effects of using specific hair dye and share for e.g. it's effectiveness to others.</value>
+  </data>
+  <data name="helpTagPt2" xml:space="preserve">
+    <value>In order to add tag, move to the tag section by clicking appropriate button from the main menu. Then click the icon placed in the toolbar section and specify name of the tag.</value>
+  </data>
+  <data name="helpTagPt3" xml:space="preserve">
+    <value>If you would like remove the tag, you can do this by tapping icon placed next to the tag name. If it contains documented images, you will see prompt asking whether you want to remove them too from your device storage or no.</value>
+  </data>
+  <data name="helpTagTitle" xml:space="preserve">
+    <value>Step 1 - tagging</value>
+  </data>
+  <data name="imageClearReferenceAlertText" xml:space="preserve">
+    <value>This operation will remove reference to the documented image from &lt;%tagName%&gt; tag, in application. Image won't be deleted from storage device.</value>
+  </data>
+  <data name="imageLeftText" xml:space="preserve">
+    <value>image left on device storage.</value>
+  </data>
+  <data name="imageNotDocumentedText" xml:space="preserve">
+    <value>Image not documented in the app, try again!</value>
+  </data>
+  <data name="imageReferenceClearedText" xml:space="preserve">
+    <value>Reference to the image cleared.</value>
+  </data>
+  <data name="imageReferenceClearProblemText" xml:space="preserve">
+    <value>Problem with clearing reference occured :(</value>
+  </data>
+  <data name="imageRefNotFoundText" xml:space="preserve">
+    <value>Operation aborted. Reference to the image not found.</value>
+  </data>
+  <data name="imageRemovedText" xml:space="preserve">
+    <value>image removed from device storage.</value>
+  </data>
+  <data name="imageSuccessfulyDocumentedText" xml:space="preserve">
+    <value>Image successfuly documented in the app. You can now return to the calendar.</value>
+  </data>
+  <data name="imageTagRefNotFoundText" xml:space="preserve">
+    <value>Image tag reference not found. Operation aborted.</value>
+  </data>
+  <data name="languageSettingInfo" xml:space="preserve">
+    <value>*List data is not translated in case of choosing different language by mistake.</value>
   </data>
   <data name="loadingText" xml:space="preserve">
     <value>Loading...</value>
   </data>
+  <data name="minAndroidText" xml:space="preserve">
+    <value>*Minimum Android required: 5.0 (API l. 21)</value>
+  </data>
+  <data name="MoreThanFourImagesDeletedText" xml:space="preserve">
+    <value>images deleted from device storage.</value>
+  </data>
+  <data name="multipleImages" xml:space="preserve">
+    <value>images.</value>
+  </data>
+  <data name="noFilesTextPt1" xml:space="preserve">
+    <value>Currently there are no docs.</value>
+  </data>
+  <data name="noFilesTextPt2" xml:space="preserve">
+    <value>Make the first one using</value>
+  </data>
+  <data name="noFilesTextPt3" xml:space="preserve">
+    <value>button placed above.</value>
+  </data>
+  <data name="noTagText" xml:space="preserve">
+    <value>It looks like you did not create tag required to perform document operation. Would you like to be redirected to the tags page?</value>
+  </data>
+  <data name="notEnoughImages" xml:space="preserve">
+    <value>You don't have tag with at least 3 images to perform this operation.</value>
+  </data>
+  <data name="NoText" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="OkText" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="OopsText" xml:space="preserve">
+    <value>Oops..</value>
+  </data>
+  <data name="openImageText" xml:space="preserve">
+    <value>Open image</value>
+  </data>
+  <data name="operationSuccessfulText" xml:space="preserve">
+    <value>Operation successful!</value>
+  </data>
+  <data name="photoPickNotSupportedText" xml:space="preserve">
+    <value>Picking a photo is not supported :(</value>
+  </data>
+  <data name="photoPreviewText" xml:space="preserve">
+    <value>Photo preview</value>
+  </data>
+  <data name="pluralVariety" xml:space="preserve">
+    <value>them</value>
+  </data>
+  <data name="previewText" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="questionText" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="referenceClearedText" xml:space="preserve">
+    <value>Reference cleared, </value>
+  </data>
+  <data name="referenceNotClearedText" xml:space="preserve">
+    <value>Reference not cleared, </value>
+  </data>
   <data name="repositoryText" xml:space="preserve">
     <value>Repository</value>
+  </data>
+  <data name="selectTagText" xml:space="preserve">
+    <value>Select tag</value>
   </data>
   <data name="settingsText" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="singleImage" xml:space="preserve">
+    <value>1 image.</value>
+  </data>
+  <data name="singleImageDeletedText" xml:space="preserve">
+    <value>image deleted from device storage.</value>
+  </data>
+  <data name="singularVariety" xml:space="preserve">
+    <value>it</value>
+  </data>
+  <data name="SuccessText" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="tagAdded" xml:space="preserve">
+    <value>Tag added to the app.</value>
+  </data>
+  <data name="tagDuplicate" xml:space="preserve">
+    <value>Tag not created. Application already contains tag named:</value>
+  </data>
+  <data name="tagForbiddenChars" xml:space="preserve">
+    <value>Tag not created. One or more forbidden characters found.</value>
+  </data>
+  <data name="tagNotChosenText" xml:space="preserve">
+    <value>It seems that you did not choose tag. File creation aborted.</value>
+  </data>
+  <data name="tagNotEnoughChars" xml:space="preserve">
+    <value>Tag not added. Not enough characters.</value>
+  </data>
+  <data name="tagNotExistsText" xml:space="preserve">
+    <value>Tag does not exist in database.</value>
+  </data>
+  <data name="tagNotSavedError" xml:space="preserve">
+    <value>Tag not saved, something bad happened :(</value>
+  </data>
+  <data name="tagNotSelectedText" xml:space="preserve">
+    <value>Tag not selected.</value>
+  </data>
+  <data name="tagRemoveAlertDesc" xml:space="preserve">
+    <value>&lt;%tagName%&gt; tag is used by &lt;%alert_phrase1%&gt;. Do you also want to remove &lt;%alert_phrase2%&gt; from storage device?</value>
+  </data>
+  <data name="tagsPagePt1" xml:space="preserve">
+    <value>No tags to show :(</value>
+  </data>
+  <data name="tagsPagePt2" xml:space="preserve">
+    <value>Tap &amp;#xf02b; icon</value>
+  </data>
+  <data name="tagsPagePt3" xml:space="preserve">
+    <value>from the toolbar</value>
+  </data>
+  <data name="tagsPagePt4" xml:space="preserve">
+    <value>to create first one</value>
+  </data>
+  <data name="tagsText" xml:space="preserve">
+    <value>Tags</value>
+  </data>
   <data name="tagText" xml:space="preserve">
     <value>Tag</value>
+  </data>
+  <data name="takePhotoText" xml:space="preserve">
+    <value>Take photo</value>
+  </data>
+  <data name="targetedAndroidText" xml:space="preserve">
+    <value>*Target Android version: 9.0 (API l. 28)</value>
+  </data>
+  <data name="upToFourImagesDeletedText" xml:space="preserve">
+    <value>images deleted from device storage.</value>
+  </data>
+  <data name="warningText" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="YesText" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>
