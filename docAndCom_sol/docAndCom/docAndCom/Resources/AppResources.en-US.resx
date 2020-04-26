@@ -324,6 +324,9 @@
   <data name="loadingText" xml:space="preserve">
     <value>Loading...</value>
   </data>
+  <data name="localizationCredits" xml:space="preserve">
+    <value>Localization credits: &lt;br/&gt; - English, @trolit &lt;br/&gt; - Polish, @trolit</value>
+  </data>
   <data name="minAndroidText" xml:space="preserve">
     <value>*Minimum Android required: 5.0 (API l. 21)</value>
   </data>
