@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static docAndCom.Helpers.ShortenInvokes;
 
 namespace docAndCom
 {
@@ -20,7 +21,10 @@ namespace docAndCom
 
         private async void OnDeleteClicked(object sender, EventArgs e)
         {
-            var result = await DisplayAlert("Confirmation", "Are you sure, you want to delete that tag?", "Yes", "No");
+            var result = await DisplayAlert(GetResourceString("areYouSureText"),
+                GetResourceString("deleteThatTag"),
+                GetResourceString("YesText"),
+                GetResourceString("NoText"));
 
             if(result == true)
             {
@@ -34,10 +38,18 @@ namespace docAndCom
 
                     if (numberOfDocuments > 0)
                     {
-                        string alert_phrase1 = numberOfDocuments == 1 ? "1 image." : $"{numberOfDocuments} images.";
-                        string alert_phrase2 = numberOfDocuments == 1 ? "it" : "them";
+                        string alert_phrase1 = numberOfDocuments == 1 ? GetResourceString("singleImage") : $"{numberOfDocuments} " + GetResourceString("multipleImages");
+                        string alert_phrase2 = numberOfDocuments == 1 ? GetResourceString("singularVariety") : GetResourceString("pluralVariety");
 
-                        result = await DisplayAlert("Warning", $"{tag.Name} tag is used by {alert_phrase1} Do you also want to remove {alert_phrase2} from storage device?", "Yes", "No");
+                        string deleteImagesAlertDesc = GetResourceString("tagRemoveAlertDesc");
+                        deleteImagesAlertDesc = deleteImagesAlertDesc.Replace("<%tagName%>", tag.Name);
+                        deleteImagesAlertDesc = deleteImagesAlertDesc.Replace("<%alert_phrase1%>", alert_phrase1);
+                        deleteImagesAlertDesc = deleteImagesAlertDesc.Replace("<%alert_phrase2%>", alert_phrase2);
+
+                        result = await DisplayAlert(GetResourceString("warningText"),
+                            deleteImagesAlertDesc,
+                            GetResourceString("YesText"),
+                            GetResourceString("NoText"));
 
                         if(result == true)
                         {
@@ -54,8 +66,22 @@ namespace docAndCom
                                 conn.Delete<Photo>(photo.Id);
                             }
 
-                            var note = timesDeleted == 1 ? "image" : "images";
-                            await DisplayAlert("Success", $"{timesDeleted} {note} deleted from the device.", "Ok");
+                            string successAlertMsg = string.Empty;
+
+                            if(timesDeleted == 1)
+                            {
+                                successAlertMsg = GetResourceString("singleImageDeletedText");
+                            } else if (timesDeleted <= 4)
+                            {
+                                successAlertMsg = GetResourceString("upToFourImagesDeletedText");
+                            } else if (timesDeleted > 4)
+                            {
+                                successAlertMsg = GetResourceString("MoreThanFourImagesDeletedText");
+                            }
+
+                            await DisplayAlert(GetResourceString("SuccessText"),
+                                $"{timesDeleted} " + successAlertMsg,
+                                GetResourceString("OkText"));
                         }
                     }
 
@@ -68,15 +94,19 @@ namespace docAndCom
 
         private async void ToolbarItem_AddTag_Activated(object sender, EventArgs e)
         {
-            var result = await DisplayPromptAsync("Tag", "Specify name of the tag(from 3 to 35 characters, no special characters, - and _ chars are allowed)",
-                "Create", "Abort", null, 35);
+            var result = await DisplayPromptAsync(GetResourceString("createTagTitleText"),
+                GetResourceString("createTagDesc"),
+                GetResourceString("createText"),
+                GetResourceString("cancelText"), null, 35);
 
             if (string.IsNullOrEmpty(result) == false && result.Length >= 3)
             {
                 var regexItem = new Regex("^[a-zA-Z0-9-_]*$");
                 if (regexItem.IsMatch(result) == false)
                 {
-                    await DisplayAlert("Oops..", "Tag not created. One or more forbidden characters found.", "Ok");
+                    await DisplayAlert(GetResourceString("OopsText"),
+                        GetResourceString("tagForbiddenChars"),
+                        GetResourceString("OkText"));
                     return;
                 }
 
@@ -93,7 +123,9 @@ namespace docAndCom
 
                     if(isExisting != null)
                     {
-                        await DisplayAlert("Oops..", $"Tag not created. Application already contains tag named {tag.Name}.", "Ok");
+                        await DisplayAlert(GetResourceString("OopsText"), 
+                            $"{GetResourceString("tagDuplicate")} {tag.Name}.",
+                            GetResourceString("OkText"));
                         return;
                     }
 
@@ -101,17 +133,23 @@ namespace docAndCom
 
                     if (numberOfRows > 0)
                     {
-                        await DisplayAlert("Success", "Tag added to the app.", "Great!");
+                        await DisplayAlert(GetResourceString("SuccessText"),
+                            GetResourceString("tagAdded"),
+                            GetResourceString("greatText"));
                     }
                     else
                     {
-                        await DisplayAlert("Failure", "Tag not saved, something bad happened :(", "Ok");
+                        await DisplayAlert(GetResourceString("OopsText"),
+                            GetResourceString("tagNotSavedError"),
+                            GetResourceString("OkText"));
                     }
                 }
                 DisplayTags();
             } else if (result != null && result.Length < 3)
             {
-                await DisplayAlert("Oops..", "Tag not added. Not enough characters.", "Ok");
+                await DisplayAlert(GetResourceString("OopsText"),
+                    GetResourceString("tagNotEnoughChars"),
+                    GetResourceString("OkText"));
             }
         }
 

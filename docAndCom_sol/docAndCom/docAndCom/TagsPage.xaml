@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:docAndCom"
              mc:Ignorable="d"
              x:Class="docAndCom.TagsPage">
     <ContentPage.ToolbarItems>
@@ -12,31 +13,32 @@
     <StackLayout>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Text="Tags" Margin="10, 25, 0, 20" FontSize="Title"/>
+            <Label Grid.Row="0" Text="{Binding [tagsText], Source={x:Static resources:ResourceLoader.Instance}}" Margin="10, 25, 0, 20" FontSize="Title"/>
             <StackLayout Grid.Row="1" x:Name="emptyTagsMsg" Padding="0, 80, 0, 0" HorizontalOptions="CenterAndExpand" Orientation="Vertical" Spacing="0">
                 <Label
-                                        Text="No tags to show :("
+                                        Text="{Binding [tagsPagePt1], Source={x:Static resources:ResourceLoader.Instance}}"
                                         HorizontalTextAlignment="Center"
                                         FontSize="Small" 
                                         Style="{DynamicResource SmallLabel}" />
                 <Label 
-                                        Text="Tap &#xf02b; icon"
+                                        Text="{Binding [tagsPagePt2], Source={x:Static resources:ResourceLoader.Instance}}"
                                         HorizontalTextAlignment="Center"
                                         FontSize="Micro"
+                                        TextType="Html"
                                         Margin="0,25,0,0"
                                         Style="{StaticResource FontAwesome5FreeSolid}" />
                 <Label
-                                        Text="from the toolbar"
+                                        Text="{Binding [tagsPagePt3], Source={x:Static resources:ResourceLoader.Instance}}"
                                         HorizontalTextAlignment="Center"
                                         FontSize="Micro" 
                                         Margin="0,2,0,0"
                                         Style="{DynamicResource SmallLabel}" />
                 <Label
-                                        Text="to create first one"
+                                        Text="{Binding [tagsPagePt4], Source={x:Static resources:ResourceLoader.Instance}}"
                                         HorizontalTextAlignment="Center"
                                         FontSize="Micro" 
                                         Margin="0,2,0,0"
@@ -54,7 +56,7 @@
                                     </Grid.ColumnDefinitions>
                                     <!-- Place new controls here -->
                                     <Label Grid.Column="0" Padding="10,0,0,0" Text="{Binding Name}" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                    <Button Grid.Column="1" Text="&#xf2ed;" BackgroundColor="Transparent" TextColor="Red" FontSize="18" Style="{StaticResource FontAwesome5FreeRegular}" Clicked="OnDeleteClicked" HorizontalOptions="End" VerticalOptions="Center"/>
+                                    <Button Grid.Column="1" Text="&#xf2ed;" BackgroundColor="Transparent" TextColor="#FF4040" FontSize="18" Style="{StaticResource FontAwesome5FreeRegular}" Clicked="OnDeleteClicked" HorizontalOptions="End" VerticalOptions="Center"/>
                                 </Grid>
                             </StackLayout>
                         </ViewCell>
