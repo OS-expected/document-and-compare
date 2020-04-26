@@ -17,6 +17,8 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label
                     Grid.Row="0"
@@ -66,10 +68,24 @@
                     HorizontalOptions="CenterAndExpand"
                     Style="{StaticResource FontAwesome5FreeSolid}" />
                 <Label
-                    Margin="0, 0, 0, 20"
+                    Margin="0, 0, 0, 0"
                     Grid.Row="7"
                     Text="{Binding [aboutProudlyUses], Source={x:Static resources:ResourceLoader.Instance}}"
                     TextType="Html"
+                    />
+                <Label
+                    Grid.Row="8"
+                    Text="&#xf7a2;"
+                    TextColor="#38b6ff"
+                    FontSize="30" 
+                    Margin="0,20,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource FontAwesome5FreeSolid}" />
+                <Label 
+                    Margin="0, 0, 0, 20"
+                    Grid.Row="9"
+                    TextType="Html"
+                    Text="{Binding [localizationCredits], Source={x:Static resources:ResourceLoader.Instance}}"
                     />
             </Grid>
         </StackLayout>
