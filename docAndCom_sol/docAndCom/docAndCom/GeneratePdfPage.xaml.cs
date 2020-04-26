@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static docAndCom.Helpers.ShortenInvokes;
 
 namespace docAndCom
 {
@@ -18,21 +19,31 @@ namespace docAndCom
             FeedTagPicker();
         }
 
+        protected override void OnAppearing()
+        {
+            docTypePicker.ItemsSource[0] = GetResourceString("generateFilepickerList");
+            docTypePicker.ItemsSource[1] = GetResourceString("generateFilepickerTabular");
+        }
+
         private async void GeneratePdf_Clicked(object sender, EventArgs e)
         {
             ai.IsRunning = true;
             aiLayout.IsVisible = true;
 
             var tag = tagPicker.SelectedItem;
-            var docScheme = docTypePicker.SelectedItem;
+            var docScheme = docTypePicker.SelectedIndex;
 
             if (tag == null)
             {
-                await DisplayAlert("Oops..", "It seems that you did not choose tag. Document creation aborted.", "Ok");
+                await DisplayAlert(GetResourceString("OopsText"),
+                    GetResourceString("tagNotChosenText"),
+                    GetResourceString("OkText"));
                 return;
-            } else if (docScheme == null)
+            } else if (docScheme != 0 && docScheme != 1)
             {
-                await DisplayAlert("Oops..", "Document scheme type not chosen. Document creation aborted.", "Ok");
+                await DisplayAlert(GetResourceString("OopsText"),
+                    GetResourceString("fileSchemeNotChosenText"),
+                    GetResourceString("OkText"));
                 return;
             }
 
@@ -55,7 +66,7 @@ namespace docAndCom
             var fileName = $"{tagName}_{createdOn:dd-MM-yyyy}_{createdOn:HH-mm-ss}.pdf";
 
             var filePath = DependencyService.Get<IFileSaver>().GeneratePdfFile
-                (photos, tagName, fileName, docScheme.ToString());
+                (photos, tagName, fileName, docScheme);
 
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
@@ -73,16 +84,25 @@ namespace docAndCom
 
                 if (res > 0)
                 {
-                    await DisplayAlert("Success", "Document generated. To see the results, return to the previous page.", "Great!");
+                    await DisplayAlert(GetResourceString("SuccessText"),
+                        GetResourceString("fileGeneratedText"), 
+                        GetResourceString("greatText"));
                 } 
                 else
                 {
                     if(File.Exists(filePath))
                     {
-                        await DisplayAlert("Oops..", "Document reference not saved, generated file is available at:" + filePath, "Ok");
+                        var alertMsg = GetResourceString("fileRefNotSavedButFileGenerated");
+                        alertMsg = alertMsg.Replace("<%filePath%>", filePath);
+
+                        await DisplayAlert(GetResourceString("OopsText"),
+                            alertMsg, 
+                            GetResourceString("OkText"));
                     } else
                     {
-                        await DisplayAlert("Oops..", "Document reference not saved, file not generated.", "Ok");
+                        await DisplayAlert(GetResourceString("OopsText"),
+                            GetResourceString("fileRefNotSavedNotGenerated"), 
+                            GetResourceString("OkText"));
                     }
                 }
             }
@@ -109,7 +129,9 @@ namespace docAndCom
 
                 if(tagsList.Count <= 0)
                 {
-                    await DisplayAlert("Oops..", "You don't have tag with at least 3 images to perform this operation.", "Got it");
+                    await DisplayAlert(GetResourceString("OopsText"),
+                        GetResourceString("notEnoughImages"),
+                        GetResourceString("OkText"));
 
                     createDocBtn.IsEnabled = false;
                 }

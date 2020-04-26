@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:docAndCom"
              mc:Ignorable="d"
              x:Class="docAndCom.GeneratePdfPage">
     <AbsoluteLayout>
@@ -25,13 +26,13 @@
                    Style="{StaticResource FontAwesome5FreeRegular}" 
                    Margin="10, 25, 0, 10" 
                    FontSize="100"/>
-                <Label Grid.Row="1" 
-                   Text="1. Select tag to generate PDF." 
+                <Label Grid.Row="1"
+                   Text="{Binding [generateFilePt1Text], Source={x:Static resources:ResourceLoader.Instance}}" 
                    HorizontalTextAlignment="Start"
                    Margin="0, 20, 0, 10" 
                    FontSize="12"/>
                 <Picker x:Name="tagPicker"
-                    Title="tag"
+                    Title="{Binding [fileGenTag], Source={x:Static resources:ResourceLoader.Instance}}"
                     Grid.Row="2"
                     FontSize="13">
                     <Picker.ItemsSource>
@@ -43,11 +44,11 @@
                 </Picker>
                 <Label Grid.Row="3" 
                    Padding="18, 0, 18, 0"
-                   Text="*List consists only of tags that have at least 3 documented images." 
+                   Text="{Binding [generateFilePt2Text], Source={x:Static resources:ResourceLoader.Instance}}" 
                    HorizontalTextAlignment="Start" 
                    FontSize="Micro"/>
-                <Label Grid.Row="4" 
-                   Text="2. Choose document output scheme." 
+                <Label Grid.Row="4"
+                   Text="{Binding [generateFilePt3Text], Source={x:Static resources:ResourceLoader.Instance}}" 
                    HorizontalTextAlignment="Start"
                    Margin="0, 30, 0, 10" 
                    FontSize="12"/>
@@ -64,7 +65,7 @@
                 </Picker>
             </Grid>
             <Button x:Name="createDocBtn" 
-                Text="Create document" 
+                Text="{Binding [createFileText], Source={x:Static resources:ResourceLoader.Instance}}" 
                 HorizontalOptions="FillAndExpand" 
                 VerticalOptions="EndAndExpand"
                 BackgroundColor="#CF3F3D"
@@ -91,7 +92,7 @@
                         Opacity="1" />
                 <Label
                         Grid.Row="6"
-                        Text="Generating file.."
+                        Text="{Binding [generatingFileText], Source={x:Static resources:ResourceLoader.Instance}}"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="EndAndExpand"
                         TextColor="#A40149"
