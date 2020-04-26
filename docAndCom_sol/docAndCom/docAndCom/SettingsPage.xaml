@@ -3,25 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:docAndCom"
              mc:Ignorable="d"
              x:Class="docAndCom.SettingsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Picker x:Name="languagePicker"
-                    Title="Select language"
-                    Grid.Row="2"
+            <Grid 
+                Padding="15, 0, 15, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label
+                    Margin="0, 60, 0, 0"
+                    Text="{Binding [settingsText], Source={x:Static resources:ResourceLoader.Instance}}"
+                    FontSize="Title"/>
+                <Picker x:Name="languagePicker"
+                    Title="Language"
+                    Grid.Row="1"
                     SelectedIndexChanged="LanguageSelectedEvent"
                     FontSize="13">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>English</x:String>
-                        <x:String>Polish</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>English</x:String>
+                            <x:String>Polish</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label
+                    Grid.Row="2"
+                    Padding="6, 0, 6, 0"
+                    FontSize="Micro"
+                    Text="{Binding [languageSettingInfo], Source={x:Static resources:ResourceLoader.Instance}}"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
