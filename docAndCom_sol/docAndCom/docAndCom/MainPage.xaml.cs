@@ -1,5 +1,7 @@
-﻿using System;
+﻿using docAndCom.Resources;
+using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -43,6 +45,11 @@ namespace docAndCom
         private async void About_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AboutPage());
+        }
+
+        private async void Settings_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingsPage());
         }
 
         private async void GetStartedBtn_Clicked(object sender, EventArgs e)
