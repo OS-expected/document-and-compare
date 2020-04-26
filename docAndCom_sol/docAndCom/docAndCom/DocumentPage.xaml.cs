@@ -6,6 +6,7 @@ using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Plugin.Calendar.Models;
+using static docAndCom.Helpers.ShortenInvokes;
 
 namespace docAndCom
 {
@@ -42,8 +43,13 @@ namespace docAndCom
         {
             string hardDelData = ((Button)sender).BindingContext as string;
             string[] arr = hardDelData.Split(new[] { '|' }, 2); // 0 -> path, 1 -> tag
+  
+            var hardDelConfirmationAlertDesc = GetResourceString("hardDeleteAlertText");
+            hardDelConfirmationAlertDesc = hardDelConfirmationAlertDesc.Replace("<%tagName%>", arr[1]);
 
-            bool answer = await DisplayAlert("Are you sure?", $"This operation will permanently remove documented image(of {arr[1]} tag) from storage device.", "Yes", "No");
+            bool answer = await DisplayAlert(GetResourceString("areYouSureText"),
+                hardDelConfirmationAlertDesc, GetResourceString("YesText"),
+                GetResourceString("NoText"));
 
             if(answer == true)
             {
@@ -54,7 +60,9 @@ namespace docAndCom
 
                     if (tag == null)
                     {
-                        await DisplayAlert("Oops..", "Image tag reference not found. Operation aborted.", "Ok");
+                        await DisplayAlert(GetResourceString("OopsText"), 
+                            GetResourceString("imageTagRefNotFoundText"),
+                            GetResourceString("OkText"));
                         return;
                     }
 
@@ -63,7 +71,9 @@ namespace docAndCom
 
                     if (photo == null)
                     {
-                        await DisplayAlert("Failure", "Operation aborted. Reference to the image not found.", "Ok");
+                        await DisplayAlert(GetResourceString("OopsText"),
+                            GetResourceString("imageRefNotFoundText"),
+                            GetResourceString("OkText"));
                         return;
                     }
 
@@ -74,20 +84,24 @@ namespace docAndCom
                         File.Delete(photo.Path);
                     }
 
-                    string extraNote = "image left on device storage.";
+                    string extraNote = GetResourceString("imageLeftText");
 
                     if (File.Exists(photo.Path))
                     {
-                        extraNote = "image removed from device storage.";
+                        extraNote = GetResourceString("imageRemovedText");
                     }
 
                     if (res > 0)
                     {
-                        await DisplayAlert("Success", "Reference cleared, " + extraNote, "Ok");
+                        await DisplayAlert(GetResourceString("SuccessText"),
+                            GetResourceString("referenceClearedText") + extraNote,
+                            GetResourceString("OkText"));
                         InitEventsInCalendar();
                     } else if (res <= 0)
                     {
-                        await DisplayAlert("Oops..", "Reference not cleared, " + extraNote, "Ok");
+                        await DisplayAlert(GetResourceString("OopsText"),
+                            GetResourceString("referenceNotClearedText") + extraNote,
+                            GetResourceString("OkText"));
                     }
                 }
             }
@@ -98,7 +112,13 @@ namespace docAndCom
             string clearRefData = ((Button)sender).BindingContext as string;
             string[] arr = clearRefData.Split(new[] { '|' }, 2); // 0 -> path, 1 -> tag
 
-            bool answer = await DisplayAlert("Are you sure?", $"This operation will remove reference to the documented image from {arr[1]} tag, in application. Image won't be deleted from storage device.", "Yes", "No");
+            var clearRefConfirmationAlertDesc = GetResourceString("imageClearReferenceAlertText");
+            clearRefConfirmationAlertDesc = clearRefConfirmationAlertDesc.Replace("<%tagName%>", arr[1]);
+
+            bool answer = await DisplayAlert(GetResourceString("areYouSureText"),
+                clearRefConfirmationAlertDesc, 
+                GetResourceString("YesText"),
+                GetResourceString("NoText"));
 
             if(answer == true)
             {
@@ -109,7 +129,9 @@ namespace docAndCom
 
                     if (tag == null)
                     {
-                        await DisplayAlert("Oops..", "Tag required to identify image not found. Operation aborted.", "Ok");
+                        await DisplayAlert(GetResourceString("OopsText"),
+                            GetResourceString("imageTagRefNotFoundText"),
+                            GetResourceString("OkText"));
                         return;
                     }
 
@@ -121,17 +143,23 @@ namespace docAndCom
                         var res = conn.Delete<Photo>(photo.Id);
                         if (res > 0)
                         {
-                            await DisplayAlert("Success", "Reference to the image cleared.", "Ok");
+                            await DisplayAlert(GetResourceString("SuccessText"), 
+                                GetResourceString("imageReferenceClearedText"),
+                                GetResourceString("OkText"));
                             InitEventsInCalendar();
                         }
                         else
                         {
-                            await DisplayAlert("Oops..", "Problem with clearing reference occured :(", "Ok");
+                            await DisplayAlert(GetResourceString("OopsText"),
+                                GetResourceString("imageReferenceClearProblemText"),
+                                GetResourceString("OkText"));
                         }
                     }
                     else
                     {
-                        await DisplayAlert("Oops..", "Clearing reference failed. Image record was not found in the database.", "Ok");
+                        await DisplayAlert(GetResourceString("OopsText"),
+                            GetResourceString("imageRefNotFoundText"),
+                            GetResourceString("OkText"));
                     }
                 }
             }      

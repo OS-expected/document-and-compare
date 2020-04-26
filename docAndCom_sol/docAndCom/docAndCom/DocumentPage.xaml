@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:docAndCom"
              mc:Ignorable="d"
              xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
              x:Class="docAndCom.DocumentPage">
@@ -37,7 +38,7 @@
                                         Style="{DynamicResource SmallLabel}" />
                                 </StackLayout>
                                 <Label
-                                    Text="Preview"
+                                    Text="{Binding [previewText], Source={x:Static resources:ResourceLoader.Instance}}"
                                     FontAttributes="Bold"
                                     FontSize="Micro" 
                                     Grid.Column="0"
@@ -51,7 +52,7 @@
                                     Grid.Row="1" />
                                 <Button
                                     Margin="0, 10, 0, 0"
-                                    Text="Open image"
+                                    Text="{Binding [openImageText], Source={x:Static resources:ResourceLoader.Instance}}"
                                     FontSize="8"
                                     BackgroundColor="#808080"
                                     TextColor="White"
@@ -65,7 +66,7 @@
                                     Clicked="OpenImageBtn_Clicked" />
                                 <Button
                                     Margin="0, 50, 0, 0"
-                                    Text="Clear reference"
+                                    Text="{Binding [clearReferenceText], Source={x:Static resources:ResourceLoader.Instance}}"
                                     FontSize="8"
                                     BackgroundColor="#CD8C95"
                                     TextColor="White"
@@ -78,7 +79,7 @@
                                     BindingContext="{Binding ClumpedData}"
                                     Clicked="ClearRefBtn_Clicked" />
                                 <Button
-                                    Text="Hard delete"   
+                                    Text="{Binding [hardDeleteText], Source={x:Static resources:ResourceLoader.Instance}}"   
                                     Margin="0, 90, 0, 0"
                                     FontSize="8"
                                     BackgroundColor="#FF4040"
