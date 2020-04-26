@@ -120,4 +120,25 @@
   <data name="aboutText" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="builtWithText" xml:space="preserve">
+    <value>Built with Xamarin.Forms for</value>
+  </data>
+  <data name="documentText" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="generateText" xml:space="preserve">
+    <value>Generate</value>
+  </data>
+  <data name="getStartedText" xml:space="preserve">
+    <value>Get Started</value>
+  </data>
+  <data name="repositoryText" xml:space="preserve">
+    <value>Repository</value>
+  </data>
+  <data name="settingsText" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="tagText" xml:space="preserve">
+    <value>Tag</value>
+  </data>
 </root>
