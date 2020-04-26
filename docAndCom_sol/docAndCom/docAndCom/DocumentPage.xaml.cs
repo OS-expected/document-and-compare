@@ -1,7 +1,6 @@
 ﻿using docAndCom.Models;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using Xamarin.Forms;
@@ -25,7 +24,7 @@ namespace docAndCom
 
         protected override void OnAppearing()
         {
-            calendarRef.Culture = ResourceLoader.Instance.GetCultureInfo();
+            ConfigureCalendar();
 
             InitEventsInCalendar();
         }
@@ -40,6 +39,19 @@ namespace docAndCom
             string path = ((Button)sender).BindingContext as string;
 
             DependencyService.Get<IFileOpener>().OpenFileByGivenPath(path);
+        }
+
+        private void ConfigureCalendar()
+        {
+            calendarRef.Culture = ResourceLoader.Instance.GetCultureInfo();
+            calendarRef.DaysTitleLabelStyle = new Style(typeof(Entry))
+            {
+                Setters = {
+                new Setter { Property = Entry.FontSizeProperty, Value = 10 }
+            }
+            };
+            calendarRef.SelectedDayBackgroundColor = Color.FromHex("#03396C");
+            calendarRef.SelectedDayTextColor = Color.White;
         }
 
         private async void HardDelBtn_Clicked(object sender, EventArgs e)
