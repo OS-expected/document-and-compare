@@ -28,16 +28,13 @@ namespace docAndCom
 
                 var res = conn.Table<Preference>().SingleOrDefault(p => p.Key == "lang");
 
-                if(res != null || res.Value == "en-US")
+                if (res.Value == "en-US")
                 {
                     languagePicker.SelectedIndex = 0;
                 } 
-                else
+                else if (res.Value == "pl-PL")
                 {
-                    if (res.Value == "pl-PL")
-                    {
-                        languagePicker.SelectedIndex = 1;
-                    }
+                    languagePicker.SelectedIndex = 1;
                 }
             }
 
