@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:docAndCom"
              mc:Ignorable="d"
              x:Class="docAndCom.NewDocumentPage">
     <ScrollView>
@@ -17,7 +18,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label
-                  Text="Photo Preview"
+                  Text="{Binding [photoPreviewText], Source={x:Static resources:ResourceLoader.Instance}}"
                   HorizontalTextAlignment="Center"
                   FontSize="20"
                   Grid.ColumnSpan="2"/>
@@ -29,19 +30,19 @@
                   HorizontalOptions="Center"
                   BackgroundColor="#F0F0F0"/>
                 <Button
-                  Text="Take Photo"
+                  Text="{Binding [takePhotoText], Source={x:Static resources:ResourceLoader.Instance}}"
                   BackgroundColor="Goldenrod"
                   Grid.Row="2"
                   Grid.Column="0"
                   Clicked="TakePhoto_Clicked"/>
                 <Button
-                  Text="Gallery"
+                  Text="{Binding [galleryText], Source={x:Static resources:ResourceLoader.Instance}}"
                   BackgroundColor="Gainsboro"
                   Grid.Row="2"
                   Grid.Column="1"
                   Clicked="Gallery_Clicked"/>
                 <Picker x:Name="tagPicker"
-                    Title="Select tag"
+                    Title="{Binding [selectTagText], Source={x:Static resources:ResourceLoader.Instance}}"
                     Grid.Row="3"
                     Grid.ColumnSpan="2"
                     FontSize="13">
@@ -60,7 +61,7 @@
                 <Button
                     Grid.Row="5"
                     Grid.Column="1"
-                    Text="Document"
+                    Text="{Binding [documentImageText], Source={x:Static resources:ResourceLoader.Instance}}"
                     Clicked="DocumentBtn_Clicked"/>
             </Grid>
         </StackLayout>

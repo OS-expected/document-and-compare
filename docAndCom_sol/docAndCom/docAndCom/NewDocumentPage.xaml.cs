@@ -4,6 +4,7 @@ using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static docAndCom.Helpers.ShortenInvokes;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -26,7 +27,9 @@ namespace docAndCom
         {
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
-                await DisplayAlert("Oops..", "Camera is not available :(", "Ok.");
+                await DisplayAlert(GetResourceString("OopsText"),
+                    GetResourceString("cameraNotAvailableText"), 
+                    GetResourceString("OkText"));
                 return;
             }
 
@@ -57,7 +60,9 @@ namespace docAndCom
         {
             if (!CrossMedia.Current.IsPickPhotoSupported)
             {
-                await DisplayAlert("Oops..", "Picking a photo is not supported :(", "Ok");
+                await DisplayAlert(GetResourceString("OopsText"),
+                    GetResourceString("photoPickNotSupportedText"),
+                    GetResourceString("OkText"));
                 return;
             }
 
@@ -81,7 +86,10 @@ namespace docAndCom
 
                 if (tags.Count == 0)
                 {
-                    var res = await DisplayAlert("Oops..", "It looks like you did not create tag required to perform document operation. Would you like to be redirected to the tags page?", "Yes", "No");
+                    var res = await DisplayAlert(GetResourceString("OopsText"),
+                        GetResourceString("noTagText"),
+                        GetResourceString("YesText"),
+                        GetResourceString("NoText"));
                     
                     if(res == true)
                     {
@@ -112,7 +120,9 @@ namespace docAndCom
 
             if (pickedTag == null)
             {
-                await DisplayAlert("Oops..", "Tag not picked!", "Ok");
+                await DisplayAlert(GetResourceString("OopsText"),
+                    GetResourceString("tagNotSelectedText"),
+                    GetResourceString("OkText"));
                 return;
             }
 
@@ -122,7 +132,9 @@ namespace docAndCom
 
                 if (id <= 0)
                 {
-                    await DisplayAlert("Operation aborted", "Tag does not exist in database.", "Ok");
+                    await DisplayAlert(GetResourceString("OopsText"),
+                        GetResourceString("tagNotExistsText"),
+                        GetResourceString("OkText"));
                     return;
                 }
 
@@ -139,11 +151,15 @@ namespace docAndCom
 
                 if (numberOfRows > 0)
                 {
-                    await DisplayAlert("Success", "Image successfuly documented in the app. You can now return to the calendar.", "Great!");
+                    await DisplayAlert(GetResourceString("SuccessText"),
+                        GetResourceString("imageSuccessfulyDocumentedText"),
+                        GetResourceString("greatText"));
                 }
                 else
                 {
-                    await DisplayAlert("Failure", "Image not documented in the app, try again!", "Ok");
+                    await DisplayAlert(GetResourceString("OopsText"),
+                        GetResourceString("imageNotDocumentedText"),
+                        GetResourceString("OkText"));
                 }
             }
         }
