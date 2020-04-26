@@ -43,7 +43,7 @@ namespace docAndCom.Droid
             Application.Context.StartActivity(chooserIntent);
         }
 
-        public string GeneratePdfFile(List<Photo> photos, string tag, string fileName, string mode)
+        public string GeneratePdfFile(List<Photo> photos, string tag, string fileName, int mode)
         {
             string root = null;
 
@@ -94,7 +94,7 @@ namespace docAndCom.Droid
 
             doc.Add(new Paragraph(" ") { SpacingBefore = 4f });
 
-            if (mode == "List")
+            if (mode == 0)
             {
                 foreach (var photo in photos)
                 {
@@ -108,7 +108,7 @@ namespace docAndCom.Droid
                     mainParagraph.Add(img);
                     doc.Add(mainParagraph);
                 }
-            } else if (mode == "Tabular")
+            } else if (mode == 1)
             {
                 var numberOfImages = photos.Count;
                 var numberOfRows = 0;
