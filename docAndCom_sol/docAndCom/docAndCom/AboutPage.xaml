@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:docAndCom"
              mc:Ignorable="d"
              x:Class="docAndCom.AboutPage">
     <ScrollView>
@@ -19,7 +20,7 @@
                 </Grid.RowDefinitions>
                 <Label
                     Grid.Row="0"
-                    Text="About"
+                    Text="{Binding [aboutText], Source={x:Static resources:ResourceLoader.Instance}}"
                     FontSize="40"
                     Margin="0, 10, 0, 0"
                     HorizontalOptions="CenterAndExpand"
@@ -37,7 +38,8 @@
                     Margin="0, 20, 0, 0"
                     Grid.Row="2"
                     HorizontalTextAlignment="Center"
-                    Text="docAndCom is handy, open software tool developed by trolit(github.com/trolit) under MIT license for Android. In short, app is designed to let users document their subject under prepared tag(s). After gaining some data users can obtain results as pdf file(s) allowing to compare changes between them. Want to help with making it better? Message me :)"
+                    TextType="Html"
+                    Text="{Binding [aboutShortDescText], Source={x:Static resources:ResourceLoader.Instance}}"
                     />
                 <Label
                     Grid.Row="3"
@@ -49,11 +51,11 @@
                     Style="{StaticResource FontAwesome5FreeBrand}" />
                 <Label
                     Grid.Row="4"
-                    Text="*Minimum Android required: 5.0 (API l. 21)"
+                    Text="{Binding [minAndroidText], Source={x:Static resources:ResourceLoader.Instance}}"
                     />
                 <Label
                     Grid.Row="5"
-                    Text="*Target Android version: 9.0 (API l. 28)"
+                    Text="{Binding [targetedAndroidText], Source={x:Static resources:ResourceLoader.Instance}}"
                     />
                 <Label
                     Grid.Row="6"
@@ -66,7 +68,8 @@
                 <Label
                     Margin="0, 0, 0, 20"
                     Grid.Row="7"
-                    Text="docAndCom proudly uses: &#10; - Xamarin.Forms &#10; - SQLite, &#10; - iTextSharp, &#10; - Iconify and Font Awesome icons &#10; - Xam.Plugin.Media &#10; - Xamarin.Plugin.Calendar"
+                    Text="{Binding [aboutProudlyUses], Source={x:Static resources:ResourceLoader.Instance}}"
+                    TextType="Html"
                     />
             </Grid>
         </StackLayout>
