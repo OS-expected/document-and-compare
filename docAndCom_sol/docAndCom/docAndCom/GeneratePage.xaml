@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:Helpers="clr-namespace:docAndCom.Converters"
+             xmlns:resources="clr-namespace:docAndCom"
              mc:Ignorable="d"
              x:Class="docAndCom.GeneratePage">
 
@@ -21,13 +22,13 @@
                 Orientation="Horizontal" 
                 Spacing="0">
                     <Label 
-                           Text="Documents" 
+                           Text="{Binding [filesText], Source={x:Static resources:ResourceLoader.Instance}}" 
                            Margin="10, 0, 0, 0" 
                            FontSize="Title"
                             VerticalOptions="CenterAndExpand"
                            VerticalTextAlignment="Center"/>
                     <Button 
-                        Text="Create new" 
+                        Text="{Binding [createNewText], Source={x:Static resources:ResourceLoader.Instance}}" 
                         Clicked="GenerateNewDocBtn_Clicked"
                         HeightRequest="40"
                         HorizontalOptions="FillAndExpand"
@@ -47,19 +48,19 @@
                                         FontSize="35"
                                         Style="{StaticResource FontAwesome5FreeRegular}" />
                 <Label
-                                        Text="Currently there are no docs."
+                                        Text="{Binding [noFilesTextPt1], Source={x:Static resources:ResourceLoader.Instance}}"
                                         HorizontalTextAlignment="Center"
                                         FontSize="Micro" 
                                         Margin="0,8,0,0"
                                         Style="{DynamicResource SmallLabel}" />
                 <Label
-                                        Text="Make the first one using"
+                                        Text="{Binding [noFilesTextPt2], Source={x:Static resources:ResourceLoader.Instance}}"
                                         HorizontalTextAlignment="Center"
                                         FontSize="Micro" 
                                         Margin="0,15,0,0"
                                         Style="{DynamicResource SmallLabel}" />
                 <Label
-                                        Text="button placed above."
+                                        Text="{Binding [noFilesTextPt3], Source={x:Static resources:ResourceLoader.Instance}}"
                                         HorizontalTextAlignment="Center"
                                         FontSize="Micro" 
                                         Margin="0,2,0,0"
@@ -87,7 +88,7 @@
                                     <Label Grid.Column="1" 
                                                IsVisible="{Binding IsExisting, Converter={Helpers:InverseBoolConverter}}" 
                                                Margin="10,0,10,0" 
-                                               Text="File not found on device." 
+                                               Text="{Binding [fileNotFoundOnDeviceText], Source={x:Static resources:ResourceLoader.Instance}}" 
                                                TextColor="Firebrick" 
                                                FontSize="Micro"
                                                HorizontalOptions="StartAndExpand" 

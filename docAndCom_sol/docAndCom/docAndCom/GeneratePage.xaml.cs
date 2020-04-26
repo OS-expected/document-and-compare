@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static docAndCom.Helpers.ShortenInvokes;
 
 namespace docAndCom
 {
@@ -48,7 +49,7 @@ namespace docAndCom
                         Id = doc.Id,
                         FileName = doc.FileName,
                         Path = doc.Path,
-                        GeneratedOn = doc.GeneratedOn.ToString("dd.MM.yyyy")
+                        GeneratedOn = doc.GeneratedOn.ToString(GetResourceString("dateStringFormat"))
                     };
 
                     if (File.Exists(doc.Path))
@@ -90,7 +91,13 @@ namespace docAndCom
             var button = sender as Button;
             var doc = button.BindingContext as DocumentViewModel;
 
-            var result = await DisplayAlert("Confirmation", $"Are you sure, you want to delete {doc.FileName}?", "Yes", "No");
+            var deleteAlertConfirmationMsg = GetResourceString("deleteFileConfirmationText");
+            deleteAlertConfirmationMsg = deleteAlertConfirmationMsg.Replace("<%fileName%>", doc.FileName);
+
+            var result = await DisplayAlert(GetResourceString("areYouSureText"),
+                deleteAlertConfirmationMsg, 
+                GetResourceString("YesText"),
+                GetResourceString("NoText"));
 
             if (result == true)
             {
@@ -98,7 +105,10 @@ namespace docAndCom
                 {
                     if (File.Exists(doc.Path))
                     {
-                        result = await DisplayAlert("Question", "Remove also file from device storage?", "Yes", "No");
+                        result = await DisplayAlert(GetResourceString("questionText"),
+                            GetResourceString("deleteFileFromStorageText"),
+                            GetResourceString("YesText"),
+                            GetResourceString("NoText"));
 
                         if(result == true)
                         {
@@ -111,7 +121,9 @@ namespace docAndCom
 
                     if (deleteRefResult > 0)
                     {
-                        await DisplayAlert("Success", "Operation successful!", "Ok");
+                        await DisplayAlert(GetResourceString("SuccessText"),
+                            GetResourceString("operationSuccessfulText"),
+                            GetResourceString("OkText"));
                     }
                 }
 
