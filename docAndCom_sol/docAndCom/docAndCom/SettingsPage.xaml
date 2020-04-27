@@ -14,8 +14,10 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label
+                    Grid.Row="0"
                     Margin="0, 60, 0, 0"
                     Text="{Binding [settingsText], Source={x:Static resources:ResourceLoader.Instance}}"
                     FontSize="Title"/>
@@ -36,6 +38,25 @@
                     Padding="6, 0, 6, 0"
                     FontSize="Micro"
                     Text="{Binding [languageSettingInfo], Source={x:Static resources:ResourceLoader.Instance}}"/>
+                <Picker x:Name="columnPicker"
+                    Margin="0, 15, 0, 0"
+                    Title="Tabular scheme columns number"
+                    Grid.Row="3"
+                    SelectedIndexChanged="ColumnNumberSelectedEvent"
+                    FontSize="13">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>3 (default)</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Label
+                    Grid.Row="4"
+                    Padding="6, 0, 6, 0"
+                    FontSize="Micro"
+                    Text="{Binding [settingsNumOfColsNote], Source={x:Static resources:ResourceLoader.Instance}}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

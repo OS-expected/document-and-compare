@@ -9,6 +9,7 @@ using Android.Support.V4.Content;
 using Android.Webkit;
 using docAndCom.Droid;
 using docAndCom.Models;
+using docAndCom.Resources;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Org.W3c.Dom;
@@ -43,7 +44,7 @@ namespace docAndCom.Droid
             Application.Context.StartActivity(chooserIntent);
         }
 
-        public string GeneratePdfFile(List<Photo> photos, string tag, string fileName, int mode)
+        public string GeneratePdfFile(List<Photo> photos, string tag, string fileName, int mode, int columnsNumber)
         {
             string root = null;
 
@@ -80,13 +81,13 @@ namespace docAndCom.Droid
             doc.Open();
 
             var titleFont = FontFactory.GetFont("Arial", 34.0f, Color.BLACK);
-            var title = new Paragraph("Doc and Compare", titleFont);
+            var title = new Paragraph(ResourceLoader.Instance.GetString("pdfTitle"), titleFont);
 
             var subTitleFont = FontFactory.GetFont("Arial", 14.0f, Color.BLACK);
-            var subTitle = new Paragraph("File generated with iTextSharp solution", subTitleFont);
+            var subTitle = new Paragraph(ResourceLoader.Instance.GetString("pdfSubTitle"), subTitleFont);
 
             var subSubTitleFont = FontFactory.GetFont("Arial", 10.0f, Color.BLACK);
-            var subSubTitle = new Paragraph("Documented data from: " + tag, subSubTitleFont);
+            var subSubTitle = new Paragraph(ResourceLoader.Instance.GetString("pdfSubSubTitle") + tag, subSubTitleFont);
 
             doc.Add(title);
             doc.Add(subTitle);
@@ -99,7 +100,8 @@ namespace docAndCom.Droid
                 foreach (var photo in photos)
                 {
                     var mainParagraph = new Paragraph();
-                    var p = new Paragraph("Documented: " + photo.CreatedOn.ToString("dd.MM.yyyy"));
+                    var p = new Paragraph(
+                        ResourceLoader.Instance.GetString("pdfDataText") + photo.CreatedOn.ToString("dd.MM.yyyy"));
                     mainParagraph.Add(p);
                     var img = Image.GetInstance(photo.Path);
                     img.ScalePercent(24f);
@@ -119,17 +121,18 @@ namespace docAndCom.Droid
                 }
                 else if (numberOfImages > 3)
                 {
-                    numberOfRows = CalculateRowsAmount(numberOfImages);
+                    numberOfRows = CalculateRowsAmount(numberOfImages, columnsNumber);
                 }
-
-                PdfPTable table = new PdfPTable(3);
+               
+                PdfPTable table = new PdfPTable(columnsNumber);
+                table.WidthPercentage = 90;
 
                 int dateId = 0;
                 int photoId = 0;
 
                 for (int i = 0; i < numberOfRows; i++)
                 {
-                    for (int x = 0; x < 3; x++)  
+                    for (int x = 0; x < columnsNumber; x++)  
                     {
                         // even
                         if(i % 2==0)
@@ -141,7 +144,7 @@ namespace docAndCom.Droid
                                 p = new Paragraph(photos[dateId].CreatedOn.ToString("dd.MM.yyyy"));
                             } else
                             {
-                                p = new Paragraph("empty");
+                                p = new Paragraph(ResourceLoader.Instance.GetString("pdfEmptyText"));
                             }
                             p.Alignment = Element.ALIGN_CENTER;
                             table.AddCell(p);
@@ -156,7 +159,7 @@ namespace docAndCom.Droid
                                 table.AddCell(img);
                             } else
                             {
-                                Paragraph p = new Paragraph("empty");
+                                Paragraph p = new Paragraph(ResourceLoader.Instance.GetString("pdfEmptyText"));
                                 p.Alignment = Element.ALIGN_CENTER;
                                 table.AddCell(p);
                             }
@@ -173,16 +176,16 @@ namespace docAndCom.Droid
             return _path;
         }
 
-        private int CalculateRowsAmount(int value)
+        private int CalculateRowsAmount(int value, int numOfCols)
         {
             int result = 0;
 
-            if(value == 4)
+            if(value == 4 && numOfCols == 3)
             {
                 return 4;
             } else
             {
-                for (int i = 0; i < value; i+=3)
+                for (int i = 0; i < value; i+= numOfCols)
                 {
                     result += 2;
                 }
@@ -190,17 +193,18 @@ namespace docAndCom.Droid
 
             return result;
         }
-        // 4 => 4 rows 
-        // 5 => 4 rows (2, 4)
-        // 6 => 4 rows 
-        // 7 => 6 rows
-        // 8 => 6 rows
-        // 9 => 6 rows 
-        // 10 => 8 rows (2, 4, 6, 8)
-        // 11 => 8 rows
-        // 12 => 8 rows
-        // 13 => 10 rows
-        // 14 => 10 rows
-        // 15 => 10 rows
+        //     [3 cols]     [4 cols]      [5 cols]
+        // 4 => 4 rows       2 rows        2 rows
+        // 5 => 4 rows       4 rows        2 rows
+        // 6 => 4 rows       4 rows        4 rows
+        // 7 => 6 rows       4 rows        4 rows
+        // 8 => 6 rows       4 rows        4 rows
+        // 9 => 6 rows       6 rows        4 rows
+        // 10 => 8 rows      6 rows        4 rows
+        // 11 => 8 rows      6 rows        6 rows
+        // 12 => 8 rows      6 rows        6 rows
+        // 13 => 10 rows     8 rows        6 rows
+        // 14 => 10 rows     8 rows        6 rows
+        // 15 => 10 rows     8 rows        6 rows
     }
 }

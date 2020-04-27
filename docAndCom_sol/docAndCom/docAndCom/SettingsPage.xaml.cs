@@ -36,8 +36,52 @@ namespace docAndCom
                 {
                     languagePicker.SelectedIndex = 1;
                 }
+
+                var prefRes = conn.Table<Preference>().FirstOrDefault(p => p.Key == "numOfCol");
+
+                if (prefRes.Value == "3")
+                {
+                    columnPicker.SelectedIndex = 0;
+                }
+                else if (prefRes.Value == "4")
+                {
+                    columnPicker.SelectedIndex = 1;
+                }
+                else if (prefRes.Value == "5")
+                {
+                    columnPicker.SelectedIndex = 2;
+                }
             }
 
+        }
+
+        private void ColumnNumberSelectedEvent(object sender, EventArgs e)
+        {
+            Picker picker = sender as Picker;
+            var selectedVal = picker.SelectedItem.ToString().Substring(0, 1);
+
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
+            {
+                conn.CreateTable<Preference>();
+
+                var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "numOfCol");
+
+                Preference pref = new Preference()
+                {
+                    Key = "numOfCol",
+                    Value = "3"
+                };
+
+                if(res == null && selectedVal != res.Value)
+                {
+                    conn.Insert(pref);
+                } 
+                else if (selectedVal != res.Value)
+                {
+                    res.Value = selectedVal;
+                    conn.Update(res);
+                }
+            }
         }
 
         private void LanguageSelectedEvent(object sender, EventArgs e)

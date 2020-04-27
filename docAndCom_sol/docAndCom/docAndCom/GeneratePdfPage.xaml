@@ -53,7 +53,7 @@
                    Margin="0, 30, 0, 10" 
                    FontSize="12"/>
                 <Picker x:Name="docTypePicker"
-                    Title="type"
+                    Title="{Binding [pdfTypeText], Source={x:Static resources:ResourceLoader.Instance}}"
                     Grid.Row="5"
                     FontSize="13">
                     <Picker.ItemsSource>

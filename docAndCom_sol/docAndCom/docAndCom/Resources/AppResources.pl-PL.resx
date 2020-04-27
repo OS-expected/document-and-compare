@@ -367,6 +367,24 @@
   <data name="operationSuccessfulText" xml:space="preserve">
     <value>Operacja udana!</value>
   </data>
+  <data name="pdfDataText" xml:space="preserve">
+    <value>Udokumentowane: </value>
+  </data>
+  <data name="pdfEmptyText" xml:space="preserve">
+    <value>brak dalszych zdjec</value>
+  </data>
+  <data name="pdfSubSubTitle" xml:space="preserve">
+    <value>Dane pochodza z: </value>
+  </data>
+  <data name="pdfSubTitle" xml:space="preserve">
+    <value>Plik wygenerowany z pomoca iTextSharp</value>
+  </data>
+  <data name="pdfTitle" xml:space="preserve">
+    <value>Doc and Compare</value>
+  </data>
+  <data name="pdfTypeText" xml:space="preserve">
+    <value>Układ</value>
+  </data>
   <data name="photoPickNotSupportedText" xml:space="preserve">
     <value>Robienie zdjęcia nie jest wspierane :(</value>
   </data>
@@ -393,6 +411,9 @@
   </data>
   <data name="selectTagText" xml:space="preserve">
     <value>Wybierz etykietę</value>
+  </data>
+  <data name="settingsNumOfColsNote" xml:space="preserve">
+    <value>*Ta opcja pozwala na zmianę liczby kolumn na wiersz w układzie tabelkowym generowanego pliku pdf. Pamiętaj, że im więcej kolumn jest w pojedynczym wierszu tym zdjęcia są mniejsze, żeby wszystkie pomieścić w wierszu.</value>
   </data>
   <data name="settingsText" xml:space="preserve">
     <value>Ustawienia</value>

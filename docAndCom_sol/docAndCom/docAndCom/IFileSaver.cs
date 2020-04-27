@@ -6,6 +6,6 @@ namespace docAndCom
 {
     public interface IFileSaver
     {
-        string GeneratePdfFile(List<Photo> photos, string tag, string fileName, int mode);
+        string GeneratePdfFile(List<Photo> photos, string tag, string fileName, int mode, int columnsNumber);
     }
 }

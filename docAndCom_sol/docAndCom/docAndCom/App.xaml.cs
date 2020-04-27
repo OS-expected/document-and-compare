@@ -29,6 +29,8 @@ namespace docAndCom
 
             LoadLanguage();
 
+            SetDefaultNumberOfColumnsForTabularScheme();
+
             MainPage = new NavigationPage(new MainPage());
         }
 
@@ -42,6 +44,27 @@ namespace docAndCom
 
         protected override void OnResume()
         {
+        }
+
+        private void SetDefaultNumberOfColumnsForTabularScheme()
+        {
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(DB_PATH))
+            {
+                conn.CreateTable<Preference>();
+
+                var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "numOfCol");
+
+                if(res == null)
+                {
+                    Preference pref = new Preference()
+                    {
+                        Key = "numOfCol",
+                        Value = "3"
+                    };
+
+                    conn.Insert(pref);
+                }
+            }
         }
 
         private void LoadLanguage()

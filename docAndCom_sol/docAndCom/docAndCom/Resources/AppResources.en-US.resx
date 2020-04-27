@@ -366,6 +366,24 @@
   <data name="operationSuccessfulText" xml:space="preserve">
     <value>Operation successful!</value>
   </data>
+  <data name="pdfDataText" xml:space="preserve">
+    <value>Documented: </value>
+  </data>
+  <data name="pdfEmptyText" xml:space="preserve">
+    <value>empty</value>
+  </data>
+  <data name="pdfSubSubTitle" xml:space="preserve">
+    <value>Documented data from: </value>
+  </data>
+  <data name="pdfSubTitle" xml:space="preserve">
+    <value>File generated with iTextSharp solution</value>
+  </data>
+  <data name="pdfTitle" xml:space="preserve">
+    <value>Doc and Compare</value>
+  </data>
+  <data name="pdfTypeText" xml:space="preserve">
+    <value>Type</value>
+  </data>
   <data name="photoPickNotSupportedText" xml:space="preserve">
     <value>Picking a photo is not supported :(</value>
   </data>
@@ -392,6 +410,9 @@
   </data>
   <data name="selectTagText" xml:space="preserve">
     <value>Select tag</value>
+  </data>
+  <data name="settingsNumOfColsNote" xml:space="preserve">
+    <value>*This option lets user change amount of columns per row in a Tabular scheme. Be advised that the more columns you use per row, the less wider photos are.</value>
   </data>
   <data name="settingsText" xml:space="preserve">
     <value>Settings</value>
