@@ -145,6 +145,7 @@
                             Source="help_gen_4.png"/>
                     <Label 
                             Margin="30, 20, 25, 25"
+                            TextType="Html"
                             Text="{Binding [helpGenPt5], Source={x:Static resources:ResourceLoader.Instance}}"/>
                 </StackLayout>
             </Grid>
