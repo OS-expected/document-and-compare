@@ -319,7 +319,10 @@
     <value>Image tag reference not found. Operation aborted.</value>
   </data>
   <data name="languageSettingInfo" xml:space="preserve">
-    <value>*List data is not translated in case of choosing different language by mistake.</value>
+    <value>Note: Pickers data are not translated.</value>
+  </data>
+  <data name="languageText" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="loadingText" xml:space="preserve">
     <value>Loading...</value>
@@ -428,6 +431,9 @@
   </data>
   <data name="SuccessText" xml:space="preserve">
     <value>Success</value>
+  </data>
+  <data name="tabulaSchemeNumOfColsText" xml:space="preserve">
+    <value>Tabular scheme(columns)</value>
   </data>
   <data name="tagAdded" xml:space="preserve">
     <value>Tag added to the app.</value>

@@ -235,10 +235,10 @@
     <value>Archiwum</value>
   </data>
   <data name="helpDocPt1" xml:space="preserve">
-    <value>Archiwum w kontekście aplikacji to zdjęcia zapisane z datą przypisaną przez użytkownika aplikacji.</value>
+    <value>Archiwum w kontekście aplikacji to zapisane zdjęcia z datą przypisaną przez użytkownika aplikacji.</value>
   </data>
   <data name="helpDocPt2" xml:space="preserve">
-    <value>Żeby dodać nowy plik do archiwum, przejdź do archiwum z pozycji menu głównego aplikacji a następnie kliknij ikonę, które znajduje się na pasku narzędzi, z prawej strony. </value>
+    <value>Żeby dodać nowy plik do archiwum, przejdź do archiwum z pozycji menu głównego aplikacji a następnie kliknij ikonę, która znajduje się na pasku narzędzi, z prawej strony. </value>
   </data>
   <data name="helpDocPt3" xml:space="preserve">
     <value>Możesz wybrać zdjęcie z galerii lub zrobić nowe. Po dodaniu zdjęcia, wróć do widoku z kalendarzem za pomocą strzałki znajdującej się na pasku narzędzi. Dni w których użytkownik udokumentował coś są zaznaczone kropką. Nie ma limitu liczby udokumentowanych zdjęć danego dnia. </value>
@@ -259,16 +259,16 @@
     <value>Trzecim procesem jest generowanie plików. Po zebraniu odpowiedniej liczby danych pod daną etykietą(minimum 3 zdjęcia) możesz wygenerować plik pdf, który pozwala na łatwe porównanie zdjęć między sobą.</value>
   </data>
   <data name="helpGenPt2" xml:space="preserve">
-    <value>Żeby wygenerować nowy plik, przejdź do sekcji pliki z menu głównego aplikacji a następnie naciśnij przycisk umieszczony obok tytułu - Utwórz nowy.</value>
+    <value>Żeby wygenerować nowy plik, przejdź do sekcji pliki z menu głównego aplikacji a następnie naciśnij przycisk umieszczony obok tytułu - Utwórz nowy(ang. Create New).</value>
   </data>
   <data name="helpGenPt3" xml:space="preserve">
     <value>Na nowej stronie należy wybrać etykietę, której zdjęcia chce się wygenerować w zestawieniu pliku pdf i jaki ma być układ pliku wyjściowego. Układ to sposób w jaki pokazywane są wyniki. Dostępna jest opcja lista i tabela. Przykład listy:</value>
   </data>
   <data name="helpGenPt4" xml:space="preserve">
-    <value>Żeby obejrzeć wygenerowany dokument, wróć do listy plików i naciśnij ikonę przedstawiającą oko(potrzebujesz zewnętrznego programu do odczytania pliku pdf np. Google Pdf Viewer). Jeżeli chcesz np. skopiować plik na komputer, żeby się nim podzielić, przechować czy zobaczyć na większym ekranie wyszukaj w pamięci lokalnej urządzenia katalog nazwany DocAndComPDFs. Jeżeli wytniesz lub przeniesiesz ten plik, na liście plików zobaczysz komunikat o tym, że pliku nie znaleziono w ścieżsce zapisanej przez aplikację.</value>
+    <value>Żeby obejrzeć wygenerowany dokument, wróć do listy plików i naciśnij ikonę przedstawiającą oko(potrzebujesz zewnętrznego programu do odczytania pliku pdf np. Google Pdf Viewer). Jeżeli chcesz np. skopiować plik na komputer żeby się nim podzielić, przechować czy zobaczyć na większym ekranie, wyszukaj w pamięci lokalnej urządzenia katalog nazwany DocAndComPDFs. Jeżeli wytniesz lub przeniesiesz ten plik, na liście plików zobaczysz komunikat o tym, że pliku nie znaleziono w ścieżce zapisanej przez aplikację.</value>
   </data>
   <data name="helpGenPt5" xml:space="preserve">
-    <value>Jeżeli taki był Twój plan warto usunąć powiązanie przechowywane przez aplikację naciskając na ikonę kosza obok nazwy nieznalezionego pliku. I to tyle! Wiesz jak używać apkę docAndCom. Mam nadzieję, że się przyda :) PS... W tym wypadku także nie ma limitu wygenerowanych plików dla tej samej etykiety. </value>
+    <value>Jeżeli taki był Twój plan, warto usunąć powiązanie przechowywane przez aplikację naciskając na ikonę kosza obok nazwy nieznalezionego pliku. &lt;br/&gt; &lt;br/&gt; I to tyle! Wiesz jak używać apkę docAndCom. Mam nadzieję, że się przyda :) PS... W przypadku wygenerowanych plików dla tej samej etykiety także nie ma limitu. </value>
   </data>
   <data name="helpGenTitle" xml:space="preserve">
     <value>Krok 3 - generowanie</value>
@@ -280,10 +280,10 @@
     <value>Etykiety</value>
   </data>
   <data name="helpTagPt1" xml:space="preserve">
-    <value>Etykieta to kategoria pod którą możesz dokumentować zdjęcia. Nazwa etykiety powinna być przede wszystkim jasna dla ciebie. Przykładowa etykieta mogłaby wyglądać tak: {marka}_farbaDoWłosów jeżeli chcesz udokumentować wyniki używania konkretnej farby do włosów i np. podzielić się skutecznością z innymi.</value>
+    <value>Etykieta to kategoria pod którą możesz dokumentować zdjęcia. Nazwa etykiety powinna być przede wszystkim jasna dla ciebie. Przykładowa etykieta mogłaby wyglądać tak: {marka}_farbaDoWłosów jeżeli chcesz udokumentować wyniki używania konkretnej farby do włosów i np. podzielić się później skutecznością z innymi.</value>
   </data>
   <data name="helpTagPt2" xml:space="preserve">
-    <value>Żeby dodać etykietę, przejdź do sekcji etykiety wciskając odpowiedni przycisk z poziomu menu aplikacji. Następnie kliknij ikonę umieszczoną w pasku narzędzi, wprowadź nazwę etykiety i potwierdź dodanie.</value>
+    <value>Żeby dodać etykietę, przejdź do sekcji etykiety, wciskając odpowiedni przycisk z poziomu menu aplikacji. Następnie kliknij ikonę umieszczoną w pasku narzędzi, wprowadź nazwę etykiety i potwierdź dodanie.</value>
   </data>
   <data name="helpTagPt3" xml:space="preserve">
     <value>Jeżeli chcesz usunąć istniejącą etykietę, możesz to zrobić naciskając na ikonę umieszczoną obok nazwy etykiety. Jeżeli etykieta zawiera jakieś zdjęcia, zobaczysz dodatkowe pytanie o tym czy chcesz je usunąć z pamięci urządzenia.</value>
@@ -319,7 +319,10 @@
     <value>Tag z którym zdjęcie jest powiązane nie został odnaleziony. Operacja przerwana.</value>
   </data>
   <data name="languageSettingInfo" xml:space="preserve">
-    <value>*Zawartość tej listy nie jest tłumaczona na wypadek przypadkowej zmiany języka.</value>
+    <value>Uwaga: Dane wewnątrz wyborów nie są tłumaczone.</value>
+  </data>
+  <data name="languageText" xml:space="preserve">
+    <value>Język</value>
   </data>
   <data name="loadingText" xml:space="preserve">
     <value>Wczytywanie...</value>
@@ -429,6 +432,9 @@
   </data>
   <data name="SuccessText" xml:space="preserve">
     <value>Sukces</value>
+  </data>
+  <data name="tabulaSchemeNumOfColsText" xml:space="preserve">
+    <value>Układ tabelkowy(kolumny)</value>
   </data>
   <data name="tagAdded" xml:space="preserve">
     <value>Etykieta została dodana do aplikacji.</value>
