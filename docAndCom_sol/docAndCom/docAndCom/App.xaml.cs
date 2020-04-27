@@ -50,7 +50,7 @@ namespace docAndCom
             {
                 conn.CreateTable<Preference>();
 
-                var res = conn.Table<Preference>().SingleOrDefault(p => p.Key == "lang");
+                var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "lang");
 
                 if (res != null)
                 {
