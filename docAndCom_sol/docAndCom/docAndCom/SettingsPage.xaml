@@ -15,15 +15,29 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label
                     Grid.Row="0"
-                    Margin="0, 60, 0, 0"
+                    Margin="0, 25, 0, 0"
                     Text="{Binding [settingsText], Source={x:Static resources:ResourceLoader.Instance}}"
                     FontSize="Title"/>
-                <Picker x:Name="languagePicker"
-                    Title="Language"
+                <Label
                     Grid.Row="1"
+                    Padding="2, 0, 2, 10"
+                    FontSize="Micro"
+                    Text="{Binding [languageSettingInfo], Source={x:Static resources:ResourceLoader.Instance}}"/>
+                <Label
+                    Grid.Row="2"
+                    Text="{Binding [languageText], Source={x:Static resources:ResourceLoader.Instance}}"
+                    FontSize="Small"
+                    Margin="4, 0"/>
+                <Picker x:Name="languagePicker"
+                    Margin="10, 0, 10, 0"
+                    Title="Select language"
+                    Grid.Row="3"
                     SelectedIndexChanged="LanguageSelectedEvent"
                     FontSize="13">
                     <Picker.ItemsSource>
@@ -34,14 +48,14 @@
                     </Picker.ItemsSource>
                 </Picker>
                 <Label
-                    Grid.Row="2"
-                    Padding="6, 0, 6, 0"
-                    FontSize="Micro"
-                    Text="{Binding [languageSettingInfo], Source={x:Static resources:ResourceLoader.Instance}}"/>
+                    Grid.Row="4"
+                    Text="{Binding [tabulaSchemeNumOfColsText], Source={x:Static resources:ResourceLoader.Instance}}"
+                    FontSize="Small"
+                    Margin="4, 10, 4, 0"/>
                 <Picker x:Name="columnPicker"
-                    Margin="0, 15, 0, 0"
+                    Margin="10, 0, 10, 0"
                     Title="Tabular scheme columns number"
-                    Grid.Row="3"
+                    Grid.Row="5"
                     SelectedIndexChanged="ColumnNumberSelectedEvent"
                     FontSize="13">
                     <Picker.ItemsSource>
@@ -53,8 +67,8 @@
                     </Picker.ItemsSource>
                 </Picker>
                 <Label
-                    Grid.Row="4"
-                    Padding="6, 0, 6, 0"
+                    Grid.Row="6"
+                    Padding="15, 0, 15, 0"
                     FontSize="Micro"
                     Text="{Binding [settingsNumOfColsNote], Source={x:Static resources:ResourceLoader.Instance}}"/>
             </Grid>
