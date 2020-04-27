@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static docAndCom.Helpers.ShortenInvokes;
@@ -29,6 +30,7 @@ namespace docAndCom
         {
             ai.IsRunning = true;
             aiLayout.IsVisible = true;
+            await Task.Delay(2000);
 
             var tag = tagPicker.SelectedItem;
             var docScheme = docTypePicker.SelectedIndex;
