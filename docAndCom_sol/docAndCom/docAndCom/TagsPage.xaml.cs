@@ -119,7 +119,7 @@ namespace docAndCom
                 {
                     conn.CreateTable<Tag>();
 
-                    var isExisting = conn.Table<Tag>().SingleOrDefault(t => t.Name == tag.Name);
+                    var isExisting = conn.Table<Tag>().FirstOrDefault(t => t.Name == tag.Name);
 
                     if(isExisting != null)
                     {

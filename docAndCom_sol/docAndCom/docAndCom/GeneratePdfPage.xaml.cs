@@ -59,7 +59,7 @@ namespace docAndCom
             {
                 conn.CreateTable<Models.Document>();
 
-                int tagId = conn.Table<Tag>().SingleOrDefault(t => t.Name == tagName).Id;
+                int tagId = conn.Table<Tag>().FirstOrDefault(t => t.Name == tagName).Id;
 
                 numberOfImages = conn.Table<Photo>().Where(p => p.TagId == tagId).Count();
 

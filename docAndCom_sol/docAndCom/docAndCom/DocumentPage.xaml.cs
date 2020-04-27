@@ -71,7 +71,7 @@ namespace docAndCom
                 using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
                 {
                     var tagName = arr[1];
-                    var tag = conn.Table<Tag>().SingleOrDefault(t => t.Name == tagName);
+                    var tag = conn.Table<Tag>().FirstOrDefault(t => t.Name == tagName);
 
                     if (tag == null)
                     {
@@ -82,7 +82,7 @@ namespace docAndCom
                     }
 
                     var photoPath = arr[0];
-                    var photo = conn.Table<Photo>().SingleOrDefault(p => p.Path == photoPath && p.TagId == tag.Id);
+                    var photo = conn.Table<Photo>().FirstOrDefault(p => p.Path == photoPath && p.TagId == tag.Id);
 
                     if (photo == null)
                     {
@@ -140,7 +140,7 @@ namespace docAndCom
                 using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
                 {
                     var tagName = arr[1];
-                    var tag = conn.Table<Tag>().SingleOrDefault(t => t.Name == tagName);
+                    var tag = conn.Table<Tag>().FirstOrDefault(t => t.Name == tagName);
 
                     if (tag == null)
                     {
@@ -151,7 +151,7 @@ namespace docAndCom
                     }
 
                     var photoPath = arr[0];
-                    var photo = conn.Table<Photo>().SingleOrDefault(p => p.Path == photoPath && p.TagId == tag.Id);
+                    var photo = conn.Table<Photo>().FirstOrDefault(p => p.Path == photoPath && p.TagId == tag.Id);
 
                     if (photo != null)
                     {

@@ -128,7 +128,7 @@ namespace docAndCom
 
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH)) 
             {
-                var id = conn.Table<Tag>().SingleOrDefault(t => t.Name == pickedTag.ToString()).Id;
+                var id = conn.Table<Tag>().FirstOrDefault(t => t.Name == pickedTag.ToString()).Id;
 
                 if (id <= 0)
                 {
