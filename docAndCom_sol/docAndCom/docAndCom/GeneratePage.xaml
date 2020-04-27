@@ -75,7 +75,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <!-- Doc name -->
                                     <Label Grid.Column="0" 
@@ -101,7 +101,7 @@
                                                 Clicked="OpenGeneratedFileBtn_Clicked" 
                                                 BackgroundColor="Transparent" 
                                                 Margin="0, 0, 60, 0"
-                                                TextColor="#6D77A8" 
+                                                TextColor="#003366" 
                                                 FontSize="18" 
                                                 Style="{StaticResource FontAwesome5FreeRegular}" 
                                                 HorizontalOptions="End" 
