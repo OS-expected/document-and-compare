@@ -26,13 +26,13 @@ namespace docAndCom
             {
                 conn.CreateTable<Preference>();
 
-                var res = conn.Table<Preference>().SingleOrDefault(p => p.Key == "lang");
+                var langRes = conn.Table<Preference>().FirstOrDefault(p => p.Key == "lang");
 
-                if (res.Value == "en-US")
+                if (langRes.Value == "en-US")
                 {
                     languagePicker.SelectedIndex = 0;
                 } 
-                else if (res.Value == "pl-PL")
+                else if (langRes.Value == "pl-PL")
                 {
                     languagePicker.SelectedIndex = 1;
                 }
@@ -59,7 +59,7 @@ namespace docAndCom
             {
                 conn.CreateTable<Preference>();
 
-                var res = conn.Table<Preference>().SingleOrDefault(p => p.Key == "lang");
+                var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "lang");
 
                 if (res != null)
                 {
