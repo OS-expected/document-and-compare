@@ -1,7 +1,6 @@
 ﻿using docAndCom.Models;
 using docAndCom.Resources;
 using System.Globalization;
-using System.Linq;
 using Xamarin.Forms;
 
 namespace docAndCom

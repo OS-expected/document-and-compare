@@ -1,7 +1,5 @@
-﻿using docAndCom.Resources;
-using System;
+﻿using System;
 using System.ComponentModel;
-using System.Globalization;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;

@@ -3,7 +3,6 @@ using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using static docAndCom.Helpers.ShortenInvokes;
 
 using Xamarin.Forms;

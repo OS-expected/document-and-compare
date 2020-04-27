@@ -2,17 +2,14 @@
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
-using Android.Net;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Webkit;
 using docAndCom.Droid;
 using docAndCom.Models;
-using docAndCom.Resources;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using Org.W3c.Dom;
 using System.Collections.Generic;
 using System.IO;
 
