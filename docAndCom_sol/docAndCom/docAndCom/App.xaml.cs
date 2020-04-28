@@ -82,11 +82,20 @@ namespace docAndCom
                 }
                 else
                 {
+                    var currentUiCulture = CultureInfo.CurrentUICulture;
+
                     Preference pref = new Preference()
                     {
-                        Key = "lang",
-                        Value = "en-US"
+                        Key = "lang"
                     };
+
+                    if (currentUiCulture.Name == "pl-PL")
+                    {
+                        pref.Value = "pl-PL";
+                    } else
+                    {
+                        pref.Value = "en-US";
+                    }
 
                     conn.Insert(pref);
 
