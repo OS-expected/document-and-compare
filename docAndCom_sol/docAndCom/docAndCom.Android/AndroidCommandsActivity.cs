@@ -76,6 +76,9 @@ namespace docAndCom.Droid
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
 
             doc.Open();
+            doc.AddTitle($"docAndCompare result for {tag} tag");
+            doc.AddKeywords("docAndCompare");
+            doc.AddCreator("iTextSharp lib");
 
             var titleFont = FontFactory.GetFont("Arial", 34.0f, Color.BLACK);
             var title = new Paragraph(ResourceLoader.Instance.GetString("pdfTitle"), titleFont);
