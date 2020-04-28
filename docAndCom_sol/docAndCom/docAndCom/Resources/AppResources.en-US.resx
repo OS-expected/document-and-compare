@@ -244,7 +244,7 @@
     <value>You can pick image from gallery or take a new one. After adding document, get back to the calendar view using toolbar back arrow icon. Days on which user documented something are marked with dot. To clarify, there is no given limit of documented images on specific day.</value>
   </data>
   <data name="helpDocPt4" xml:space="preserve">
-    <value>If you want to see what was documented on marked day, choose that day and hide calendar by using arrow placed in the right bottom corner.</value>
+    <value>If you want to see what was documented on marked day, choose that day and hide calendar by using arrow placed in the right bottom corner or simply slide to the bottom to see the elements. </value>
   </data>
   <data name="helpDocPt5" xml:space="preserve">
     <value>Each image contains preview, tag and functional buttons. You can see that image in your gallery in full perspective, remove reference from the app(image will stay on the device storage but reference to it will be removed) or hard delete it(image will be removed from storage device). To see again calendar view, click once again arrow but this time placed on the right top corner.</value>

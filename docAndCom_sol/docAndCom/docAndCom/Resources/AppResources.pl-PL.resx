@@ -244,7 +244,7 @@
     <value>Możesz wybrać zdjęcie z galerii lub zrobić nowe. Po dodaniu zdjęcia, wróć do widoku z kalendarzem za pomocą strzałki znajdującej się na pasku narzędzi. Dni w których użytkownik udokumentował coś są zaznaczone kropką. Nie ma limitu liczby udokumentowanych zdjęć danego dnia. </value>
   </data>
   <data name="helpDocPt4" xml:space="preserve">
-    <value>Jeżeli chcesz obejrzeć co zostało udokumentowane w oznakowanym dniu, wybierz ten dzień a następnie schowaj kalendarz używając strzałki umieszczonej w prawym dolnym rogu.</value>
+    <value>Jeżeli chcesz obejrzeć co zostało udokumentowane w oznakowanym dniu, wybierz ten dzień a następnie schowaj kalendarz używając strzałki umieszczonej w prawym dolnym rogu. Możesz też po wyborze dnia przewinąć ekran palcem w górę. </value>
   </data>
   <data name="helpDocPt5" xml:space="preserve">
     <value>Każde zdjęcie zawiera podgląd, etykietę oraz przyciski funkcyjne. Możesz obejrzeć zdjęcie na pełnym ekranie, usunąć powiązanie z aplikacji(zdjęcie zostanie w pamięci urzadzenia) lub trwale usunąć zdjecie(zdjęcie zostanie usunięte z urządzenia). Żeby wrócić do widoku kalendarza, kliknij ponownie strzałkę, która tym razem znajduje się w prawym górnym rogu.</value>
