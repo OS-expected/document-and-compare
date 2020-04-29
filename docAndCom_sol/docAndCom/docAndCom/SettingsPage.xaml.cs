@@ -17,6 +17,10 @@ namespace docAndCom
         protected override void OnAppearing()
         {
             LoadPreferences();
+
+            var tgr = new TapGestureRecognizer();
+            tgr.Tapped += (s, e) => ToggleExtraImageCopy();
+            extraCopyToggler.GestureRecognizers.Add(tgr);
         }
 
         private void LoadPreferences()
@@ -50,6 +54,19 @@ namespace docAndCom
                 {
                     columnPicker.SelectedIndex = 2;
                 }
+
+                var extraImageRes = conn.Table<Preference>().FirstOrDefault(p => p.Key == "saveCopyToAlbum");
+
+                if (extraImageRes.Value == "false")
+                {
+                    extraCopyToggler.Text = "&#xf204;";
+                    extraCopyToggler.TextColor = Color.FromHex("#FF4105");
+                }
+                else if (extraImageRes.Value == "true")
+                {
+                    extraCopyToggler.Text = "&#xf205;";
+                    extraCopyToggler.TextColor = Color.FromHex("#4ADA76");
+                }
             }
 
         }
@@ -80,6 +97,31 @@ namespace docAndCom
                     res.Value = selectedVal;
                     conn.Update(res);
                 }
+            }
+        }
+
+        private void ToggleExtraImageCopy()
+        {
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
+            {
+                conn.CreateTable<Preference>();
+
+                var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "saveCopyToAlbum");
+
+                if(res.Value == "false")
+                {
+                    res.Value = "true";
+                    extraCopyToggler.Text = "&#xf205;";
+                    extraCopyToggler.TextColor = Color.FromHex("#4ADA76");
+                } 
+                else if (res.Value == "true")
+                {
+                    res.Value = "false";
+                    extraCopyToggler.Text = "&#xf204;";
+                    extraCopyToggler.TextColor = Color.FromHex("#FF4105");
+                }
+
+                conn.Update(res);
             }
         }
 
