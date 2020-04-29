@@ -50,7 +50,7 @@
                                     HorizontalTextAlignment="Center" />
                                 <Image 
                                     Source="{Binding ImagePath}"
-                                    HeightRequest="140"
+                                    HeightRequest="160"
                                     Aspect="AspectFit"
                                     HorizontalOptions="Center"
                                     Grid.Column="0"
@@ -60,7 +60,7 @@
                                     Text="{Binding [openImageText], Source={x:Static resources:ResourceLoader.Instance}}"
                                     FontSize="8"
                                     WidthRequest="100"
-                                    HeightRequest="38"
+                                    HeightRequest="48"
                                     BackgroundColor="#808080"
                                     TextColor="White"
                                     Grid.Column="1"
@@ -70,11 +70,11 @@
                                     BindingContext="{Binding ImagePath}"
                                     Clicked="OpenImageBtn_Clicked" />
                                 <Button
-                                    Margin="0, 50, 0, 0"
+                                    Margin="0, 63, 0, 0"
                                     Text="{Binding [clearReferenceText], Source={x:Static resources:ResourceLoader.Instance}}"
                                     FontSize="8"
                                     WidthRequest="100"
-                                    HeightRequest="38"
+                                    HeightRequest="48"
                                     BackgroundColor="#CD8C95"
                                     TextColor="White"
                                     Grid.Column="1"
@@ -85,10 +85,10 @@
                                     Clicked="ClearRefBtn_Clicked" />
                                 <Button
                                     Text="{Binding [hardDeleteText], Source={x:Static resources:ResourceLoader.Instance}}"   
-                                    Margin="0, 90, 0, 0"
+                                    Margin="0, 117, 0, 0"
                                     FontSize="8"
                                     WidthRequest="100"
-                                    HeightRequest="38"
+                                    HeightRequest="48"
                                     BackgroundColor="#FF4040"
                                     TextColor="White"
                                     Grid.Column="1"
