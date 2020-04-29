@@ -18,7 +18,10 @@ namespace docAndCom
         public NewDocumentPage()
         {
             InitializeComponent();
+        }
 
+        protected override void OnAppearing()
+        {
             FeedTagPicker();
         }
 
@@ -38,6 +41,7 @@ namespace docAndCom
             {
                 Directory = "docAndComparePhotos",
                 Name = $"dac_{now:dd-MM-yyyy}_{now:HH_mm_ss}.jpg"
+                // SaveToAlbum = true !!! DODAC DO SETTINGS! default == false Others/docAndComparePhotos dir
             });
 
             if (file == null)
