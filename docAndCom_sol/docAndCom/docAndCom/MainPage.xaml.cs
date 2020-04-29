@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -14,6 +13,12 @@ namespace docAndCom
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            aiLayout.IsVisible = false;
+            ai.IsRunning = false;
         }
 
         private async void Repository_Clicked(object sender, EventArgs e)
@@ -55,13 +60,10 @@ namespace docAndCom
             await Navigation.PushAsync(new GetStartedPage());
         }
 
-        private async void ToggleActivityIndicator()
+        private void ToggleActivityIndicator()
         {
             ai.IsRunning = true;
             aiLayout.IsVisible = true;
-            await Task.Delay(2000);
-            aiLayout.IsVisible = false;
-            ai.IsRunning = false;
         }
     }
 }
