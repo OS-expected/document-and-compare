@@ -99,7 +99,7 @@ namespace docAndCom
 
                     conn.Insert(pref);
 
-                    var defaultCulture = new CultureInfo("en-US", false);
+                    var defaultCulture = new CultureInfo(pref.Value, false);
 
                     ResLoader.SetCultureInfo(defaultCulture);
                 }
