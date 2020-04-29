@@ -138,9 +138,6 @@
   <data name="cancelText" xml:space="preserve">
     <value>Anuluj</value>
   </data>
-  <data name="clearReferenceText" xml:space="preserve">
-    <value>Usuń powiązanie</value>
-  </data>
   <data name="createFileText" xml:space="preserve">
     <value>Wygeneruj plik</value>
   </data>
@@ -247,7 +244,8 @@
     <value>Jeżeli chcesz obejrzeć co zostało udokumentowane w oznakowanym dniu, wybierz ten dzień a następnie schowaj kalendarz używając strzałki umieszczonej w prawym dolnym rogu. Możesz też po wyborze dnia przewinąć ekran palcem w górę. </value>
   </data>
   <data name="helpDocPt5" xml:space="preserve">
-    <value>Każde zdjęcie zawiera podgląd, etykietę oraz przyciski funkcyjne. Możesz obejrzeć zdjęcie na pełnym ekranie, usunąć powiązanie z aplikacji(zdjęcie zostanie w pamięci urzadzenia) lub trwale usunąć zdjecie(zdjęcie zostanie usunięte z urządzenia). Żeby wrócić do widoku kalendarza, kliknij ponownie strzałkę, która tym razem znajduje się w prawym górnym rogu.</value>
+    <value>Każde zdjęcie zawiera podgląd, nazwę przypisanej etykiety oraz przyciski funkcyjne. Możesz obejrzeć zdjęcie w pełnym wymiarze za pomocą galerii lub je usunąć. Uwaga: zdjęcie będzie prywatne jeżeli zostanie wykonane przez przycisk(a nie wybrane z galerii). Jeżeli chcesz mieć publiczną, niezależną od aplikacji kopie, przejdź do sekcji ustawień z głównego menu i przełącz odpowiednią opcję. Żeby wrócić do widoku kalendarza, kliknij ponownie strzałkę, która tym razem znajduje się w prawym górnym rogu.</value>
+    <comment>Each image contains preview, tag name and functional buttons. You can see that image through gallery app in full perspective or delete it from device storage. Note that if you took photo with camera option(instead of picking existing one from gallery), the image will be stored as private file. If you want to have second, independent public copy on your device, please refer to the settings page from main menu section to enable that option. To see again full calendar view, click once again arrow but this time placed on the right top corner.</comment>
   </data>
   <data name="helpDocTitle" xml:space="preserve">
     <value>Krok 2 - dokumentowanie</value>

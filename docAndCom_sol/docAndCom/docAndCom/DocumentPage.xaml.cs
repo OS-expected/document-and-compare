@@ -106,12 +106,13 @@ namespace docAndCom
                         extraNote = GetResourceString("imageRemovedText");
                     }
 
+                    InitEventsInCalendar();
+
                     if (res > 0)
                     {
                         await DisplayAlert(GetResourceString("SuccessText"),
                             GetResourceString("referenceClearedText") + extraNote,
                             GetResourceString("OkText"));
-                        InitEventsInCalendar();
                     } else if (res <= 0)
                     {
                         await DisplayAlert(GetResourceString("OopsText"),
@@ -121,65 +122,7 @@ namespace docAndCom
                 }
             }
         }
-
-        private async void ClearRefBtn_Clicked(object sender, EventArgs e)
-        {
-            string clearRefData = ((Button)sender).BindingContext as string;
-            string[] arr = clearRefData.Split(new[] { '|' }, 2); // 0 -> path, 1 -> tag
-
-            var clearRefConfirmationAlertDesc = GetResourceString("imageClearReferenceAlertText");
-            clearRefConfirmationAlertDesc = clearRefConfirmationAlertDesc.Replace("<%tagName%>", arr[1]);
-
-            bool answer = await DisplayAlert(GetResourceString("areYouSureText"),
-                clearRefConfirmationAlertDesc, 
-                GetResourceString("YesText"),
-                GetResourceString("NoText"));
-
-            if(answer == true)
-            {
-                using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
-                {
-                    var tagName = arr[1];
-                    var tag = conn.Table<Tag>().FirstOrDefault(t => t.Name == tagName);
-
-                    if (tag == null)
-                    {
-                        await DisplayAlert(GetResourceString("OopsText"),
-                            GetResourceString("imageTagRefNotFoundText"),
-                            GetResourceString("OkText"));
-                        return;
-                    }
-
-                    var photoPath = arr[0];
-                    var photo = conn.Table<Photo>().FirstOrDefault(p => p.Path == photoPath && p.TagId == tag.Id);
-
-                    if (photo != null)
-                    {
-                        var res = conn.Delete<Photo>(photo.Id);
-                        if (res > 0)
-                        {
-                            await DisplayAlert(GetResourceString("SuccessText"), 
-                                GetResourceString("imageReferenceClearedText"),
-                                GetResourceString("OkText"));
-                            InitEventsInCalendar();
-                        }
-                        else
-                        {
-                            await DisplayAlert(GetResourceString("OopsText"),
-                                GetResourceString("imageReferenceClearProblemText"),
-                                GetResourceString("OkText"));
-                        }
-                    }
-                    else
-                    {
-                        await DisplayAlert(GetResourceString("OopsText"),
-                            GetResourceString("imageRefNotFoundText"),
-                            GetResourceString("OkText"));
-                    }
-                }
-            }      
-        }
-
+        
         private void InitEventsInCalendar()
         {
             Events = new EventCollection();
