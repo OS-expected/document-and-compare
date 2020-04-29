@@ -26,9 +26,7 @@ namespace docAndCom
 
             ResLoader = new ResourceLoader(AppResources.ResourceManager);
 
-            LoadLanguage();
-
-            SetDefaultNumberOfColumnsForTabularScheme();
+            SeDefaultData();
 
             MainPage = new NavigationPage(new MainPage());
         }
@@ -45,15 +43,19 @@ namespace docAndCom
         {
         }
 
-        private void SetDefaultNumberOfColumnsForTabularScheme()
+        private void SeDefaultData()
         {
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(DB_PATH))
             {
                 conn.CreateTable<Preference>();
 
+                // ***********************************************************
+                // SET DEFAULT NUMBER OF COLUMNS FOR PDF TABLE FILE
+                // ***********************************************************
+
                 var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "numOfCol");
 
-                if(res == null)
+                if (res == null)
                 {
                     Preference pref = new Preference()
                     {
@@ -63,16 +65,12 @@ namespace docAndCom
 
                     conn.Insert(pref);
                 }
-            }
-        }
 
-        private void LoadLanguage()
-        {
-            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(DB_PATH))
-            {
-                conn.CreateTable<Preference>();
+                // ***********************************************************
+                // SET DEFAULT LANGUAGE FOR THE APP
+                // ***********************************************************
 
-                var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "lang");
+                res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "lang");
 
                 if (res != null)
                 {
@@ -102,6 +100,23 @@ namespace docAndCom
                     var defaultCulture = new CultureInfo(pref.Value, false);
 
                     ResLoader.SetCultureInfo(defaultCulture);
+                }
+
+                // ***********************************************************
+                // SET DEFAULT ALBUM COPY VALUE
+                // ***********************************************************
+
+                res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "saveCopyToAlbum");
+
+                if (res == null)
+                {
+                    Preference pref = new Preference()
+                    {
+                        Key = "saveCopyToAlbum",
+                        Value = "false"
+                    };
+
+                    conn.Insert(pref);
                 }
             }
         }
