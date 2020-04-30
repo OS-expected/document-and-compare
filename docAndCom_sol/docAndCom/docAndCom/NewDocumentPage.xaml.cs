@@ -36,12 +36,27 @@ namespace docAndCom
             }
 
             var now = DateTime.UtcNow;
+            bool saveToAlbumResult = false;
+
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
+            {
+                var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "saveCopyToAlbum");
+
+                if(res.Value == "true")
+                {
+                    saveToAlbumResult = true;
+                } 
+                else if (res.Value == "false")
+                {
+                    saveToAlbumResult = false;
+                }
+            }
 
             var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
             {
                 Directory = "docAndComparePhotos",
-                Name = $"dac_{now:dd-MM-yyyy}_{now:HH_mm_ss}.jpg"
-                // SaveToAlbum = true !!! DODAC DO SETTINGS! default == false Others/docAndComparePhotos dir
+                Name = $"dac_{now:dd-MM-yyyy}_{now:HH_mm_ss}.jpg",
+                SaveToAlbum = saveToAlbumResult
             });
 
             if (file == null)
