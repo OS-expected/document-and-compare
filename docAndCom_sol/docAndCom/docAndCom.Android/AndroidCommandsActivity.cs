@@ -71,9 +71,10 @@ namespace docAndCom.Droid
 
             FileStream fs = new FileStream(_path, FileMode.Create, FileAccess.Write);
 
-            var doc = new iTextSharp.text.Document();
+            var doc = new iTextSharp.text.Document(PageSize.A4, 14f, 14f, 30f, 0);
 
             PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+            writer.StrictImageSequence = true;
 
             doc.Open();
             doc.AddTitle($"docAndCompare result for {tag} tag");
@@ -93,9 +94,9 @@ namespace docAndCom.Droid
             doc.Add(subTitle);
             doc.Add(subSubTitle);
 
-            doc.Add(new Paragraph(" ") { SpacingBefore = 4f });
+            doc.Add(new Paragraph(" ") { SpacingBefore = 8f });
 
-            if (mode == 0)
+            if (mode == 0) // List 
             {
                 foreach (var photo in photos)
                 {
@@ -104,13 +105,13 @@ namespace docAndCom.Droid
                         ResourceLoader.Instance.GetString("pdfDataText") + photo.CreatedOn.ToString("dd.MM.yyyy"));
                     mainParagraph.Add(p);
                     var img = Image.GetInstance(photo.Path);
-                    img.ScalePercent(24f);
-                    mainParagraph.SpacingBefore = 2f;
-                    mainParagraph.SpacingAfter = 2f;
+                    img.ScalePercent(22f);;
+                    mainParagraph.SpacingBefore = 1.5f;
+                    mainParagraph.SpacingAfter = 1.5f;
                     mainParagraph.Add(img);
                     doc.Add(mainParagraph);
                 }
-            } else if (mode == 1)
+            } else if (mode == 1) // Tabular
             {
                 var numberOfImages = photos.Count;
                 var numberOfRows = 0;
@@ -125,6 +126,7 @@ namespace docAndCom.Droid
                 }
                
                 PdfPTable table = new PdfPTable(columnsNumber);
+                table.KeepTogether = true;
                 table.WidthPercentage = 90;
 
                 int dateId = 0;
@@ -154,7 +156,7 @@ namespace docAndCom.Droid
                             if(photoId < numberOfImages)
                             {
                                 var img = Image.GetInstance(photos[photoId].Path);
-                                img.ScalePercent(24f);
+                                img.ScalePercent(22f);
                                 img.Alignment = Element.ALIGN_CENTER;
                                 table.AddCell(img);
                             } else
