@@ -100,16 +100,16 @@ namespace docAndCom.Droid
             {
                 foreach (var photo in photos)
                 {
-                    var mainParagraph = new Paragraph();
                     var p = new Paragraph(
                         ResourceLoader.Instance.GetString("pdfDataText") + photo.CreatedOn.ToString("dd.MM.yyyy"));
-                    mainParagraph.Add(p);
+                    p.SpacingAfter = 75f;
                     var img = Image.GetInstance(photo.Path);
-                    img.ScalePercent(22f);;
-                    mainParagraph.SpacingBefore = 1.5f;
-                    mainParagraph.SpacingAfter = 1.5f;
-                    mainParagraph.Add(img);
-                    doc.Add(mainParagraph);
+                    img.ScalePercent(13f);
+                    p.Alignment = Element.ALIGN_TOP;
+                    img.Alignment = Element.ALIGN_MIDDLE;
+                    doc.Add(p);
+                    doc.Add(img);
+                    doc.NewPage();
                 }
             } else if (mode == 1) // Tabular
             {
