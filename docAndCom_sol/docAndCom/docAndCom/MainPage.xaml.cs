@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -30,18 +31,21 @@ namespace docAndCom
         private async void TagsBtn_Clicked(object sender, EventArgs e)
         {
             ToggleActivityIndicator();
+            await Task.Delay(1000);
             await Navigation.PushAsync(new TagsPage());
         }
 
         private async void DocBtn_Clicked(object sender, EventArgs e)
         {
             ToggleActivityIndicator();
+            await Task.Delay(1200);
             await Navigation.PushAsync(new DocumentPage());
         }
 
         private async void GenBtn_Clicked(object sender, EventArgs e)
         {
             ToggleActivityIndicator();
+            await Task.Delay(1000);
             await Navigation.PushAsync(new GeneratePage());
         }
 
