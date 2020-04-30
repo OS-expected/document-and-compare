@@ -29,7 +29,7 @@
             <StackLayout>
                 <Grid Padding="3,0,3,0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="300" />
+                        <RowDefinition Height="260" />
                         <RowDefinition Height="30" />
                         <RowDefinition Height="70" />
                         <RowDefinition Height="*" />
@@ -100,7 +100,9 @@
                     <StackLayout Grid.ColumnSpan="3" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal" Spacing="0">
                         <Label 
                                 Text="{Binding [builtWithText], Source={x:Static resources:ResourceLoader.Instance}}"
-                                Style="{DynamicResource SmallLabel}" />
+                                Style="{DynamicResource SmallLabel}"
+                                FontSize="Micro"
+                                VerticalTextAlignment="Center" />
                         <Label
                                 Text="&#xf17b;"
                                 TextColor="#3DDC84"
