@@ -16,8 +16,6 @@ namespace docAndCom
         public GeneratePage()
         {
             InitializeComponent();
-
-            ListAvailableDocuments();
         }
 
         protected override void OnAppearing()
@@ -41,6 +39,13 @@ namespace docAndCom
                 var documents = conn.Table<Document>().ToList();
 
                 List<DocumentViewModel> genDocsList = new List<DocumentViewModel>();
+
+                if(documents.Count <= 0)
+                {
+                    emptyDocListInformation.IsVisible = true;
+                    docsListView.ItemsSource = genDocsList;
+                    return;
+                }
 
                 foreach (var doc in documents)
                 {
@@ -66,11 +71,6 @@ namespace docAndCom
                     if(genDocsList.Contains(tmp) == false)
                     {
                         genDocsList.Add(tmp);
-                    }
-
-                    if(genDocsList.Count <= 0)
-                    {
-                        emptyDocListInformation.IsVisible = true;
                     }
                 }
 
