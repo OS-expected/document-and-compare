@@ -288,6 +288,9 @@
   <data name="helpTagTitle" xml:space="preserve">
     <value>Step 1 - tagging</value>
   </data>
+  <data name="imageAlreadyAddedToThatTagText" xml:space="preserve">
+    <value>This image has been already saved under chosen tag. Operation aborted.</value>
+  </data>
   <data name="imageClearReferenceAlertText" xml:space="preserve">
     <value>This operation will remove reference to the documented image from &lt;%tagName%&gt; tag, in application. Image won't be deleted from storage device.</value>
   </data>

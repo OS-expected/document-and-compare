@@ -289,6 +289,10 @@
   <data name="helpTagTitle" xml:space="preserve">
     <value>Krok 1 - etykiety</value>
   </data>
+  <data name="imageAlreadyAddedToThatTagText" xml:space="preserve">
+    <value>To zdjęcie zostało już udokumentowane pod wybraną etykietą. Operacja przerwana.</value>
+    <comment>This image has been already saved under chosen tag. Operation aborted.</comment>
+  </data>
   <data name="imageClearReferenceAlertText" xml:space="preserve">
     <value>Ta operacja usunie powiązanie do udokumentowanego zdjęcia z etykiety &lt;%tagName%&gt;. Zdjęcie nie zostanie usunięte z pamięci urządzenia.</value>
   </data>

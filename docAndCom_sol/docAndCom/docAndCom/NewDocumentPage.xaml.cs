@@ -158,6 +158,16 @@ namespace docAndCom
 
                 conn.CreateTable<Photo>();
 
+                var photoRes = conn.Table<Photo>().FirstOrDefault(p => p.Path == pathToImage && p.TagId == id);
+
+                if (photoRes != null)
+                {
+                    await DisplayAlert(GetResourceString("OopsText"),
+                        GetResourceString("imageAlreadyAddedToThatTagText"),
+                        GetResourceString("OkText"));
+                    return;
+                }
+
                 Photo photo = new Photo()
                 {
                     Path = pathToImage,
