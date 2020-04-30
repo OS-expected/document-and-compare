@@ -21,8 +21,12 @@ namespace docAndCom
 
         protected override void OnAppearing()
         {
-            docTypePicker.ItemsSource[0] = GetResourceString("generateFilepickerList");
-            docTypePicker.ItemsSource[1] = GetResourceString("generateFilepickerTabular");
+            List<string> docTypeList = new List<string>
+            {
+                GetResourceString("generateFilepickerList"),
+                GetResourceString("generateFilepickerTabular")
+            };
+            docTypePicker.ItemsSource = docTypeList;
         }
 
         private async void GeneratePdf_Clicked(object sender, EventArgs e)
