@@ -398,6 +398,16 @@
   <data name="previewText" xml:space="preserve">
     <value>Podgląd</value>
   </data>
+  <data name="publicCopyDescText" xml:space="preserve">
+    <value>*Gdy ta opcja jest włączona(zielony kolor) to przy dokumentowaniu nowego zdjęcia do archiwum, zdjęcie wykonane za pomocą kamery zostanie skopiowane do albumu urządzenia w postaci publicznego, niezależnego pliku(katalog Pozostałe/docAndComparePhotos).</value>
+    <comment>*If this option is set to true(green color), new document photos made with camera tool will have additional, public and independent copy saved in 'Other' gallery album, in docAndComparePhotos dir.</comment>
+  </data>
+  <data name="publicCopySubTitleText" xml:space="preserve">
+    <value>Kopia zdjęcia wykonanego aparatem</value>
+  </data>
+  <data name="publicCopyText" xml:space="preserve">
+    <value>Publiczna kopia</value>
+  </data>
   <data name="questionText" xml:space="preserve">
     <value>Pytanie</value>
   </data>

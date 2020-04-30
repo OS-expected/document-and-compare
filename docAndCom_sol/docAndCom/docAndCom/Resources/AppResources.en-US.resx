@@ -396,6 +396,15 @@
   <data name="previewText" xml:space="preserve">
     <value>Preview</value>
   </data>
+  <data name="publicCopyDescText" xml:space="preserve">
+    <value>*If this option is set to true(green color), new document photos made with camera tool will have additional, public and independent copy saved in 'Others' gallery album, in docAndComparePhotos dir.</value>
+  </data>
+  <data name="publicCopySubTitleText" xml:space="preserve">
+    <value>Save copy of image, taken from the camera to album</value>
+  </data>
+  <data name="publicCopyText" xml:space="preserve">
+    <value>Public copy</value>
+  </data>
   <data name="questionText" xml:space="preserve">
     <value>Question</value>
   </data>

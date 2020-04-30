@@ -60,7 +60,7 @@ namespace docAndCom
                 if (extraImageRes.Value == "false")
                 {
                     extraCopyToggler.Text = "&#xf204;";
-                    extraCopyToggler.TextColor = Color.FromHex("#FF4105");
+                    extraCopyToggler.TextColor = Color.FromHex("#881452");
                 }
                 else if (extraImageRes.Value == "true")
                 {
@@ -118,7 +118,7 @@ namespace docAndCom
                 {
                     res.Value = "false";
                     extraCopyToggler.Text = "&#xf204;";
-                    extraCopyToggler.TextColor = Color.FromHex("#FF4105");
+                    extraCopyToggler.TextColor = Color.FromHex("#881452");
                 }
 
                 conn.Update(res);

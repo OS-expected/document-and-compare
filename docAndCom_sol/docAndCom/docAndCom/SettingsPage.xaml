@@ -77,18 +77,18 @@
                         Text="{Binding [settingsNumOfColsNote], Source={x:Static resources:ResourceLoader.Instance}}"/>
                     <Label
                         Grid.Row="7"
-                        Text="Public copy"
+                        Text="{Binding [publicCopyText], Source={x:Static resources:ResourceLoader.Instance}}"
                         FontSize="Small"
                         Margin="4, 10, 4, 0"/>
                     <Grid
                         Grid.Row="8"
-                        Margin="15, 3, 15, 0">
+                        Margin="15, 1, 15, 0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Label
-                            Text="Save image taken from the camera to album" 
+                            Text="{Binding [publicCopySubTitleText], Source={x:Static resources:ResourceLoader.Instance}}" 
                             Grid.Column="0"
                             FontSize="9"
                             VerticalOptions="Center" />
@@ -103,9 +103,9 @@
                     </Grid>
                     <Label
                         Grid.Row="9"
-                        Padding="15, 0, 15, 0"
+                        Padding="15, 0, 15, 20"
                         FontSize="Micro"
-                        Text="If this option is enabled(green color) photos made by using camera will be "/>
+                        Text="{Binding [publicCopyDescText], Source={x:Static resources:ResourceLoader.Instance}}"/>
                 </Grid>
             </StackLayout>
         </ScrollView>
