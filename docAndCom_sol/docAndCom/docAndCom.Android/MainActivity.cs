@@ -21,6 +21,8 @@ namespace docAndCom.Droid
             string fileLocation = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string fullPath = Path.Combine(fileLocation, fileName);
 
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App(fullPath));

@@ -6,6 +6,7 @@
              xmlns:resources="clr-namespace:docAndCom"
              mc:Ignorable="d"
              xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="docAndCom.DocumentPage">
 
     <ContentPage.ToolbarItems>
@@ -48,15 +49,15 @@
                                     Grid.Column="0"
                                     Grid.Row="0"
                                     HorizontalTextAlignment="Center" />
-                                <Image 
-                                    Source="{Binding ImagePath}"
-                                    HeightRequest="160"
-                                    Aspect="AspectFit"
-                                    HorizontalOptions="Center"
-                                    Grid.Column="0"
-                                    Grid.Row="1" />
+                                <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+			                        Grid.Column="0"
+                                    Grid.Row="1"
+                                    HeightRequest="120"
+			                        DownsampleToViewSize="true"
+			                        Source = "{Binding ImagePath}">
+                                </ffimageloading:CachedImage>
                                 <Button
-                                    Margin="0, 30, 0, 0"
+                                    Margin="0, 15, 0, 0"
                                     Text="{Binding [openImageText], Source={x:Static resources:ResourceLoader.Instance}}"
                                     FontSize="8"
                                     WidthRequest="100"
@@ -71,7 +72,7 @@
                                     Clicked="OpenImageBtn_Clicked" />
                                 <Button
                                     Text="{Binding [hardDeleteText], Source={x:Static resources:ResourceLoader.Instance}}"   
-                                    Margin="0, 85, 0, 0"
+                                    Margin="0, 70, 0, 0"
                                     FontSize="8"
                                     WidthRequest="100"
                                     HeightRequest="48"

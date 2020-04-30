@@ -17,9 +17,7 @@ namespace docAndCom
 
         public DocumentPage()
         {
-            InitializeComponent();
-            
-            InitEventsInCalendar();
+            InitializeComponent();          
         }
 
         protected override void OnAppearing()
