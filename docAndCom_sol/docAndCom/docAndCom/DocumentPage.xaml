@@ -49,12 +49,16 @@
                                     Grid.Column="0"
                                     Grid.Row="0"
                                     HorizontalTextAlignment="Center" />
-                                <ffimageloading:CachedImage HorizontalOptions="Center" VerticalOptions="Center"
+                                <ffimageloading:CachedImage
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center"
 			                        Grid.Column="0"
                                     Grid.Row="1"
                                     HeightRequest="120"
 			                        DownsampleToViewSize="true"
-			                        Source = "{Binding ImagePath}">
+			                        Source = "{Binding ImagePath}"
+                                    LoadingPlaceholder="loadingImg.png"
+                                    ErrorPlaceholder="errorImg.png">
                                 </ffimageloading:CachedImage>
                                 <Button
                                     Margin="0, 15, 0, 0"
