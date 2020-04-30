@@ -441,6 +441,9 @@
   <data name="SuccessText" xml:space="preserve">
     <value>Sukces</value>
   </data>
+  <data name="tabularExampleText" xml:space="preserve">
+    <value>Przykład układu tabelkowego:</value>
+  </data>
   <data name="tabulaSchemeNumOfColsText" xml:space="preserve">
     <value>Układ tabelkowy(kolumny)</value>
   </data>

@@ -438,6 +438,9 @@
   <data name="SuccessText" xml:space="preserve">
     <value>Success</value>
   </data>
+  <data name="tabularExampleText" xml:space="preserve">
+    <value>Tabular example:</value>
+  </data>
   <data name="tabulaSchemeNumOfColsText" xml:space="preserve">
     <value>Tabular scheme(columns)</value>
   </data>
