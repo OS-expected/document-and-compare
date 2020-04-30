@@ -13,12 +13,10 @@
                  Priority="0" 
                  Clicked="About_Clicked"/>
         <ToolbarItem Text="{Binding [repositoryText], Source={x:Static resources:ResourceLoader.Instance}}"
-                 IconImageSource="example_icon.png"
                  Order="Secondary"
                  Priority="0"
                  Clicked="Repository_Clicked"/>
         <ToolbarItem Text="{Binding [settingsText], Source={x:Static resources:ResourceLoader.Instance}}"
-                 IconImageSource="example_icon.png"
                  Order="Secondary"
                  Priority="0"
                  Clicked="Settings_Clicked"/>
