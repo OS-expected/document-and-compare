@@ -1,6 +1,7 @@
 ﻿using docAndCom.Models;
 using docAndCom.Resources;
 using System.Globalization;
+using System.Threading;
 using Xamarin.Forms;
 
 namespace docAndCom
@@ -77,6 +78,8 @@ namespace docAndCom
                     var newCulture = new CultureInfo(res.Value, false);
 
                     ResLoader.SetCultureInfo(newCulture);
+
+                    Thread.CurrentThread.CurrentUICulture = newCulture;
                 }
                 else
                 {
@@ -100,6 +103,8 @@ namespace docAndCom
                     var defaultCulture = new CultureInfo(pref.Value, false);
 
                     ResLoader.SetCultureInfo(defaultCulture);
+
+                    Thread.CurrentThread.CurrentUICulture = defaultCulture;
                 }
 
                 // ***********************************************************
