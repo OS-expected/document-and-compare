@@ -1,8 +1,10 @@
 ﻿using docAndCom.Models;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static docAndCom.Helpers.ShortenInvokes;
 
 namespace docAndCom
 {
@@ -16,11 +18,21 @@ namespace docAndCom
 
         protected override void OnAppearing()
         {
-            LoadPreferences();
+            LocalizeLangPickerData();
 
+            LoadPreferences();
             var tgr = new TapGestureRecognizer();
             tgr.Tapped += (s, e) => ToggleExtraImageCopy();
             extraCopyToggler.GestureRecognizers.Add(tgr);
+        }
+
+        private void LocalizeLangPickerData()
+        {
+            List<string> languagePickerListData = new List<string>();
+            languagePickerListData.Add(GetResourceString("englishLangText"));
+            languagePickerListData.Add(GetResourceString("polishLangText"));
+
+            languagePicker.ItemsSource = languagePickerListData;
         }
 
         private void LoadPreferences()
@@ -128,14 +140,14 @@ namespace docAndCom
         private void LanguageSelectedEvent(object sender, EventArgs e)
         {
             Picker picker = sender as Picker;
-            var selectedVal = picker.SelectedItem.ToString();
+            var selectedVal = picker.SelectedIndex;
             string resKey = string.Empty;
 
-            if (selectedVal == "English")
+            if (selectedVal == 0)
             {
                 resKey = "en-US";
             } 
-            else if (selectedVal == "Polish")
+            else if (selectedVal == 1)
             {
                 resKey = "pl-PL";
             }
@@ -162,6 +174,8 @@ namespace docAndCom
                     conn.Insert(pref);
                 }
             }
+
+            LocalizeLangPickerData();
 
             var newCulture = new CultureInfo(resKey, false);
 

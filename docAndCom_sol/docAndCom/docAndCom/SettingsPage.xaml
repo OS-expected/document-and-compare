@@ -40,7 +40,7 @@
                         Margin="4, 0"/>
                     <Picker x:Name="languagePicker"
                         Margin="10, 0, 10, 0"
-                        Title="Select language"
+                        Title="{Binding [selectLangText], Source={x:Static resources:ResourceLoader.Instance}}"
                         Grid.Row="3"
                         SelectedIndexChanged="LanguageSelectedEvent"
                         FontSize="13">
@@ -58,13 +58,13 @@
                         Margin="4, 10, 4, 0"/>
                     <Picker x:Name="columnPicker"
                         Margin="10, 0, 10, 0"
-                        Title="Tabular scheme columns number"
+                        Title="{Binding [tabularPickerText], Source={x:Static resources:ResourceLoader.Instance}}"
                         Grid.Row="5"
                         SelectedIndexChanged="ColumnNumberSelectedEvent"
                         FontSize="13">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
-                                <x:String>3 (default)</x:String>
+                                <x:String>3</x:String>
                                 <x:String>4</x:String>
                                 <x:String>5</x:String>
                             </x:Array>
