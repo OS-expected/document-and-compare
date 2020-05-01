@@ -73,7 +73,7 @@
                             <StackLayout>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
@@ -83,7 +83,7 @@
                                                Text="{Binding FileName}" 
                                                FontSize="Micro" 
                                                HorizontalOptions="StartAndExpand" 
-                                               VerticalOptions="Center"/>
+                                               VerticalOptions="Center" />
                                     <!-- Opt: label with no file message -->
                                     <Label Grid.Column="1" 
                                                IsVisible="{Binding IsExisting, Converter={Helpers:InverseBoolConverter}}" 
@@ -101,7 +101,7 @@
                                                 Clicked="OpenGeneratedFileBtn_Clicked" 
                                                 BackgroundColor="Transparent" 
                                                 Margin="0, 0, 60, 0"
-                                                TextColor="#003366" 
+                                                TextColor="#277FB2" 
                                                 FontSize="18" 
                                                 Style="{StaticResource FontAwesome5FreeRegular}" 
                                                 HorizontalOptions="End" 
