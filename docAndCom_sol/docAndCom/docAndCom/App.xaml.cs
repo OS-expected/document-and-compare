@@ -56,7 +56,7 @@ namespace docAndCom
 
                 var res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "numOfCol");
 
-                if (res == null)
+                if (res == null || string.IsNullOrWhiteSpace(res.Value) == true)
                 {
                     Preference pref = new Preference()
                     {
@@ -73,7 +73,7 @@ namespace docAndCom
 
                 res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "lang");
 
-                if (res != null)
+                if (res != null && string.IsNullOrWhiteSpace(res.Value) == false)
                 {
                     var newCulture = new CultureInfo(res.Value, false);
 
@@ -98,7 +98,14 @@ namespace docAndCom
                         pref.Value = "en-US";
                     }
 
-                    conn.Insert(pref);
+                    if (res != null)
+                    {
+                        res.Value = pref.Value;
+                        conn.Update(res);
+                    } else
+                    {
+                        conn.Insert(pref);
+                    }
 
                     var defaultCulture = new CultureInfo(pref.Value, false);
 
@@ -113,7 +120,7 @@ namespace docAndCom
 
                 res = conn.Table<Preference>().FirstOrDefault(p => p.Key == "saveCopyToAlbum");
 
-                if (res == null)
+                if (res == null || string.IsNullOrWhiteSpace(res.Value) == true)
                 {
                     Preference pref = new Preference()
                     {
