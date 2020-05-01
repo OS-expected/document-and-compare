@@ -171,6 +171,9 @@
   <data name="documentText" xml:space="preserve">
     <value>Archiwum</value>
   </data>
+  <data name="englishLangText" xml:space="preserve">
+    <value>angielski</value>
+  </data>
   <data name="fileGeneratedText" xml:space="preserve">
     <value>Plik został wygenerowany. Możesz wrócić do poprzedniej strony z listą plików.</value>
   </data>
@@ -399,6 +402,9 @@
   <data name="pluralVariety" xml:space="preserve">
     <value>je</value>
   </data>
+  <data name="polishLangText" xml:space="preserve">
+    <value>polski</value>
+  </data>
   <data name="previewText" xml:space="preserve">
     <value>Podgląd</value>
   </data>
@@ -424,6 +430,9 @@
   <data name="repositoryText" xml:space="preserve">
     <value>Repozytorium</value>
   </data>
+  <data name="selectLangText" xml:space="preserve">
+    <value>Wybierz język</value>
+  </data>
   <data name="selectTagText" xml:space="preserve">
     <value>Wybierz etykietę</value>
   </data>
@@ -447,6 +456,10 @@
   </data>
   <data name="tabularExampleText" xml:space="preserve">
     <value>Przykład układu tabelkowego:</value>
+  </data>
+  <data name="tabularPickerText" xml:space="preserve">
+    <value>Liczba kolumn w układzie tabelkowym</value>
+    <comment>Tabular scheme columns number</comment>
   </data>
   <data name="tabulaSchemeNumOfColsText" xml:space="preserve">
     <value>Układ tabelkowy(kolumny)</value>

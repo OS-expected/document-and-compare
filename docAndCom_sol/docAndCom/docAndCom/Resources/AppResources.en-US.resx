@@ -171,6 +171,9 @@
   <data name="documentText" xml:space="preserve">
     <value>Document</value>
   </data>
+  <data name="englishLangText" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="fileGeneratedText" xml:space="preserve">
     <value>Document generated. You can now return to the previous page.</value>
   </data>
@@ -396,6 +399,9 @@
   <data name="pluralVariety" xml:space="preserve">
     <value>them</value>
   </data>
+  <data name="polishLangText" xml:space="preserve">
+    <value>Polish</value>
+  </data>
   <data name="previewText" xml:space="preserve">
     <value>Preview</value>
   </data>
@@ -420,6 +426,9 @@
   <data name="repositoryText" xml:space="preserve">
     <value>Repository</value>
   </data>
+  <data name="selectLangText" xml:space="preserve">
+    <value>Select language</value>
+  </data>
   <data name="selectTagText" xml:space="preserve">
     <value>Select tag</value>
   </data>
@@ -443,6 +452,9 @@
   </data>
   <data name="tabularExampleText" xml:space="preserve">
     <value>Tabular example:</value>
+  </data>
+  <data name="tabularPickerText" xml:space="preserve">
+    <value>Tabular scheme columns number</value>
   </data>
   <data name="tabulaSchemeNumOfColsText" xml:space="preserve">
     <value>Tabular scheme(columns)</value>
