@@ -22,11 +22,11 @@
                 Orientation="Horizontal" 
                 Spacing="0">
                     <Label 
-                           Text="{Binding [filesText], Source={x:Static resources:ResourceLoader.Instance}}" 
-                           Margin="10, 0, 0, 0" 
-                           FontSize="Title"
-                            VerticalOptions="CenterAndExpand"
-                           VerticalTextAlignment="Center"/>
+                        Text="{Binding [filesText], Source={x:Static resources:ResourceLoader.Instance}}" 
+                        Margin="10, 0, 0, 0" 
+                        FontSize="Title"
+                        VerticalOptions="CenterAndExpand"
+                        VerticalTextAlignment="Center"/>
                     <Button 
                         Text="{Binding [createNewText], Source={x:Static resources:ResourceLoader.Instance}}" 
                         Clicked="GenerateNewDocBtn_Clicked"
