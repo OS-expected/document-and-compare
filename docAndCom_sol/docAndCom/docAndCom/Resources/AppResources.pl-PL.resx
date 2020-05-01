@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aboutProudlyUses" xml:space="preserve">
-    <value>docAndCom wykorzystuje: &lt;br/&gt; - Xamarin.Forms, &lt;br/&gt; - SQLite, &lt;br/&gt; - iTextSharp, &lt;br/&gt; - ikony Iconify i Font Awesome, &lt;br/&gt; - Xam.Plugin.Media, &lt;br/&gt; - Xamarin.Plugin.Calendar, &lt;br/&gt; FFImageLoading.</value>
+    <value>docAndCom wykorzystuje: &lt;br/&gt; - Xamarin.Forms, &lt;br/&gt; - SQLite, &lt;br/&gt; - iTextSharp, &lt;br/&gt; - ikony Iconify i Font Awesome, &lt;br/&gt; - Xam.Plugin.Media, &lt;br/&gt; - Xamarin.Plugin.Calendar, &lt;br/&gt; - FFImageLoading.</value>
   </data>
   <data name="aboutShortDescText" xml:space="preserve">
-    <value>docAndCom to przydatne narzędzie open source stworzone przez trolit(&lt;span style="color: #E59648;"&gt;github.com/trolit&lt;/span&gt;), na licencji MIT dla platformy Android. W skrócie, aplikacja została wykonana po to, aby dać możliwość dokumentowania zmian w postaci zdjęć przypisanych do etykiet. Po zebraniu danych, użytkownik może wygenerować plik(i) pdf którymi łatwo porównuje się efekty. Jeżeli chcesz pomóc uczynić tą aplikację lepszą lub dodać kolejną lokalizację napisz do mnie :) </value>
+    <value>docAndCom to przydatne narzędzie open source stworzone przez trolit(&lt;span style="color: #E59648;"&gt;github.com/trolit&lt;/span&gt;), na licencji MIT dla platformy Android. W skrócie, aplikacja została wykonana po to, aby dać możliwość dokumentowania zmian w postaci zdjęć przypisanych do etykiet. Po zebraniu danych, użytkownik może wygenerować plik(i) pdf którymi łatwo porównuje się efekty. Chcesz pomóc uczynić tą aplikację lepszą lub dodać kolejną lokalizację? Pisz do mnie :) </value>
   </data>
   <data name="aboutText" xml:space="preserve">
     <value>O aplikacji</value>

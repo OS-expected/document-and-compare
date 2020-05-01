@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="aboutProudlyUses" xml:space="preserve">
-    <value>docAndCom proudly uses: &lt;br/&gt; - Xamarin.Forms, &lt;br/&gt; - SQLite, &lt;br/&gt; - iTextSharp, &lt;br/&gt; - Iconify and Font Awesome icons, &lt;br/&gt; - Xam.Plugin.Media, &lt;br/&gt; - Xamarin.Plugin.Calendar, &lt;br/&gt; FFImageLoading.</value>
+    <value>docAndCom proudly uses: &lt;br/&gt; - Xamarin.Forms, &lt;br/&gt; - SQLite, &lt;br/&gt; - iTextSharp, &lt;br/&gt; - Iconify and Font Awesome icons, &lt;br/&gt; - Xam.Plugin.Media, &lt;br/&gt; - Xamarin.Plugin.Calendar, &lt;br/&gt; - FFImageLoading.</value>
   </data>
   <data name="aboutShortDescText" xml:space="preserve">
     <value>docAndCom is handy, open software tool developed by trolit(&lt;span style="color: #E59648;"&gt;github.com/trolit&lt;/span&gt;) under MIT license for Android. In short, app is designed to let users document their subject under prepared tag(s). After gaining some data users can obtain results as pdf file(s) allowing to easily compare changes between them. Want to help with making it better or add another localization? Message me :)</value>
