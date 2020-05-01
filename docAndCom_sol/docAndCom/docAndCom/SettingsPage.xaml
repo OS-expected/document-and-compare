@@ -21,27 +21,31 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Label
-                        Grid.Row="0"
-                        Margin="0, 25, 0, 0"
-                        Text="{Binding [settingsText], Source={x:Static resources:ResourceLoader.Instance}}"
-                        FontSize="Title"/>
+                    <StackLayout 
+                            Grid.Row="0" 
+                            Margin="0, 25, 0, 0"
+                            HorizontalOptions="FillAndExpand"
+                            Orientation="Horizontal" 
+                            Spacing="10">
+                        <Label 
+                                Text="&#xf0ad;"
+                                HorizontalTextAlignment="Center"
+                                FontSize="31"
+                                Style="{StaticResource FontAwesome5FreeSolid}" />
+                        <Label
+                                Text="{Binding [settingsText], Source={x:Static resources:ResourceLoader.Instance}}"
+                                FontSize="Title"/>
+                    </StackLayout>
                     <Label
                         Grid.Row="1"
-                        Padding="2, 0, 2, 10"
-                        FontSize="Micro"
-                        Text="{Binding [languageSettingInfo], Source={x:Static resources:ResourceLoader.Instance}}"/>
-                    <Label
-                        Grid.Row="2"
                         Text="{Binding [languageText], Source={x:Static resources:ResourceLoader.Instance}}"
                         FontSize="Small"
-                        Margin="4, 0"/>
+                        Margin="4, 10, 4, 0"/>
                     <Picker x:Name="languagePicker"
                         Margin="10, 0, 10, 0"
                         Title="{Binding [selectLangText], Source={x:Static resources:ResourceLoader.Instance}}"
-                        Grid.Row="3"
+                        Grid.Row="2"
                         SelectedIndexChanged="LanguageSelectedEvent"
                         FontSize="13">
                         <Picker.ItemsSource>
@@ -52,14 +56,14 @@
                         </Picker.ItemsSource>
                     </Picker>
                     <Label
-                        Grid.Row="4"
+                        Grid.Row="3"
                         Text="{Binding [tabulaSchemeNumOfColsText], Source={x:Static resources:ResourceLoader.Instance}}"
                         FontSize="Small"
                         Margin="4, 10, 4, 0"/>
                     <Picker x:Name="columnPicker"
                         Margin="10, 0, 10, 0"
                         Title="{Binding [tabularPickerText], Source={x:Static resources:ResourceLoader.Instance}}"
-                        Grid.Row="5"
+                        Grid.Row="4"
                         SelectedIndexChanged="ColumnNumberSelectedEvent"
                         FontSize="13">
                         <Picker.ItemsSource>
@@ -71,17 +75,17 @@
                         </Picker.ItemsSource>
                     </Picker>
                     <Label
-                        Grid.Row="6"
+                        Grid.Row="5"
                         Padding="15, 0, 15, 0"
                         FontSize="Micro"
                         Text="{Binding [settingsNumOfColsNote], Source={x:Static resources:ResourceLoader.Instance}}"/>
                     <Label
-                        Grid.Row="7"
+                        Grid.Row="6"
                         Text="{Binding [publicCopyText], Source={x:Static resources:ResourceLoader.Instance}}"
                         FontSize="Small"
                         Margin="4, 10, 4, 0"/>
                     <Grid
-                        Grid.Row="8"
+                        Grid.Row="7"
                         Margin="15, 1, 15, 0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -102,7 +106,7 @@
                             Style="{StaticResource FontAwesome5FreeSolid}"/>
                     </Grid>
                     <Label
-                        Grid.Row="9"
+                        Grid.Row="8"
                         Padding="15, 0, 15, 20"
                         FontSize="Micro"
                         Text="{Binding [publicCopyDescText], Source={x:Static resources:ResourceLoader.Instance}}"/>
