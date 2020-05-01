@@ -104,7 +104,7 @@ namespace docAndCom.Droid
                         ResourceLoader.Instance.GetString("pdfDataText") + photo.CreatedOn.ToString("dd.MM.yyyy"));
                     p.SpacingAfter = 75f;
                     var img = Image.GetInstance(photo.Path);
-                    img.ScalePercent(13f);
+                    img.ScalePercent(12f);
                     p.Alignment = Element.ALIGN_TOP;
                     img.Alignment = Element.ALIGN_MIDDLE;
                     doc.Add(p);
