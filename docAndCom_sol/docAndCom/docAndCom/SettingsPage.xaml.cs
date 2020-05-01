@@ -11,6 +11,8 @@ namespace docAndCom
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
+        private List<string> languagePickerListData;
+
         public SettingsPage()
         {
             InitializeComponent();
@@ -18,9 +20,12 @@ namespace docAndCom
 
         protected override void OnAppearing()
         {
+            languagePickerListData = new List<string>();
+
             LocalizeLangPickerData();
 
             LoadPreferences();
+
             var tgr = new TapGestureRecognizer();
             tgr.Tapped += (s, e) => ToggleExtraImageCopy();
             extraCopyToggler.GestureRecognizers.Add(tgr);
@@ -28,7 +33,6 @@ namespace docAndCom
 
         private void LocalizeLangPickerData()
         {
-            List<string> languagePickerListData = new List<string>();
             languagePickerListData.Add(GetResourceString("englishLangText"));
             languagePickerListData.Add(GetResourceString("polishLangText"));
 
@@ -150,6 +154,10 @@ namespace docAndCom
             else if (selectedVal == 1)
             {
                 resKey = "pl-PL";
+            } 
+            else
+            {
+                return;
             }
             
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
@@ -174,8 +182,6 @@ namespace docAndCom
                     conn.Insert(pref);
                 }
             }
-
-            LocalizeLangPickerData();
 
             var newCulture = new CultureInfo(resKey, false);
 
