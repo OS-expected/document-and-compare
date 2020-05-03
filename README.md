@@ -1,8 +1,6 @@
 <h2>Document and Compare</h2>
 
-<img src="https://img.shields.io/badge/Platform-Android-red?color=2DE22B&style=flat-square" alt="to do: add alt text"/>
-
-<img src="https://img.shields.io/badge/Languages-EN,%20PL-red?color=E41570&style=flat-square" alt="to do: add alt text"/>
+<img src="https://img.shields.io/badge/Platform-Android-red?color=2DE22B&style=flat-square" alt="to do: add alt text"/> <img src="https://img.shields.io/badge/Languages-EN,%20PL-red?color=E41570&style=flat-square" alt="to do: add alt text"/>
 
 <p align="center"><img src="http://placehold.it/350" width="350" alt="docAndCom logo"></p>
 
