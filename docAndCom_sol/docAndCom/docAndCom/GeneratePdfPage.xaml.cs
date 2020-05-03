@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -105,9 +106,11 @@ namespace docAndCom
                         GetResourceString("fileGeneratedText"), 
                         GetResourceString("greatText"));
 
-                    var page = Navigation.NavigationStack[Navigation.NavigationStack.Count - 1];
+                    var genPdfPage = Navigation.NavigationStack[Navigation.NavigationStack.Count - 1];
+                    var genPage = Navigation.NavigationStack[Navigation.NavigationStack.Count - 2];
                     await Navigation.PushAsync(new GeneratePage());
-                    Navigation.RemovePage(page);
+                    Navigation.RemovePage(genPage);
+                    Navigation.RemovePage(genPdfPage);
                 } 
                 else
                 {
