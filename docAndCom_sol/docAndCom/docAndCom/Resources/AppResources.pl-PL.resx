@@ -175,7 +175,7 @@
     <value>angielski</value>
   </data>
   <data name="fileGeneratedText" xml:space="preserve">
-    <value>Plik został wygenerowany. Możesz wrócić do poprzedniej strony z listą plików.</value>
+    <value>Plik został wygenerowany. Po zamknięciu okna nastąpi przekierowanie do listy z plikami.</value>
   </data>
   <data name="fileGenTag" xml:space="preserve">
     <value>Etykieta</value>

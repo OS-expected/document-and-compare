@@ -175,7 +175,7 @@
     <value>English</value>
   </data>
   <data name="fileGeneratedText" xml:space="preserve">
-    <value>Document generated. You can now return to the previous page.</value>
+    <value>Document generated. After prompt is closed you will be redirected to the list of files.</value>
   </data>
   <data name="fileGenTag" xml:space="preserve">
     <value>Tag</value>
