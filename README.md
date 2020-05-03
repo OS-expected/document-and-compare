@@ -27,7 +27,7 @@
 
 :white_check_mark: <strong>READ</strong> to access camera, gallery(documenting images), generated files(opening, checking if they exist) <br><br>
 :white_check_mark: <strong>WRITE</strong> to save images documented through camera, generated pdf files, preferences and references stored in database<br><br>
-
+:white_check_mark: <strong>CAMERA</strong> to let user set new document image by taking a photo with camera <br><br>
 <!-- If you did not specify icon, simply overwrite Id put between : : characters with desired icon name -->
 <!-- Supported by GitHub icon list can be found here: https://gist.github.com/rxaviers/7360908 -->
 
