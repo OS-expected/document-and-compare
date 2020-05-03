@@ -111,7 +111,9 @@ namespace docAndCom
                     
                     if(res == true)
                     {
+                        var page = Navigation.NavigationStack[Navigation.NavigationStack.Count - 1];
                         await Navigation.PushAsync(new TagsPage());
+                        Navigation.RemovePage(page);
                     } 
                     else
                     {

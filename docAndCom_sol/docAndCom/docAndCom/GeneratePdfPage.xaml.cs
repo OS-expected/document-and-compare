@@ -104,6 +104,10 @@ namespace docAndCom
                     await DisplayAlert(GetResourceString("SuccessText"),
                         GetResourceString("fileGeneratedText"), 
                         GetResourceString("greatText"));
+
+                    var page = Navigation.NavigationStack[Navigation.NavigationStack.Count - 1];
+                    await Navigation.PushAsync(new GeneratePage());
+                    Navigation.RemovePage(page);
                 } 
                 else
                 {
