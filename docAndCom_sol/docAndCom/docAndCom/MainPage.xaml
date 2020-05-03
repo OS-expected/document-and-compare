@@ -97,7 +97,7 @@
                                 VerticalOptions="CenterAndExpand"
                                 HorizontalOptions="FillAndExpand"
                                 Text="{Binding [getStartedText], Source={x:Static resources:ResourceLoader.Instance}}"/>
-                    <StackLayout Grid.ColumnSpan="3" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal" Spacing="0">
+                    <StackLayout Grid.ColumnSpan="3" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Orientation="Horizontal" Spacing="0">
                         <Label 
                                 Text="{Binding [builtWithText], Source={x:Static resources:ResourceLoader.Instance}}"
                                 Style="{DynamicResource SmallLabel}"
