@@ -265,7 +265,7 @@
     <value>On the new page you will be asked to specify the tag that you want to document as pdf file and type of the output. Type is the way how results are being shown. You can choose between List and Tabular. List example:</value>
   </data>
   <data name="helpGenPt4" xml:space="preserve">
-    <value>To view generated document, get back to the documents list and tap on the eye icon(you need external program e.g. Google Pdf Viewer). If you want to copy the doc to e.g. PC to share, store or view on bigger screen, find on local storage device dir called DocAndComPDFs. If you cut or move generated file in the documents list, you will see note like in the first document below.</value>
+    <value>To view generated document, get back to the documents list and tap on the eye icon(you need external program e.g. Google Pdf Viewer). If you want to copy the doc to e.g. PC to share, store or view on bigger screen, find on local storage device dir called DocAndComPDFs. Download the file so it will be visible on PC in Downloads directory. If you cut or move generated file in the documents list, you will see note like in the first document below.</value>
   </data>
   <data name="helpGenPt5" xml:space="preserve">
     <value>If you did it intentionally it is worth to remove stored reference in the application by using bin icon. And that's it! You know how to use docAndCom app. I hope that it will be useful to you :) and btw... There is no limits in generated files for the same tag too.</value>
