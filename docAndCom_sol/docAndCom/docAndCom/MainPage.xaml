@@ -26,7 +26,8 @@
         <ScrollView  
             AbsoluteLayout.LayoutBounds="0,0,1,1"
             AbsoluteLayout.LayoutFlags="All" >
-            <StackLayout>
+            <StackLayout 
+                VerticalOptions="FillAndExpand">
                 <Grid Padding="3,0,3,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="260" />
@@ -42,7 +43,8 @@
                     </Grid.ColumnDefinitions>
                     <Image Grid.ColumnSpan="3" Grid.Row="0" HorizontalOptions="FillAndExpand"
                            Margin="0, 0, 0, 0" 
-                           Aspect="AspectFill"
+                           HeightRequest="140"
+                           Aspect="AspectFit"
                            Source="logo.png"/>
                     <Label Grid.Row="1" Grid.Column="0"
                                 HorizontalTextAlignment="Center"
@@ -97,17 +99,17 @@
                                 VerticalOptions="CenterAndExpand"
                                 HorizontalOptions="FillAndExpand"
                                 Text="{Binding [getStartedText], Source={x:Static resources:ResourceLoader.Instance}}"/>
-                    <StackLayout Grid.ColumnSpan="3" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Orientation="Horizontal" Spacing="0">
+                    <StackLayout Grid.ColumnSpan="3" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal" Spacing="0">
                         <Label 
                                 Text="{Binding [builtWithText], Source={x:Static resources:ResourceLoader.Instance}}"
                                 Style="{DynamicResource SmallLabel}"
                                 FontSize="Micro"
-                                VerticalTextAlignment="End" />
+                                VerticalTextAlignment="Center" />
                         <Label
                                 Text="&#xf17b;"
                                 TextColor="#3DDC84"
                                 FontSize="Title" 
-                                VerticalTextAlignment="End"
+                                VerticalTextAlignment="Center"
                                 Margin="6,0,0,0"
                                 Style="{StaticResource FontAwesome5FreeBrand}" />
                     </StackLayout>
