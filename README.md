@@ -27,11 +27,11 @@
 
 :white_check_mark: <strong>READ</strong> to access camera, gallery(documenting images), generated files(opening, checking if they exist) <br><br>
 :white_check_mark: <strong>WRITE</strong> to save images documented through camera, generated pdf files, preferences and references stored in the database<br><br>
-:white_check_mark: <strong>CAMERA</strong> to let user set new document image by taking a photo with camera <br><br>
+:white_check_mark: <strong>CAMERA</strong> to let user set new document image by taking a photo with camera <br>
 <!-- If you did not specify icon, simply overwrite Id put between : : characters with desired icon name -->
 <!-- Supported by GitHub icon list can be found here: https://gist.github.com/rxaviers/7360908 -->
 
-<h2>Libraries</h2>
+<h2>Used libraries</h2>
 
 - <a href="https://github.com/xamarin/Xamarin.Forms">Xamarin.Forms</a>
 - <a href="https://github.com/sqlite/sqlite">SQLite</a>
@@ -48,7 +48,7 @@ Minimum required Android version to use docAndCom: <strong>5.0 (Lollipop)</stron
 
 Targetted Android OS: <strong>9.0 (Pie)</strong>
 
-<p align="justify">You can download the *.apk installation file by clicking <a href="https://github.com/trolit/document-and-compare/releases/download/v1.0/docAndCom.apk">here</a>. <strong>Note that the original docAndCom solution developed by <a href="https://github.com/trolit">trolit</a></strong> is not currently available on any other pages delivering software than this GitHub repository. Guaranteed, safe way to obtain the app without suspicious modifications is to download it through <strong>the link given above</strong>! Any information that user will add/generate through docAndCom is kept on local device storage and is not shared further without user's knowledge. App <strong>will never</strong> prompt for permissions other than detailed in the documentation(read, write, camera), show advertisements. docAndCom is <strong>NOT connecting</strong> to the Internet. </p>
+<p align="justify">You can download the *.apk installation file by clicking <a href="https://github.com/trolit/document-and-compare/releases/download/v1.0/docAndCom.apk">here</a>. <strong>Note that the original docAndCom solution developed by <a href="https://github.com/trolit">trolit</a></strong> is not currently available on any other pages delivering software than this GitHub repository. Guaranteed, safe way to obtain the app without suspicious modifications is to download it through <strong>the link given above</strong>! Other pages are unverified. Any information that user will add/generate through docAndCom is kept on local device storage and is not shared further without user's knowledge. App <strong>will never</strong> prompt for permissions other than detailed in the documentation(read, write, camera), show advertisements. docAndCom is <strong>NOT connecting</strong> to the Internet. </p>
 
 <p align="justify">To proceed with the downloaded apk, refer to the Android documentation <a href="https://developer.android.com/studio/publish#publishing-unknown">HERE</a> on how to enable 3rd party app installation(if you did not enable that option before) and then simply launch apk file while using Android device. </p>
 
