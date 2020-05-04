@@ -35,7 +35,8 @@
                 <Button
                   Margin="0, 25, 0, 0"
                   Text="{Binding [takePhotoText], Source={x:Static resources:ResourceLoader.Instance}}"
-                  BackgroundColor="Goldenrod"
+                  BackgroundColor="#5151CC"
+                  TextColor="White"
                   Grid.Row="2"
                   Grid.Column="0"
                   Clicked="TakePhoto_Clicked"/>
@@ -67,6 +68,8 @@
                     Grid.ColumnSpan="2"/>
                 <Button
                     Margin="0, 18, 0, 0"
+                    BackgroundColor="#6666FF"
+                    TextColor="White"
                     Grid.Row="5"
                     Grid.Column="1"
                     Text="{Binding [documentImageText], Source={x:Static resources:ResourceLoader.Instance}}"
