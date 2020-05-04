@@ -30,9 +30,9 @@
                 VerticalOptions="FillAndExpand">
                 <Grid Padding="3,0,3,0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="260" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="30" />
-                        <RowDefinition Height="70" />
+                        <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
@@ -43,7 +43,7 @@
                     </Grid.ColumnDefinitions>
                     <Image Grid.ColumnSpan="3" Grid.Row="0" HorizontalOptions="FillAndExpand"
                            Margin="0, 0, 0, 0" 
-                           HeightRequest="140"
+                           HeightRequest="250"
                            Aspect="AspectFit"
                            Source="logo.png"/>
                     <Label Grid.Row="1" Grid.Column="0"
@@ -99,7 +99,7 @@
                                 VerticalOptions="CenterAndExpand"
                                 HorizontalOptions="FillAndExpand"
                                 Text="{Binding [getStartedText], Source={x:Static resources:ResourceLoader.Instance}}"/>
-                    <StackLayout Grid.ColumnSpan="3" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal" Spacing="0">
+                    <StackLayout Grid.ColumnSpan="3" Grid.Row="4" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Orientation="Horizontal" Spacing="0">
                         <Label 
                                 Text="{Binding [builtWithText], Source={x:Static resources:ResourceLoader.Instance}}"
                                 Style="{DynamicResource SmallLabel}"
