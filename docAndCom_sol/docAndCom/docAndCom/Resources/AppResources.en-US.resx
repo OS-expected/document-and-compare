@@ -241,13 +241,13 @@
     <value>To add new document, click document button from the main menu page, then press the icon placed in the toolbar section.</value>
   </data>
   <data name="helpDocPt3" xml:space="preserve">
-    <value>You can pick image from gallery or take a new one. After adding document, get back to the calendar view using toolbar back arrow icon. Days on which user documented something are marked with dot. To clarify, there is no given limit of documented images on specific day.</value>
+    <value>You can pick image from gallery or take a new one using camera. Whatever option you pick, images will be stored as app "temporary" files that are not viewable. This means that when you for e.g. delete image picked from gallery through local storage, the "tmp" copy will still be available in the app. You can force the app to make public copy of images made with camera by changing option in settings section that can be reached via main menu. After adding document, get back to the calendar view using toolbar back arrow icon. Days on which user documented something are marked with dot. To clarify, there is no given limit of documented images on specific day.</value>
   </data>
   <data name="helpDocPt4" xml:space="preserve">
     <value>If you want to see what was documented on marked day, choose that day and hide calendar by using arrow placed in the right bottom corner or simply slide to the bottom to see the attached elements. </value>
   </data>
   <data name="helpDocPt5" xml:space="preserve">
-    <value>Each image contains preview, tag name and functional buttons. You can see that image through gallery app in full perspective or delete it from device storage. Note that if you took photo with camera option(instead of picking existing one from gallery), the image will be stored as private file. If you want to have second, independent and public copy on your device, please refer to the settings page from main menu section to enable that option. To see again full calendar view, click once again arrow but this time placed on the right top corner.</value>
+    <value>Each image contains preview, tag name and functional buttons. You can see that image through gallery app in full perspective or delete it from device storage. To see again full calendar view, click once again arrow but this time placed on the right top corner.</value>
   </data>
   <data name="helpDocTitle" xml:space="preserve">
     <value>Step 2 - documenting</value>
