@@ -225,6 +225,9 @@
   <data name="greatText" xml:space="preserve">
     <value>Świetnie!</value>
   </data>
+  <data name="hardDeleteAlertNoTag" xml:space="preserve">
+    <value>Tej operacji nie można cofnąć. Czy na pewno chcesz to zrobić?</value>
+  </data>
   <data name="hardDeleteAlertText" xml:space="preserve">
     <value>Ta operacja spowoduje trwałe usunięcie zdjęcia zapisanego pod etykietą &lt;%tagName%&gt; z urządzenia.</value>
   </data>
