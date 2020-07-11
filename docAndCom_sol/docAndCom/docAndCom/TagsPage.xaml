@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:resources="clr-namespace:docAndCom"
+             xmlns:resources="clr-namespace:docAndCom" xmlns:Helpers="clr-namespace:docAndCom.Converters"
              mc:Ignorable="d"
              x:Class="docAndCom.TagsPage">
     <ContentPage.ToolbarItems>
@@ -15,7 +15,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Text="{Binding [tagsText], Source={x:Static resources:ResourceLoader.Instance}}" Margin="10, 25, 0, 20" FontSize="Title"/>
             <StackLayout Grid.Row="1" x:Name="emptyTagsMsg" Padding="0, 80, 0, 0" HorizontalOptions="CenterAndExpand" Orientation="Vertical" Spacing="0">
@@ -44,20 +44,58 @@
                                         Margin="0,2,0,0"
                                         Style="{DynamicResource SmallLabel}" />
             </StackLayout>
-            <ListView x:Name="tagsListView" Grid.Row="2" HasUnevenRows="True">
+            <ListView 
+                x:Name="tagsListView" 
+                Grid.Row="2" 
+                HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <!-- Place new controls here -->
-                                    <Label Grid.Column="0" Padding="10,0,0,0" Text="{Binding Name}" FontSize="Small" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-                                    <Button Grid.Column="1" Text="&#xf083;" BackgroundColor="Transparent" TextColor="DarkMagenta" FontSize="18" Style="{StaticResource FontAwesome5FreeSolid}" Clicked="OnAccordingImagesClicked" HorizontalOptions="End" VerticalOptions="Center"/>
+                                    <Label 
+                                        Grid.Column="0" 
+                                        Padding="10,0,0,0" 
+                                        Text="{Binding Name}" 
+                                        FontSize="Small" 
+                                        WidthRequest="100"
+                                        HorizontalOptions="StartAndExpand" 
+                                        VerticalOptions="Center"/>
+                                    <Grid 
+                                        Grid.Column="1"
+                                        IsVisible="{Binding IsEmpty, Converter={Helpers:InverseBoolConverter}}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label 
+                                            Grid.Column="1" 
+                                            VerticalOptions="Center" 
+                                            Text="{Binding PhotoCount}" 
+                                            TextColor="DarkMagenta"
+                                            WidthRequest="50"
+                                            FontSize="14" 
+                                            Padding="0,3,10,0"
+                                            HorizontalTextAlignment="End"
+                                            VerticalTextAlignment="End"
+                                            Style="{StaticResource FontAwesome5FreeSolid}"/>
+                                        <Button 
+                                            Grid.Column="1" 
+                                            Grid.ColumnSpan="2"
+                                            Text="&#xf083;" 
+                                            BackgroundColor="Transparent" 
+                                            TextColor="DarkMagenta" 
+                                            FontSize="18" Style="{StaticResource FontAwesome5FreeSolid}" 
+                                            Clicked="OnAccordingImagesClicked" 
+                                            HorizontalOptions="End" 
+                                            VerticalOptions="Center"/>
+                                    </Grid>
                                     <Button Grid.Column="2" Text="&#xf2ed;" BackgroundColor="Transparent" TextColor="Firebrick" FontSize="18" Style="{StaticResource FontAwesome5FreeRegular}" Clicked="OnDeleteClicked" HorizontalOptions="End" VerticalOptions="Center"/>
                                 </Grid>
                             </StackLayout>

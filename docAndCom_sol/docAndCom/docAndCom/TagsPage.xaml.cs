@@ -1,5 +1,7 @@
 ﻿using docAndCom.Models;
+using docAndCom.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
@@ -14,7 +16,10 @@ namespace docAndCom
         public TagsPage()
         {
             InitializeComponent();
+        }
 
+        protected override void OnAppearing()
+        {
             DisplayTags();
         }
 
@@ -177,6 +182,7 @@ namespace docAndCom
                 conn.CreateTable<Tag>();
 
                 var tags = conn.Table<Tag>().ToList();
+                var photos = conn.Table<Photo>().ToList();
 
                 if(tags.Count == 0)
                 {
@@ -186,8 +192,33 @@ namespace docAndCom
                     emptyTagsMsg.IsVisible = false;
                 }
 
-                tagsListView.ItemsSource = tags;
+                List<TagViewModel> mappedTags = new List<TagViewModel>();
+
+                foreach (var tag in tags)
+                {
+                    mappedTags.Add(new TagViewModel
+                    {
+                        Id = tag.Id,
+                        Name = tag.Name,
+                        PhotoCount = ReturnNumberOfPhotos(photos, tag.Id)
+                    });
+                }
+
+                tagsListView.ItemsSource = mappedTags;
             }
+        }
+
+        private int ReturnNumberOfPhotos(List<Photo> photos, int tagId)
+        {
+            int nop = 0;
+            foreach (var photo in photos)
+            {
+                if (photo.TagId == tagId)
+                {
+                    nop++;
+                }
+            }
+            return nop;
         }
     }
 }
