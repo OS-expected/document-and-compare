@@ -99,7 +99,7 @@ namespace docAndCom
 
                     string extraNote = GetResourceString("imageLeftText");
 
-                    if (File.Exists(photo.Path))
+                    if (File.Exists(photo.Path) == false)
                     {
                         extraNote = GetResourceString("imageRemovedText");
                     }
