@@ -18,6 +18,13 @@ namespace docAndCom
             DisplayTags();
         }
 
+        private async void OnAccordingImagesClicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var tag = button.BindingContext as Tag;
+            await Navigation.PushAsync(new CorrespondingPhotosPage(tag.Id, tag.Name));
+        }
+
         private async void OnDeleteClicked(object sender, EventArgs e)
         {
             var result = await DisplayAlert(GetResourceString("areYouSureText"),
