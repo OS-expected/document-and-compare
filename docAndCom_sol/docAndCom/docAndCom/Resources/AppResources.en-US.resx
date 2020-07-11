@@ -289,7 +289,7 @@
     <value>In order to add tag, move to the tag section by clicking appropriate button from the main menu. Then click the icon placed in the toolbar section and specify name of the tag.</value>
   </data>
   <data name="helpTagPt3" xml:space="preserve">
-    <value>If you would like remove the tag, you can do this by tapping icon placed next to the tag name. If it contains documented images, you will see prompt asking whether you want to remove them too from your device storage or no.</value>
+    <value>If you would like remove the tag, you can do this by clicking on the red icon placed to the right of the corresponding tag. If tag contains images, you will see extra prompt asking whether you want to also remove them from your device storage or no. In the newest update, tag containing image(s) was extended with button showing number of photos that are attached to the tag. Push that button to redirect to page showing all images from that specific tag. From there you can open them through e.g. gallery or delete one by one. </value>
   </data>
   <data name="helpTagTitle" xml:space="preserve">
     <value>Step 1 - tagging</value>

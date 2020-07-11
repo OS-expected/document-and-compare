@@ -292,7 +292,7 @@
     <value>Żeby dodać etykietę, przejdź do sekcji etykiety, wciskając odpowiedni przycisk z poziomu menu aplikacji. Następnie kliknij ikonę umieszczoną w pasku narzędzi, wprowadź nazwę etykiety i potwierdź dodanie.</value>
   </data>
   <data name="helpTagPt3" xml:space="preserve">
-    <value>Jeżeli chcesz usunąć istniejącą etykietę, możesz to zrobić naciskając na ikonę umieszczoną obok nazwy etykiety. Jeżeli etykieta zawiera jakieś zdjęcia, zobaczysz dodatkowe pytanie o tym czy chcesz je usunąć z pamięci urządzenia.</value>
+    <value>Jeżeli chcesz usunąć etykietę, możesz zrobić to poprzez kliknięcie czerwonej ikony umieszczonej z prawej strony etykiety. Jeżeli etykieta zawiera zdjęcia, zobaczysz pytanie czy one również mają zostać usunięte. W najnowszej aktualizacji etykieta ze zdjęciami została rozszerzona o przycisk z liczba zdjęć jakie są do niej przypisane. Naciśnij ten przycisk aby przejść do strony w której będą wszystkie zdjęcia z danej etykiety. Możesz je pojedynczo kasować albo otwierać za pomocą np. galerii. </value>
   </data>
   <data name="helpTagTitle" xml:space="preserve">
     <value>Krok 1 - etykiety</value>
