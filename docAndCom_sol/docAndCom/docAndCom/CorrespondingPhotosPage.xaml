@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:resources="clr-namespace:docAndCom"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="docAndCom.CorrespondingPhotosPage">
+    <StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label 
+                x:Name="tagLabel"
+                Grid.Row="0"                
+                Margin="10, 25, 0, 20" 
+                FontSize="Title"/>
+            <ListView 
+                x:Name="photosListView" 
+                Grid.Row="1" 
+                HasUnevenRows="True"
+                VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout 
+                                Padding="0,10">
+                                <Label 
+                                    Text="{Binding DateOfCreation}" 
+                                    HorizontalTextAlignment="Center"
+                                    FontSize="Micro"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <ffimageloading:CachedImage
+                                        HorizontalOptions="Center" 
+                                        VerticalOptions="Center"
+			                            Grid.Column="0"
+                                        HeightRequest="120"
+			                            DownsampleToViewSize="true"
+			                            Source = "{Binding ImagePath}"
+                                        LoadingPlaceholder="loadingImg.png"
+                                        ErrorPlaceholder="errorImg.png">
+                                    </ffimageloading:CachedImage>
+                                    <Button
+                                        Margin="0, 10, 0, 0"
+                                        Text="{Binding [openImageText], Source={x:Static resources:ResourceLoader.Instance}}"
+                                        FontSize="8"
+                                        WidthRequest="100"
+                                        HeightRequest="48"
+                                        BackgroundColor="#808080"
+                                        TextColor="White"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Start"
+                                        BindingContext="{Binding ImagePath}"
+                                        Clicked="OpenImageBtn_Clicked" />
+                                    <Button
+                                        Text="{Binding [hardDeleteText], Source={x:Static resources:ResourceLoader.Instance}}"   
+                                        Margin="0, 65, 0, 0"
+                                        FontSize="8"
+                                        WidthRequest="100"
+                                        HeightRequest="48"
+                                        BackgroundColor="#FF4040"
+                                        TextColor="White"
+                                        Grid.Column="1"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Start"
+                                        BindingContext="{Binding .}"
+                                        Clicked="DeleteImageBtn_Clicked" />
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
+</ContentPage>
