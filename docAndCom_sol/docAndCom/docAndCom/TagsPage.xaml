@@ -63,7 +63,7 @@
                                         Grid.Column="0" 
                                         Padding="10,0,0,0" 
                                         Text="{Binding Name}" 
-                                        FontSize="Small" 
+                                        FontSize="Micro" 
                                         WidthRequest="100"
                                         HorizontalOptions="StartAndExpand" 
                                         VerticalOptions="Center"/>
