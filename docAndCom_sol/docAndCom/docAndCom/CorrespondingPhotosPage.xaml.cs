@@ -4,6 +4,7 @@ using docAndCom.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static docAndCom.Helpers.ShortenInvokes;
@@ -29,9 +30,8 @@ namespace docAndCom
 
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
             {
-                List<Photo> photos = conn.Table<Photo>().Where(p => p.TagId == _tagId).ToList();
+                List<Photo> photos = conn.Table<Photo>().Where(p => p.TagId == _tagId).OrderBy(p => p.CreatedOn).ToList();
                 List<CorrespondingPhotosViewModel> photosItemSource = new List<CorrespondingPhotosViewModel>();
-
                 foreach (var photo in photos)
                 {
                     photosItemSource.Add(new CorrespondingPhotosViewModel
