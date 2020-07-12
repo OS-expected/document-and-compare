@@ -54,8 +54,8 @@
                             <StackLayout>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <!-- Place new controls here -->
@@ -63,9 +63,8 @@
                                         Grid.Column="0" 
                                         Padding="10,0,0,0" 
                                         Text="{Binding Name}" 
-                                        FontSize="Micro" 
-                                        WidthRequest="100"
-                                        HorizontalOptions="StartAndExpand" 
+                                        FontSize="Micro"
+                                        HorizontalOptions="FillAndExpand" 
                                         VerticalOptions="Center"/>
                                     <Grid 
                                         Grid.Column="1"
@@ -79,9 +78,10 @@
                                             VerticalOptions="Center" 
                                             Text="{Binding PhotoCount}" 
                                             TextColor="DarkMagenta"
-                                            WidthRequest="50"
-                                            FontSize="14" 
-                                            Padding="0,3,10,0"
+                                            WidthRequest="70"
+                                            FontSize="13" 
+                                            Padding="0,3,5,0"
+                                            HorizontalOptions="End"
                                             HorizontalTextAlignment="End"
                                             VerticalTextAlignment="End"
                                             Style="{StaticResource FontAwesome5FreeSolid}"/>
@@ -93,10 +93,19 @@
                                             TextColor="DarkMagenta" 
                                             FontSize="18" Style="{StaticResource FontAwesome5FreeSolid}" 
                                             Clicked="OnAccordingImagesClicked" 
-                                            HorizontalOptions="End" 
+                                            HorizontalOptions="EndAndExpand"
                                             VerticalOptions="Center"/>
                                     </Grid>
-                                    <Button Grid.Column="2" Text="&#xf2ed;" BackgroundColor="Transparent" TextColor="Firebrick" FontSize="18" Style="{StaticResource FontAwesome5FreeRegular}" Clicked="OnDeleteClicked" HorizontalOptions="End" VerticalOptions="Center"/>
+                                    <Button 
+                                        Grid.Column="2"
+                                        Text="&#xf2ed;" 
+                                        BackgroundColor="Transparent" 
+                                        TextColor="Firebrick" 
+                                        FontSize="18" 
+                                        Style="{StaticResource FontAwesome5FreeRegular}" 
+                                        Clicked="OnDeleteClicked" 
+                                        HorizontalOptions="EndAndExpand" 
+                                        VerticalOptions="Center"/>
                                 </Grid>
                             </StackLayout>
                         </ViewCell>
