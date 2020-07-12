@@ -63,7 +63,7 @@ Targetted Android OS: <strong>9.0 (Pie)</strong>
 - fixed wrong result message when deleting image through DocumentPage(calendar)
 - added to the tag section button that allows to see all images attached to that tag and manage them(demonstration below)
 
-<img src="https://raw.githubusercontent.com/trolit/document-and-compare/storage/images/screen1.png" alt="#toadd" height="500"/>
+<img src="https://raw.githubusercontent.com/trolit/document-and-compare/storage/images/demo_1.1.1.gif" alt="#toadd" height="500"/>
 
 <h4>12.05.2020</h4>
 
