@@ -1,5 +1,7 @@
 ﻿using docAndCom.Models;
+using docAndCom.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using Xamarin.Forms;
@@ -14,8 +16,18 @@ namespace docAndCom
         public TagsPage()
         {
             InitializeComponent();
+        }
 
+        protected override void OnAppearing()
+        {
             DisplayTags();
+        }
+
+        private async void OnAccordingImagesClicked(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var tag = button.BindingContext as Tag;
+            await Navigation.PushAsync(new CorrespondingPhotosPage(tag.Id, tag.Name));
         }
 
         private async void OnDeleteClicked(object sender, EventArgs e)
@@ -32,7 +44,8 @@ namespace docAndCom
 
                 using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
                 {
-                    var numberOfDocuments = conn.Table<Photo>().Count(p => p.TagId == tag.Id);
+                    int tagId = GetTagIdByName(tag.Name);
+                    var numberOfDocuments = conn.Table<Photo>().Count(p => p.TagId == tagId);
                     int timesDeleted = 0;
 
                     if (numberOfDocuments > 0)
@@ -52,7 +65,7 @@ namespace docAndCom
 
                         if(result == true)
                         {
-                            var photos = conn.Table<Photo>().Where(p => p.TagId == tag.Id).ToList();
+                            var photos = conn.Table<Photo>().Where(p => p.TagId == tagId).ToList();
 
                             foreach (var photo in photos)
                             {
@@ -84,7 +97,7 @@ namespace docAndCom
                         }
                     }
 
-                    conn.Delete<Tag>(tag.Id);
+                    conn.Delete<Tag>(tagId);
                 }
 
                 DisplayTags();
@@ -152,6 +165,16 @@ namespace docAndCom
             }
         }
 
+        private int GetTagIdByName(string name)
+        {
+            Tag tag;
+            using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
+            {
+                tag = conn.Table<Tag>().FirstOrDefault(t => t.Name == name);
+            }
+            return tag.Id;
+        }
+
         private void DisplayTags()
         {
             using (SQLite.SQLiteConnection conn = new SQLite.SQLiteConnection(App.DB_PATH))
@@ -159,6 +182,7 @@ namespace docAndCom
                 conn.CreateTable<Tag>();
 
                 var tags = conn.Table<Tag>().ToList();
+                var photos = conn.Table<Photo>().ToList();
 
                 if(tags.Count == 0)
                 {
@@ -168,8 +192,33 @@ namespace docAndCom
                     emptyTagsMsg.IsVisible = false;
                 }
 
-                tagsListView.ItemsSource = tags;
+                List<TagViewModel> mappedTags = new List<TagViewModel>();
+
+                foreach (var tag in tags)
+                {
+                    mappedTags.Add(new TagViewModel
+                    {
+                        Id = tag.Id,
+                        Name = tag.Name,
+                        PhotoCount = ReturnNumberOfPhotos(photos, tag.Id)
+                    });
+                }
+
+                tagsListView.ItemsSource = mappedTags;
             }
+        }
+
+        private int ReturnNumberOfPhotos(List<Photo> photos, int tagId)
+        {
+            int nop = 0;
+            foreach (var photo in photos)
+            {
+                if (photo.TagId == tagId)
+                {
+                    nop++;
+                }
+            }
+            return nop;
         }
     }
 }

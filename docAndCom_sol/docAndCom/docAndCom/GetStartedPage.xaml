@@ -68,7 +68,7 @@
                             Source="help_tag_1.png"/>
                     <Label 
                             Margin="30, 0, 25, 20"
-                            Text="{Binding [helpTagPt3], Source={x:Static resources:ResourceLoader.Instance}}"/>
+                            Text="{Binding [helpTagPt3], Source={x:Static resources:ResourceLoader.Instance}}" TextType="Html"/>
                 </StackLayout>
                 <StackLayout IsVisible="False" x:Name="step2_doc" Grid.Row="3" Padding="8, 0, 8, 0">
                     <Label

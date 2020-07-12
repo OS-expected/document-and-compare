@@ -1,4 +1,5 @@
-﻿using docAndCom.Models;
+﻿using docAndCom.Helpers;
+using docAndCom.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,9 +35,7 @@ namespace docAndCom
 
         private void OpenImageBtn_Clicked(object sender, EventArgs e)
         {
-            string path = ((Button)sender).BindingContext as string;
-
-            DependencyService.Get<IFileOpener>().OpenFileByGivenPath(path);
+            OperationsOnImages.Open(sender);
         }
 
         private void ConfigureCalendar()
@@ -99,7 +98,7 @@ namespace docAndCom
 
                     string extraNote = GetResourceString("imageLeftText");
 
-                    if (File.Exists(photo.Path))
+                    if (File.Exists(photo.Path) == false)
                     {
                         extraNote = GetResourceString("imageRemovedText");
                     }

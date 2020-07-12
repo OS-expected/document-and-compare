@@ -48,7 +48,7 @@ Minimum required Android version to use docAndCom: <strong>5.0 (Lollipop)</stron
 
 Targetted Android OS: <strong>9.0 (Pie)</strong>
 
-<p align="justify">You can download the *.apk installation file by clicking <a href="https://github.com/trolit/document-and-compare/releases/download/1.0.1/docAndCom.apk">here</a>. <strong>Note that the original docAndCom solution developed by <a href="https://github.com/trolit">trolit</a></strong> is not currently available on any other pages delivering software than this GitHub repository. Guaranteed, safe way to obtain the app without suspicious modifications is to download it through <strong>the link given above</strong>! Other pages are unverified. Any information that user will add/generate through docAndCom is kept on local device storage and is not shared further without user's knowledge. App <strong>will never</strong> prompt for permissions other than detailed in the documentation(read, write, camera), show advertisements. docAndCom is <strong>NOT connecting</strong> to the Internet. If you wonder why there is no IOS version when Xamarin.Forms allows to build on both platforms with minimum changes, I don't own any IOS device to test the application. </p>
+<p align="justify">You can download the newest *.apk installation file by clicking <a href="https://github.com/trolit/document-and-compare/releases/download/1.1.1/docAndCom_1.1.1.apk">here</a>. <strong>Note that the original docAndCom solution developed by <a href="https://github.com/trolit">trolit</a></strong> is not currently available on any other pages delivering software than this GitHub repository. Guaranteed, safe way to obtain the app without suspicious modifications is to download it through <strong>the link given above</strong>! Other pages are unverified. Any information that user will add/generate through docAndCom is kept on local device storage and is not shared further without user's knowledge. App <strong>will never</strong> prompt for permissions other than detailed in the documentation(read, write, camera), show advertisements. docAndCom is <strong>NOT connecting</strong> to the Internet. If you wonder why there is no IOS version when Xamarin.Forms allows to build on both platforms with minimum changes, I don't own any IOS device to test the application. </p>
 
 <p align="justify">To proceed with the downloaded apk, refer to the Android documentation <a href="https://developer.android.com/studio/publish#publishing-unknown">HERE</a> on how to enable 3rd party app installation(if you did not enable that option before) and then simply launch apk file while using Android device. </p>
 
@@ -58,9 +58,17 @@ Targetted Android OS: <strong>9.0 (Pie)</strong>
 
 <h2>Changelog</h2>
 
+<h4>12.07.2020</h4>
+
+- fixed wrong result message when image was deleted through DocumentPage(calendar)
+- fixed how listview in tag section is rendered(more space for text)
+- added to the tag section button that allows to see all images attached to that tag and manage them(demonstration below)
+
+<img src="https://raw.githubusercontent.com/trolit/document-and-compare/storage/images/demo_1.1.1.gif" alt="#toadd" height="500"/>
+
 <h4>12.05.2020</h4>
 
-<p>- edit help documentation(helpDocPt3 and helpDocPt5)</p>
+- edit help documentation(helpDocPt3 and helpDocPt5)
 
 
 <br/>
