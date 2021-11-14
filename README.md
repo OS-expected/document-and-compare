@@ -1,8 +1,28 @@
 <h2>Document and Compare</h2>
 
-<img src="https://img.shields.io/badge/Platform-Android-red?color=2DE22B&style=flat-square" alt="to do: add alt text"/> <img src="https://img.shields.io/badge/Supported languages-EN,%20PL-red?color=E41570&style=flat-square" alt="to do: add alt text"/>
-
 <p align="center"><img src="https://raw.githubusercontent.com/trolit/document-and-compare/storage/images/github_1.png" width="550" alt="docAndCom logo"></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        timeframe
+      </td>
+      <td>17.04.2020 - 28.04.2020 (v1.0) <br/>
+          29.04.2020 - 05.05.2020 (tests, fixes, documentation) <br/>
+          11.07.2020 - 12.07.2020 (v1.1.1)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        supported languages
+      </td>
+      <td>
+       <img src="https://img.shields.io/badge/-EN,%20PL-red?color=E41570&style=flat-square" alt="to do: add alt text"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 <p align="justify">docAndCom developed as "Document and Compare" is app made in Xamarin.Forms that targets Android devices. Founder's assumption was to create solution that will make process of verifying changes between documented images much more simpler. User creates tags which then can be used to document images. After gathering satisfying amount of data under specific tag, user can generate PDF file in list or tabular form. App makes collecting data much more easier and there is no need in wasting time to match everything using external software(e.g. paint) like  for e.g. some people do to show effectiveness of using specific product. This is just an example how this app can be used. Any subject of interest can be: tagged, documented and then generated. Human imagination is the only restrictive limit here. On the bottom of the documentation you will find download section with important notes including <strong>safety</strong>. </p>
 
